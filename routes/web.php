@@ -37,3 +37,16 @@ Route::get('/myAppointment',[HomeController::class, 'myAppointment']);
 
 Route::get('/cancel_appointment/{id}',[HomeController::class, 'cancel_appointment']);
 
+// Route::get('/showAppointment',[AdminController::class, 'showAppointment']);
+
+// Route::get('/approved/{id}',[AdminController::class, 'approved']);
+
+// Route::get('/canceled/{id}',[AdminController::class, 'canceled']);
+
+ Route::get('/showDoctor',[AdminController::class, 'showDoctor']);
+
+//  Route::delete('/deleteDoctor/{id}',[HomeController::class, 'deleteDoctor']);
+
+//  Route::get('/updateDoctor/{id}',[HomeController::class, 'updateDoctor']);
+
+Route::post('/editDoctor/{id}',[HomeController::class, 'editDoctor']);
