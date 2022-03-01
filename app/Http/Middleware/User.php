@@ -18,9 +18,8 @@ class User
     public function handle(Request $request, Closure $next)
     {
         
-        $userid = Auth::user()->id;
-
-        if($userid === '0'){
+        $usertype = Auth::user()->usertype;
+        if($usertype === '0'){
             return $next($request);
         }
         return redirect('home');

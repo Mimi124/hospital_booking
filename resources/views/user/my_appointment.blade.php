@@ -120,8 +120,8 @@
         <th scope="col">Cancel Appointment</th>
      </tr>
     </thead>
-@foreach ($appointments as $appointment)
     <tbody>
+      @foreach ($appointments as $appointment)
       <tr>
         <th scope="row">{{$appointment->doctor}}</th>
         <td>{{$appointment->date}}</td>
@@ -129,6 +129,7 @@
         <td>{{$appointment->status}}</td>
         <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel?')" href="{{url('cancel_appointment',$appointment->id)}}">Cancel</a></td>
       </tr>
+      @endforeach
     </tbody>
   </table>
 

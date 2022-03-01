@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Doctor;
 use Illuminate\Http\Request;
-use APP\Models\Doctor;
-use APP\Models\Appointment;
+use App\Models\Appointment;
 
 class AdminController extends Controller
 {
@@ -17,7 +17,7 @@ class AdminController extends Controller
 
     public function upload(Request $request){
 
-        $doctor = new Doctor;
+        $doctor = new Doctor();
         $image = $request->file;
         $imagename = time().'.'.$image->getClientOriginalExtension();
 
@@ -38,11 +38,12 @@ class AdminController extends Controller
 
     public function showAppointment(){
 
-        $appointment = Appointment::all();
+        $appointments = Appointment::all();
 
-        return view("admin.showAppointment",compact("appointment"));
+        return view("admin.showAppointment",compact("appointments"));
 
     }
+    
 
     public function approved($id)
     {
