@@ -15,53 +15,53 @@ class AdminController extends Controller
     }
 
 
-    // public function upload(Request $request){
+    public function upload(Request $request){
 
-    //     $doctor = new Doctor;
-    //     $image = $request->file;
-    //     $imagename = time().'.'.$image->getClientOriginalExtension();
+        $doctor = new Doctor;
+        $image = $request->file;
+        $imagename = time().'.'.$image->getClientOriginalExtension();
 
-    //     $request->file->move('doctorimage',$imagename);
-    //     $doctor->image=$imagename;
+        $request->file->move('doctorimage',$imagename);
+        $doctor->image=$imagename;
 
-    //     $doctor->name = $request->name;
-    //     $doctor->phone = $request->number;
-    //     $doctor->room = $request->room;
-    //     $doctor->speciality = $request->speciality;
+        $doctor->name = $request->name;
+        $doctor->phone = $request->number;
+        $doctor->room = $request->room;
+        $doctor->speciality = $request->speciality;
 
-    //     $doctor->save();
+        $doctor->save();
 
-    //     return redirect()->back()->with('message','Doctor Added Successfully');
+        return redirect()->back()->with('message','Doctor Added Successfully');
 
 
-    // }
+    }
 
-    // public function showAppointment(){
+    public function showAppointment(){
 
-    //     $appointment = Appointment::all();
+        $appointment = Appointment::all();
 
-    //     return view("admin.showAppointment",compact("appointment"));
+        return view("admin.showAppointment",compact("appointment"));
 
-    // }
+    }
 
-    // public function approved($id)
-    // {
-    //     $appointment=Appointment::find($id);
-    //     $appointment->status='Approved';
-    //     $appointment->save();
+    public function approved($id)
+    {
+        $appointment=Appointment::find($id);
+        $appointment->status='Approved';
+        $appointment->save();
 
-    //     return redirect()->back;
-    // }
+        return redirect()->back;
+    }
   
 
-    // public function canceled($id)
-    // {
-    //     $appointment=Appointment::find($id);
-    //     $appointment->status='Canceled';
-    //     $appointment->save();
+    public function canceled($id)
+    {
+        $appointment=Appointment::find($id);
+        $appointment->status='Canceled';
+        $appointment->save();
 
-    //     return redirect()->back;
-    // }
+        return redirect()->back;
+    }
 
     public function showDoctor(){
 
@@ -108,5 +108,10 @@ class AdminController extends Controller
 
         return redirect()->back->with('message','Doctor Details updated Successfully');
 
+    }
+
+    public function emailView($id){
+
+        return view('admin.email_view');
     }
 }

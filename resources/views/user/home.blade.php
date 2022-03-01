@@ -176,7 +176,9 @@
       </div>
     </div> <!-- .bg-light -->
   </div> <!-- .bg-light -->
-
+{{-- @php 
+dump($doctor);
+@endphp --}}
  @include('user.doctor')
 
   <div class="page-section bg-light">

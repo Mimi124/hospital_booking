@@ -18,7 +18,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/',[HomeController::class, 'index']);
 
 
-Route::get('/home',[HomeController::class, 'redirect']);
+Route::get('/home',[HomeController::class, 'redirect'])->middleware
+('auth','verified');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return view('dashboard');
@@ -33,7 +34,7 @@ Route::get('/add_doctor_view',[AdminController::class, 'addview']);
 Route::post('/appointment',[HomeController::class, 'appointment'])->name('appointment');
 Route::get('/appointment',[HomeController::class, 'appointment'])->name('appointment');
 
-Route::get('/myAppointment',[HomeController::class, 'myAppointment']);
+Route::get('/myAppointment',[HomeController::class, 'myAppointment'])->middleware('user');
 
 Route::get('/cancel_appointment/{id}',[HomeController::class, 'cancel_appointment']);
 
@@ -50,3 +51,5 @@ Route::get('/cancel_appointment/{id}',[HomeController::class, 'cancel_appointmen
 //  Route::get('/updateDoctor/{id}',[HomeController::class, 'updateDoctor']);
 
 Route::post('/editDoctor/{id}',[HomeController::class, 'editDoctor']);
+
+Route::get('/emailView/{id}',[HomeController::class, 'emailView']);

@@ -51,6 +51,7 @@
                       <th scope="col">Status</th>
                       <th scope="col">Approve</th>
                       <th scope="col">Cancel Appointment</th>
+                      <th scope="col">Send Mail</th>
                     </tr>
                   </thead>
                   {{-- <tbody>
@@ -67,10 +68,17 @@
                           <a class="btn btn-primary" href="{{url('approved',$appointment->id)}}">Approve</a>
 
                       </td>
-                      <a class="btn btn-secondary" href="{{url('canceled',$appointment->id)}}">Canceled</a>
+                      
                       <td>
+                          <a class="btn btn-secondary" href="{{url('canceled',$appointment->id)}}">Canceled</a>
+
+                    </td>
+
+                    <td>
+                          <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Canceled</a>
                           
                     </td>
+
                     </tr>
                   </tbody> --}}
             </table>

@@ -17,25 +17,21 @@ class HomeController extends Controller
 {
     //
     public function redirect(){
-        if(Auth::id())
-        {
+      
+            $doctor = Doctor::all();
+
             if(Auth::user()->usertype=='0') {
-                return view('user.home');
+                return view('user.home', compact('doctor'));
             }
 
-        else {
-        return view('admin.home');
-        }
-            
-        }
-        else {
-            return redirect()->back();
-        }
+            return view('admin.home', compact('doctor'));
+
     }
 
     public function index(){
 
         $doctor = Doctor::all();
+        // dd($doctor);
         return view('user.home', compact('doctor'));
     }
 
@@ -58,21 +54,16 @@ class HomeController extends Controller
 
         return redirect()->back()->with('message','Appointment Request Successful . We will contact you soon');
         
-
-
     }
 
     public function myAppointment(){
 
-        if(Auth::id()){
-
+       
             $userid = Auth::user()->id;
+            
             $appointment=Appointment::where('user_id',$userid)->get();
+
             return view('user.my_appointment', compact('appointment'));
-        }
-     else{
-         return redirect()->back();
-     }
     }
 
     public function cancel_appointment($id){
