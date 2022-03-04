@@ -28,28 +28,28 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/add_doctor_view',[AdminController::class, 'addview']);
 
-// Route::post('/upload_doctor',[AdminController::class, 'upload'])->name('upload_doctor');
+Route::post('/upload_doctor',[AdminController::class, 'upload'])->name('upload_doctor');
 // Route::get('/upload_doctor',[AdminController::class, 'upload'])->name('upload_doctor');
 
-Route::post('/appointment',[HomeController::class, 'appointment'])->name('appointment');
-Route::get('/appointment',[HomeController::class, 'appointment'])->name('appointment');
+Route::post('/appointment',[HomeController::class, 'appointment'])->name('appointment')->middleware('auth');
+// Route::get('/appointment',[HomeController::class, 'appointment'])->name('appointment')->middleware('auth');
 
 Route::get('/myAppointment',[HomeController::class, 'myAppointment'])->middleware('user');
 
 Route::get('/cancel_appointment/{id}',[HomeController::class, 'cancel_appointment']);
 
-// Route::get('/showAppointment',[AdminController::class, 'showAppointment']);
+Route::get('/showAppointment',[AdminController::class, 'showAppointment']);
 
-// Route::get('/approved/{id}',[AdminController::class, 'approved']);
+Route::get('/approved/{id}',[AdminController::class, 'approved']);
 
-// Route::get('/canceled/{id}',[AdminController::class, 'canceled']);
+Route::get('/canceled/{id}',[AdminController::class, 'canceled']);
 
  Route::get('/showDoctor',[AdminController::class, 'showDoctor']);
 
-//  Route::delete('/deleteDoctor/{id}',[HomeController::class, 'deleteDoctor']);
+ Route::delete('/deleteDoctor/{id}',[HomeController::class, 'deleteDoctor']);
 
-//  Route::get('/updateDoctor/{id}',[HomeController::class, 'updateDoctor']);
+ Route::get('/updateDoctor/{id}',[HomeController::class, 'updateDoctor']);
 
 Route::post('/editDoctor/{id}',[HomeController::class, 'editDoctor']);
 
-Route::get('/emailView/{id}',[HomeController::class, 'emailView']);
+// Route::get('/emailView/{id}',[HomeController::class, 'emailView']);

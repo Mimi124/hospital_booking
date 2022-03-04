@@ -10,8 +10,6 @@ use App\Models\Appointment;
 
 
 
-
-
 class HomeController extends Controller
 {
     //
@@ -36,20 +34,20 @@ class HomeController extends Controller
 
     public function appointment(Request $request){
 
-        $data = new Appointment;
-        $data->name = $request->name;
-        $data->email = $request->email;
-        $data->date = $request->date;
-        $data->phone = $request->number;
-        $data->message = $request->message;
-        $data->doctor = $request->doctor;
-        $data->status =  'In Progress';
+        $appointment = new Appointment;
+        $appointment->name = $request->name;
+        $appointment->email = $request->email;
+        $appointment->date = $request->date;
+        $appointment->phone = $request->number;
+        $appointment->doctor = $request->doctor;
+        $appointment->message = $request->message;
+        $appointment->status =  'In Progress';
         if(Auth::id())
         {
-        $data->user_id = Auth::user()->id;
+        $appointment->user_id = Auth::user()->id;
         }
 
-        $data->save();
+        $appointment->save();
 
         return redirect()->back()->with('message','Appointment Request Successful . We will contact you soon');
         
@@ -67,11 +65,11 @@ class HomeController extends Controller
 
     public function cancel_appointment($id){
 
-        $data=Appointment::find($id);
+        $appointment=Appointment::find($id);
 
-        $data->delete();
+        $appointment->delete();
 
-        return redirect()->back;
+        return redirect()->back()->with('message','Appointment Cancelled Successful .');
 
 
     }

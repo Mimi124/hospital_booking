@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Models\Appointment;
 
 class AdminController extends Controller
@@ -21,7 +22,7 @@ class AdminController extends Controller
         $image = $request->file;
         $imagename = time().'.'.$image->getClientOriginalExtension();
 
-        $request->file->move('doctorimage',$imagename);
+        $request->file->save('doctorimage',$imagename);
         $doctor->image=$imagename;
 
         $doctor->name = $request->name;
@@ -40,6 +41,8 @@ class AdminController extends Controller
 
         $appointments = Appointment::all();
 
+        //dd($appointments);
+
         return view("admin.showAppointment",compact("appointments"));
 
     }
@@ -51,7 +54,7 @@ class AdminController extends Controller
         $appointment->status='Approved';
         $appointment->save();
 
-        return redirect()->back;
+        return redirect()->back();
     }
   
 
@@ -67,6 +70,8 @@ class AdminController extends Controller
     public function showDoctor(){
 
         $doctor = Doctor::all();
+
+        //dd($doctor);
 
         return view("admin.showDoctor",compact("doctor"));
     }
@@ -111,8 +116,8 @@ class AdminController extends Controller
 
     }
 
-    public function emailView($id){
+    // public function emailView($id){
 
-        return view('admin.email_view');
-    }
+    //     return view('admin.email_view');
+    // }
 }

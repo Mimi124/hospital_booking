@@ -77,6 +77,7 @@
                         <option value="pyschaitry ">pyschaitry </option>
                         <option value="physiotherapy ">physiotherapy </option>
                         <option value="surgeon ">Surgeon </option>
+                        <option value="pediatrician ">Pediatrician</option>
                       </select>
                       </div>
 
