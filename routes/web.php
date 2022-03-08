@@ -53,3 +53,5 @@ Route::get('/canceled/{id}',[AdminController::class, 'canceled']);
 Route::post('/editDoctor/{id}',[HomeController::class, 'editDoctor']);
 
 // Route::get('/emailView/{id}',[HomeController::class, 'emailView']);
+
+Route::get('/patients',[PatientController::class, 'showAllPatients'])->name('showAllPatients');
