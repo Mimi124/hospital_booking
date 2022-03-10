@@ -23,8 +23,8 @@
     
                 <table class="table table-striped table-primary">
                     <thead>
-                        <tr>
-                        <th scope="col">#</th>
+                      <tr>
+                      <th scope="col">#</th>
                       <th scope="col">Doctor Name</th>
                       <th scope="col">Phone Number</th>
                       <th scope="col">Speciality</th>
