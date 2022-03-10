@@ -37,19 +37,20 @@
                       <tbody>
                            @foreach ($doctor as $doctors)
                     <tr>
-                      <th scope="row">{{ $doctors->name }}</th>
+                      <th scope="row">{{ $doctors->id }}</th>
+                      <td>{{ $doctors->name }}</td>
                       <td>{{ $doctors->phone }}</td>
                       <td>{{ $doctors->speciality }}</td>
                       <td>{{ $doctors->room }}</td>
                       <td><img height="100" width="100" src="{{ $doctors->image }}"</td>
-                      <td>
-                          <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-primary" href="{{url('deleteDoctor',$doctors->id)}}">Update</a>
-                        
-                      </td>
                        <td>
-                          <a class="btn btn-danger" href="{{url('updateDoctor',$doctors->id)}}">Delete</a>
+                          <a class="btn btn-danger" href="{{url('updateDoctor',$doctors->id)}}">Update</a>
                         
-                      </td>
+                      </td>  <td>
+                        <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-primary" href="{{url('deleteDoctor',$doctors->id)}}">Delete</a>
+                      
+                    </td>
+
                     </tr>
                     @endforeach
                   </tbody>

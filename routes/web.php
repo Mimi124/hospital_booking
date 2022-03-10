@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AppointmentController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -15,10 +17,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[HomeController::class, 'index']);
+Route::get('/',[DoctorController::class, 'index']);
 
 
-Route::get('/home',[HomeController::class, 'redirect'])->middleware
+Route::get('/home',[DoctorController::class, 'redirect'])->middleware
 ('auth','verified');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -26,30 +28,30 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 })->name('dashboard');
 
 
-Route::get('/add_doctor_view',[AdminController::class, 'addview']);
+Route::get('/add_doctor_view',[DoctorController::class, 'addview']);
 
-Route::post('/upload_doctor',[AdminController::class, 'upload'])->name('upload_doctor');
+Route::post('/upload_doctor',[DoctorController::class, 'upload'])->name('upload_doctor');
 // Route::get('/upload_doctor',[AdminController::class, 'upload'])->name('upload_doctor');
 
-Route::post('/appointment',[HomeController::class, 'appointment'])->name('appointment')->middleware('auth');
-// Route::get('/appointment',[HomeController::class, 'appointment'])->name('appointment')->middleware('auth');
+Route::post('/appointment',[AppointmentController::class, 'appointment'])->name('appointment')->middleware('auth');
+ Route::get('/appointment',[AppointmentController::class, 'appointment'])->name('appointment')->middleware('auth');
 
-Route::get('/myAppointment',[HomeController::class, 'myAppointment'])->middleware('user');
+Route::get('/myAppointment',[AppointmentController::class, 'myAppointment'])->middleware('user');
 
-Route::get('/cancel_appointment/{id}',[HomeController::class, 'cancel_appointment']);
+Route::get('/cancel_appointment/{id}',[AppointmentController::class, 'cancel_appointment']);
 
-Route::get('/showAppointment',[AdminController::class, 'showAppointment']);
+Route::get('/showAppointment',[AppointmentController::class, 'showAppointment']);
 
-Route::get('/approved/{id}',[AdminController::class, 'approved']);
+Route::get('/approved/{id}',[AppointmentController::class, 'approved']);
 
-Route::get('/canceled/{id}',[AdminController::class, 'canceled']);
+Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
 
- Route::get('/showDoctor',[AdminController::class, 'showDoctor']);
+ Route::get('/showDoctor',[DoctorController::class, 'showDoctor']);
 
- Route::delete('/deleteDoctor/{id}',[HomeController::class, 'deleteDoctor']);
+ Route::delete('/deleteDoctor/{id}',[DoctorController::class, 'deleteDoctor']);
 
- Route::get('/updateDoctor/{id}',[HomeController::class, 'updateDoctor']);
+ Route::get('/updateDoctor/{id}',[DoctorController::class, 'updateDoctor']);
 
-Route::post('/editDoctor/{id}',[HomeController::class, 'editDoctor']);
+Route::post('/editDoctor/{id}',[DoctorController::class, 'editDoctor']);
 
 // Route::get('/emailView/{id}',[HomeController::class, 'emailView']);

@@ -45,7 +45,7 @@
                 
                       <div class="mb-3">
                     <label for="speciality" class="form-label">Speciality</label>
-                      <select class="form-select" name="speciality"value="{{$doctors->speciality}}" required>
+                      <select class="form-select" name="speciality"value="{{$doctor->speciality}}" required>
                         <option selected>Open this select menu</option>
                         <option value="eye">Eye Treatment</option>
                         <option value="ear">Ear Treatment</option>
@@ -57,7 +57,7 @@
 
                       <div class="mb-3">
                         <label for="room" class="form-label">Room Number</label>
-                        <input type="text" class="form-control"  style="color:black" name="room" value="{{$doctors->room}}" placeholder="Write the room number" required>
+                        <input type="text" class="form-control"  style="color:black" name="room" value="{{$doctor->room}}" placeholder="Write the room number" required>
                       </div>
 
                       <div class="mb-3">

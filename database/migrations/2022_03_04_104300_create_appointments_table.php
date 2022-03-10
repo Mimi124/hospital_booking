@@ -14,15 +14,18 @@ class CreateAppointmentsTable extends Migration
     public function up()
     {
         Schema::create('appointments', function (Blueprint $table) {
+            $table->unsignedBigInteger('doctor_id');
+            $table->unsignedBigInteger('user_id');
+            
             $table->id();
             $table->string('name')->nullable();
             $table->string('email')->nullable();
             $table->string('phone')->nullable();
-            $table->string('doctor')->nullable();
+            $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->string('date')->nullable();
             $table->string('message')->nullable();
             $table->string('status')->nullable();
-            $table->string('user_id')->nullable();
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }

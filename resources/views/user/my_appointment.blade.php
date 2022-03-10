@@ -24,10 +24,9 @@
     </thead>
     <tbody>
       @foreach ($appointments as $appointment)
-      <tr>
-        
+      <tr>       
         <th>{{$appointment->id}}</th>
-        <td>{{$appointment->doctor}}</td>
+        <td>{{$appointment->doctor->name}}</td>
         <td>{{$appointment->date}}</td>
         <td>{{$appointment->message}}</td>
         <td>{{$appointment->status}}</td>

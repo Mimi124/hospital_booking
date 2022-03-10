@@ -18,7 +18,7 @@
         <!-- partial -->
         <div class="container-fluid page-body-wrapper">
 
-          <div class="container" style="padding:100px;">
+          <div class="container" style="padding:80px" >
             <table class="table table-striped table-primary">
               <thead>
                   <tr>
@@ -32,14 +32,15 @@
                     <th scope="col">Status</th>
                     <th scope="col">Approve</th>
                     <th scope="col">Cancel Appointment</th>
-                    {{-- <th scope="col">Send Mail</th> --}}
+                    <th scope="col">Send Mail</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($appointments as $appointment)
                   <tr>
                     <tr>
-                      <th scope="row">{{ $appointment->name }}</th>
+                      <th scope="row">{{ $appointment->id }}</th>
+                      <td>{{ $appointment->name }}</td>
                       <td>{{ $appointment->email }}</td>
                       <td>{{ $appointment->phone }}</td>
                       <td>{{ $appointment->doctor }}</td>
