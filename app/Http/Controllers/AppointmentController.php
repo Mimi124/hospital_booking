@@ -23,8 +23,8 @@ class AppointmentController extends Controller
 
         // 3rd arg -> attribute names
         $request->validate([
-           'name' => 'required',
-           'email' => 'required',
+           'user_name' => 'required',
+           'user_email' => 'required',
            'date'=> 'required|date',
            'number' => 'required|numeric',
            'message'=> 'required',
@@ -32,8 +32,8 @@ class AppointmentController extends Controller
         ]);
 
        $appointment = new Appointment;
-       $appointment->name = $request->input('name');
-       $appointment->email = $request->input('email');
+       $appointment->user_name = $request->input('user_name');
+       $appointment->user_email = $request->input('user_email');
        $appointment->date = $request->input('date');
        $appointment->phone = $request->input('number');
        $appointment->message = $request->input('message');

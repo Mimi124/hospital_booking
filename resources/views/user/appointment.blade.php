@@ -16,10 +16,10 @@
         @csrf
         <div class="row mt-5 ">
           <div class="col-12 col-sm-6 py-2 wow fadeInLeft">
-            <input type="text" class="form-control" name="name" placeholder="Full name" required>
+            <input type="text" class="form-control" name="user_name" placeholder="Full name" required>
           </div>
           <div class="col-12 col-sm-6 py-2 wow fadeInRight">
-            <input type="text" class="form-control" name="email" placeholder="Email address.." required>
+            <input type="text" class="form-control" name="user_email" placeholder="Email address.." required>
           </div>
           <div class="col-12 col-sm-6 py-2 wow fadeInLeft" data-wow-delay="300ms">
             <input type="date" name="date" class="form-control" required>

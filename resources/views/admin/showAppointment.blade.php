@@ -16,9 +16,9 @@
       @include('admin.navbar')
  
         <!-- partial -->
-        <div class="container-fluid page-body-wrapper">
+        {{-- <div class="container-fluid page-body-wrapper"> --}}
 
-          <div class="container" style="padding:80px" >
+          <div class="container" style="padding:100px" >
             <table class="table table-striped table-primary">
               <thead>
                   <tr>
@@ -40,10 +40,10 @@
                   <tr>
                     <tr>
                       <th scope="row">{{ $appointment->id }}</th>
-                      <td>{{ $appointment->name }}</td>
-                      <td>{{ $appointment->email }}</td>
+                      <td>{{ $appointment->user_name }}</td>
+                      <td>{{ $appointment->user_email }}</td>
                       <td>{{ $appointment->phone }}</td>
-                      <td>{{ $appointment->doctor }}</td>
+                      <td>{{ $appointment->doctor->name }}</td>
                       <td>{{ $appointment->date }}</td>
                       <td>{{ $appointment->message }}</td>
                       <td>{{ $appointment->status }}</td>
@@ -67,7 +67,46 @@
                 </tbody>
             </table>
           </div>
-        </div>
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+          
       
     <!-- container-scroller -->
     
