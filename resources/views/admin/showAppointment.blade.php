@@ -16,9 +16,9 @@
       @include('admin.navbar')
  
         <!-- partial -->
-        {{-- <div class="container-fluid page-body-wrapper"> --}}
+        <div class="container bg-danger page-body-wrapper">
 
-          <div class="container" style="padding:100px" >
+          <div class="container">
             <table class="table table-striped table-primary">
               <thead>
                   <tr>
@@ -57,16 +57,17 @@
 
                     </td>
 
-                    {{-- <td>
+                    <td>
                           <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Mail</a>
                           
-                    </td> --}}
+                    </td>
 
                   </tr>
                   @endforeach
                 </tbody>
             </table>
           </div>
+        </div>
        
 
 
