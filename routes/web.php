@@ -54,5 +54,7 @@ Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
 
 Route::post('/editDoctor/{id}',[DoctorController::class, 'editDoctor']);
 
-// Route::get('/emailView/{id}',[HomeController::class, 'emailView']);
+// Route::get('/emailView/{id}',[AppointmentController::class, 'emailView']);
+
+// Route::post('/sendEmail/{id}',[AppointmentController::class, 'sendEmail']);
 

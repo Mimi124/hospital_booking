@@ -5,6 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Appointment;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Notification;
+
+// use Notification;
+ use App\Notifications\EmailNotification;
 
 class AppointmentController extends Controller
 {
@@ -23,18 +27,19 @@ class AppointmentController extends Controller
 
         // 3rd arg -> attribute names
         $request->validate([
-           'user_name' => 'required',
-           'user_email' => 'required',
+
+        //    'user_name' => 'required',
+        //    'user_email' => 'required',
            'date'=> 'required|date',
            'number' => 'required|numeric',
            'message'=> 'required',
            'doctor_id' => 'sometimes|exists:doctors,id',
-           'user_id' => 'sometimes|exists:users,id'
+        
         ]);
 
        $appointment = new Appointment;
-       $appointment->user_name = $request->input('user_name');
-       $appointment->user_email = $request->input('user_email');
+    //    $appointment->user_name = $request->input('user_name');
+    //    $appointment->user_email = $request->input('user_email');
        $appointment->date = $request->input('date');
        $appointment->phone = $request->input('number');
        $appointment->message = $request->input('message');
@@ -60,13 +65,13 @@ class AppointmentController extends Controller
            return view('user.my_appointment', compact('appointments'));
    }
 
-   public function cancel_appointment(Request $request){
+   public function cancel_appointment($id){
 
-       $appointment=Appointment::findOrFail( $request->input('id'));
+       $appointment=Appointment::findOrFail($id);
 
        $appointment->delete();
 
-       return redirect()->back()->with('message','Appointment Cancelled Successful .');
+       return redirect()->back()->with('message','Appointment Cancelled Successfully .');
 
 
    }
@@ -87,7 +92,30 @@ class AppointmentController extends Controller
        $appointment->status='Canceled';
        $appointment->save();
 
-       return redirect()->back;
+       return redirect()->back()->with('message','Appointment Cancelled Successfully .');
    }
 
+//    public function emailView($id) {
+
+//     $appointment = Appointment::find($id);
+
+//     return view('admin.email_view', compact('appointment'));
+// }
+
+//     public function sendEmail(Request $request, $id) {
+
+//         $appointment = Appointment::find($id);
+        
+//         $details = [
+
+//             'greeting' => $request->greeting,
+//             'body' => $request->body,
+//             'actionText' => $request->actionText,
+//             'actionUrl' => $request->actionUrl
+//         ];
+
+//         Notification::send($appointment, new EmailNotification($details));
+
+//         return redirect()->back()->with('message','Email Sent Successfully .');
+//     }
 }

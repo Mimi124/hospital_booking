@@ -18,8 +18,8 @@ class CreateAppointmentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             
             $table->id();
-            $table->string('user_name')->nullable();
-            $table->string('user_email')->nullable();
+            // $table->string('user_name')->nullable();
+            // $table->string('user_email')->nullable();
             $table->string('phone')->nullable();
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->string('date')->nullable();

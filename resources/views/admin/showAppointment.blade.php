@@ -15,12 +15,12 @@
       <!-- partial -->
       @include('admin.navbar')
  
-      <div class="container-fluid page-body-wrapper">
+      {{-- <div class="container-fluid page-body-wrapper"> --}}
 
         <div class="container" style="padding:100px;">
             <table class="table table-striped table-primary">
               <thead>
-                  <tr>
+                  <tr align="center">
                     <th scope="col">#</th>
                     <th scope="col">Patient Name</th>
                     <th scope="col">Email</th>
@@ -31,15 +31,15 @@
                     <th scope="col">Status</th>
                     <th scope="col">Approve</th>
                     <th scope="col">Cancel Appointment</th>
-                    <th scope="col">Send Email</th>
+                    {{-- <th scope="col">Send Email</th> --}}
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($appointments as $appointment)
-                    <tr>
+                    <tr align="center">
                       <th scope="row">{{ $appointment->id }}</th>
-                      <td>{{ $appointment->user_name }}</td>
-                      <td>{{ $appointment->user_email }}</td>
+                      <td>{{ $appointment->user->name }}</td>
+                      <td>{{ $appointment->user->email }}</td>
                       <td>{{ $appointment->phone }}</td>
                       <td>{{ $appointment->doctor->name }}</td>
                       <td>{{ $appointment->date }}</td>
@@ -55,17 +55,17 @@
 
                     </td>
 
-                    <td>
+                    {{-- <td>
                           <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
                           
-                    </td>
+                    </td> --}}
 
                   </tr>
                   @endforeach
                 </tbody>
             </table>
           </div>
-        </div>
+        {{-- </div> --}}
        
 
 
