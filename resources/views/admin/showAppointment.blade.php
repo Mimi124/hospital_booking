@@ -46,12 +46,12 @@
                       <td>{{ $appointment->message }}</td>
                       <td>{{ $appointment->status }}</td>
                       <td>
-                          <a class="btn btn-primary" href="{{url('approved',$appointment->id)}}">Approve</a>
+                          <a class="btn btn-primary" onclick="return confirm('Approve this appointment?')" href="{{url('approved',$appointment->id)}}">Approve</a>
 
                       </td>
                       
                       <td>
-                          <a class="btn btn-secondary" href="{{url('canceled',$appointment->id)}}">Cancel</a>
+                          <a class="btn btn-danger" onclick="return confirm('Do you want to cancel this appointment?')" href="{{url('canceled',$appointment->id)}}">Cancel</a>
 
                     </td>
 
