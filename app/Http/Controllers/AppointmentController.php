@@ -28,7 +28,8 @@ class AppointmentController extends Controller
            'date'=> 'required|date',
            'number' => 'required|numeric',
            'message'=> 'required',
-           'doctor_id' => 'sometimes|exists:doctors,id'
+           'doctor_id' => 'sometimes|exists:doctors,id',
+           'user_id' => 'sometimes|exists:users,id'
         ]);
 
        $appointment = new Appointment;

@@ -15,10 +15,9 @@
       <!-- partial -->
       @include('admin.navbar')
  
-        <!-- partial -->
-        <div class="container bg-danger page-body-wrapper">
+      <div class="container-fluid page-body-wrapper">
 
-          <div class="container">
+        <div class="container" style="padding:100px;">
             <table class="table table-striped table-primary">
               <thead>
                   <tr>
@@ -32,12 +31,11 @@
                     <th scope="col">Status</th>
                     <th scope="col">Approve</th>
                     <th scope="col">Cancel Appointment</th>
-                    <th scope="col">Send Mail</th>
+                    <th scope="col">Send Email</th>
                   </tr>
                 </thead>
                 <tbody>
                   @foreach ($appointments as $appointment)
-                  <tr>
                     <tr>
                       <th scope="row">{{ $appointment->id }}</th>
                       <td>{{ $appointment->user_name }}</td>
@@ -53,12 +51,12 @@
                       </td>
                       
                       <td>
-                          <a class="btn btn-secondary" href="{{url('canceled',$appointment->id)}}">Canceled</a>
+                          <a class="btn btn-secondary" href="{{url('canceled',$appointment->id)}}">Cancel</a>
 
                     </td>
 
                     <td>
-                          <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Mail</a>
+                          <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
                           
                     </td>
 
