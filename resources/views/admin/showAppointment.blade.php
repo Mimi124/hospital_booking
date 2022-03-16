@@ -53,7 +53,8 @@
                         <td>{{ $appointment->doctor->name }}</td>
                         <td>{{ $appointment->date }}</td>
                         <td>{{ $appointment->message }}</td>
-                        <td>{{ $appointment->status }}</td>
+                        <td 
+                         class="badge badge-outline-warning">{{ $appointment->status }}</td>
                         <td>
                           <a class="badge badge-outline-success" href="{{url('approved',$appointment->id)}}">Approve</a>
 
