@@ -43,7 +43,7 @@ class AppointmentController extends Controller
        $appointment->date = $request->input('date');
        $appointment->phone = $request->input('number');
        $appointment->message = $request->input('message');
-       $appointment->status =  'In Progress';
+       $appointment->status =  'Pending';
       
        $appointment->user_id = Auth::user()->id;
        $appointment->doctor_id = $request->input('doctor_id');

@@ -15,58 +15,69 @@
       <!-- partial -->
       @include('admin.navbar')
  
-      {{-- <div class="container-fluid page-body-wrapper"> --}}
-
-        <div class="container" style="padding:100px;">
-            <table class="table table-striped table-primary">
-              <thead>
-                  <tr align="center">
-                    <th scope="col">#</th>
-                    <th scope="col">Patient Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Phone Number</th>
-                    <th scope="col">Doctor Name</th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Message</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Approve</th>
-                    <th scope="col">Cancel Appointment</th>
-                    {{-- <th scope="col">Send Email</th> --}}
-                  </tr>
-                </thead>
-                <tbody>
-                  @foreach ($appointments as $appointment)
-                    <tr align="center">
-                      <th scope="row">{{ $appointment->id }}</th>
-                      <td>{{ $appointment->user->name }}</td>
-                      <td>{{ $appointment->user->email }}</td>
-                      <td>{{ $appointment->phone }}</td>
-                      <td>{{ $appointment->doctor->name }}</td>
-                      <td>{{ $appointment->date }}</td>
-                      <td>{{ $appointment->message }}</td>
-                      <td>{{ $appointment->status }}</td>
-                      <td>
-                          <a class="btn btn-primary" href="{{url('approved',$appointment->id)}}">Approve</a>
+     
+                    
+                
+               
+        <div class="row ">
+          <div class="col-12 grid-margin">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Appointments</h4>
+                <div class="table-responsive">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        
+                        <th scope="col">#</th>
+                        <th scope="col">Patient Name</th>
+                        <th scope="col">Email</th>
+                        <th scope="col">Phone Number</th>
+                        <th scope="col">Doctor Name</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Status</th>
+                        <th scope="col">Approve</th>
+                        <th scope="col">Cancel Appointment</th>
+                        {{-- <th scope="col">Send Email</th> --}}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($appointments as $appointment)
+                      <tr>
+                       
+                        <th scope="row">{{ $appointment->id }}</th>
+                        <td>{{ $appointment->user->name }}</td>
+                        <td>{{ $appointment->user->email }}</td>
+                        <td>{{ $appointment->phone }}</td>
+                        <td>{{ $appointment->doctor->name }}</td>
+                        <td>{{ $appointment->date }}</td>
+                        <td>{{ $appointment->message }}</td>
+                        <td>{{ $appointment->status }}</td>
+                        <td>
+                          <a class="badge badge-outline-success" href="{{url('approved',$appointment->id)}}">Approve</a>
 
                       </td>
                       
                       <td>
-                          <a class="btn btn-secondary" href="{{url('canceled',$appointment->id)}}">Cancel</a>
+                          <a class="badge badge-outline-danger" href="{{url('canceled',$appointment->id)}}">Cancel</a>
 
                     </td>
-
-                    {{-- <td>
-                          <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
-                          
-                    </td> --}}
-
-                  </tr>
-                  @endforeach
-                </tbody>
-            </table>
+{{--                     
+                    <td>
+                      <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
+                      
+                    </td>  --}}
+                      </tr>
+                      @endforeach
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-        {{-- </div> --}}
-       
+        </div>
+      </div>
+                       
 
 
 
