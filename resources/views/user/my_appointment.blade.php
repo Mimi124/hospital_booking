@@ -11,7 +11,7 @@
   @include('user.header')
 <div align="center" style="padding:70px">
 
-  <table class="table table-striped">
+  <table class="table table-hover">
     <thead>
       <tr>
         <th scope="col">#</th>
@@ -29,8 +29,9 @@
         <td>{{$appointment->doctor->name}}</td>
         <td>{{$appointment->date}}</td>
         <td>{{$appointment->message}}</td>
-        <td>{{$appointment->status}}</td>
-        <td><a class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel?')" href="{{url('cancel_appointment',$appointment->id)}}">Cancel</a></td>
+        <td>{{ $appointment->status }}</td>
+        <td>
+          <a class="btn btn-danger" onclick="return confirm('Are you sure you want to cancel?')" href="{{url('cancel_appointment',$appointment->id)}}">Cancel</a></td>
       </tr>
       @endforeach
     </tbody>

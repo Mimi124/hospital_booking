@@ -23,9 +23,9 @@
           <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title">Appointments</h4>
-                <div class="table-responsive">
-                  <table class="table">
+                <h4 class="card-title" style ="padding-top:50px"> </h4>
+                <div class="table-responsive" style="padding:40px">
+                  <table class="table table-bordered">
                     <thead>
                       <tr>
                         
@@ -78,6 +78,9 @@
           </div>
         </div>
       </div>
+  </body> 
+</html>
+
                        
 
 

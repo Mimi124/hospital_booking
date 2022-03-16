@@ -48,10 +48,10 @@
                       <td>{{ $doctors->room }}</td>
                       <td><img height="100" width="100" src="{{ $doctors->image }}"</td>
                        <td>
-                          <a class="btn btn-primary" href="{{url('updateDoctor',$doctors->id)}}">Update</a>
+                          <a class="badge badge-outline-primary" href="{{url('updateDoctor',$doctors->id)}}">Update</a>
                         
                       </td>  <td>
-                        <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-danger" href="{{url('deleteDoctor',$doctors->id)}}">Delete</a>
+                        <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('deleteDoctor',$doctors->id)}}">Delete</a>
                       
                     </td>
 
