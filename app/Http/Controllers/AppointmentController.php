@@ -7,7 +7,6 @@ use App\Models\Appointment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
 
-// use Notification;
  use App\Notifications\EmailNotification;
 
 class AppointmentController extends Controller
@@ -82,7 +81,7 @@ class AppointmentController extends Controller
        $appointment->status='Approved';
        $appointment->save();
 
-       return redirect()->back()->with('message','Appointment Successfull .');
+       return redirect()->back()->with('message','Appointment Approved Successfully .');
    }
  
 
