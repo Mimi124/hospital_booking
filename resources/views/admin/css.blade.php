@@ -14,5 +14,6 @@
 <!-- endinject -->
 <!-- Layout styles -->
 <link rel="stylesheet" href="admin/assets/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <!-- End layout styles -->
 <link rel="shortcut icon" href="admin/assets/images/favicon.png" />

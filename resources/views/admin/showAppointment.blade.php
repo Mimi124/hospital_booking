@@ -51,19 +51,23 @@
                         <td>{{ $appointment->user->email }}</td>
                         <td>{{ $appointment->phone }}</td>
                         <td>{{ $appointment->doctor->name }}</td>
-                        <td>{{ $appointment->date }}</td>
-                        <td>{{ $appointment->message }}</td>
-                        <td 
-                         class="badge badge-outline-warning">{{ $appointment->status }}</td>
+                        <td>{{ $appointment->date}}</td>
+                        <td>{{ $appointment->message}}</td>
+                        <td> 
+                         <div class="badge badge-outline-warning">{{ $appointment->status }}</div>
+                        </td>
+                         <td>
+                          @unless($appointment->status === 'Approved')
+                          <a class="badge badge-outline-success" onclick="hide" href="{{url('approved',$appointment->id)}}">Approve</a>      
+                        @endunless
+                        </td>
+
                         <td>
-                          <a class="badge badge-outline-success" href="{{url('approved',$appointment->id)}}">Approve</a>
-
-                      </td>
-                      
-                      <td>
-                          <a class="badge badge-outline-danger" href="{{url('canceled',$appointment->id)}}">Cancel</a>
-
-                    </td>
+                          @unless($appointment->status === 'Canceled')
+                          <a class="badge badge-outline-danger" onclick="hide" href="{{url('canceled',$appointment->id)}}">Cancel</a>      
+                        @endunless
+                        </td>
+                    
 {{--                     
                     <td>
                       <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
@@ -78,6 +82,11 @@
           </div>
         </div>
       </div>
+      {{-- <script type="text/javascript">
+      $("#status").click(function(){
+        $("#approved").hide();
+      });
+      </script> --}}
   </body> 
 </html>
 
