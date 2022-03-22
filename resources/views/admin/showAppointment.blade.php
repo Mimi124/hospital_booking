@@ -53,9 +53,15 @@
                         <td>{{ $appointment->doctor->name }}</td>
                         <td>{{ $appointment->date}}</td>
                         <td>{{ $appointment->message}}</td>
-                        <td> 
-                         <div class="badge badge-outline-warning">{{ $appointment->status }}</div>
-                        </td>
+                        <td>
+                          @if ($appointment->status === 'Approved')
+                              <span class="badge badge-outline-success">Approved</span>
+                          @elseif ($appointment->status === 'Canceled')
+                              <span class="badge badge-outline-danger">Canceled</span>
+                          @else
+                              <span class="badge badge-outline-warning">Pending</span>
+                          @endif
+                          </td>
                          <td>
                           @unless($appointment->status === 'Approved')
                           <a class="badge badge-outline-success" onclick="hide" href="{{url('approved',$appointment->id)}}">Approve</a>      
