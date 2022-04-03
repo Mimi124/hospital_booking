@@ -3,7 +3,7 @@
       <div class="container text-center wow zoomIn">
         <span class="subhead">Let's make your life happier</span>
         <h1 class="display-4">Healthy Living</h1>
-        <a href="/appointment" class="btn btn-primary">Book an Appointment</a>
+        <a class="btn btn-primary" id="book-appointment">Book an Appointment</a>
       </div>
     </div>
   </div>
@@ -40,3 +40,12 @@
         </div>
       </div>
     </div>
+
+  <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+  <script>
+  $("#book-appointment").click(function() {
+    $([document.documentElement, document.body]).animate({
+        scrollTop: $("#make-appointment").offset().top
+    }, 2000);
+  });
+  </script>
