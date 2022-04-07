@@ -74,6 +74,6 @@ Hassey Ameyaw
 Miriam Nana Amoako
 
 Heroku app link
-spital-s.herokuapp.com/
+hospital-s.herokuapp.com/
 
 
