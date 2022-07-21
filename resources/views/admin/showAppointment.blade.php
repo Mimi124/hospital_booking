@@ -16,14 +16,12 @@
       @include('admin.navbar')
  
      
-                    
-                
-               
+             
         <div class="row ">
           <div class="col-12 grid-margin">
             <div class="card">
               <div class="card-body">
-                <h4 class="card-title" style ="padding-top:50px"> </h4>
+                <h4 class="card-title" style ="padding-top:50px"></h4>
                 <div class="table-responsive" style="padding:40px">
                   <table class="table table-bordered">
                     <thead>

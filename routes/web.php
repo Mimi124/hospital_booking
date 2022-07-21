@@ -1,9 +1,10 @@
 <?php
 
 use App\Http\Controllers\HomeController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\NurseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AppointmentController;
+
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -30,8 +31,9 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Route::get('/add_doctor_view',[DoctorController::class, 'addview']);
 
+
 Route::post('/upload_doctor',[DoctorController::class, 'upload'])->name('upload_doctor');
-// Route::get('/upload_doctor',[AdminController::class, 'upload'])->name('upload_doctor');
+
 
 Route::post('/appointment',[AppointmentController::class, 'appointment'])->name('appointment')->middleware('auth');
  Route::get('/appointment',[AppointmentController::class, 'appointment'])->name('appointment')->middleware('auth');
@@ -54,6 +56,17 @@ Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
 
 Route::post('/editDoctor/{id}',[DoctorController::class, 'editDoctor']);
 
+//Nurses
+Route::get('/add_nurse_view',[NurseController::class, 'addview']);
+Route::post('/upload_nurse',[NurseController::class, 'upload'])->name('upload_nurse');
+
+Route::get('/showNurse',[NurseController::class, 'showNurse']);
+
+Route::delete('/deleteNurse/{id}',[NurseController::class, 'deleteNurse']);
+
+Route::get('/updateNurse/{id}',[NurseController::class, 'updateNurse']);
+
+Route::post('/editNurse/{id}',[NurseController::class, 'editNurse']);
 // Route::get('/emailView/{id}',[AppointmentController::class, 'emailView']);
 
 // Route::post('/sendEmail/{id}',[AppointmentController::class, 'sendEmail']);

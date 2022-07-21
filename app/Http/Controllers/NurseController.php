@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Http\Request;
 use App\Models\Nurse;
 use App\Http\Requests\StoreNurseRequest;
 use App\Http\Requests\UpdateNurseRequest;
+use Illuminate\Support\Facades\Auth;
 
 class NurseController extends Controller
 {
@@ -13,74 +14,92 @@ class NurseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function redirect(){
+      
+        $nurse = Nurse::all();
+
+        if(Auth::user()->usertype=='0') {
+            return view('user.home', compact('nurse'));
+        }
+
+        return view('admin.home', compact('nurse'));
+
+}
+
+public function index(){
+
+    $nurse = Nurse::all();
+    // dd($nurse);
+    return view('user.home', compact('nurse'));
+}
+
+public function addview(){
+
+    return view("admin.add_nurse");
+}
+
+
+public function upload(Request $request){
+
+    $nurse = new Nurse();
+    $image = $request->file;
+    $imagename = time().'.'.$image->getClientOriginalExtension();
+
+    $request->file->move('nurseimage',$imagename);
+    $nurse->image=$imagename;
+
+    $nurse->name = $request->name;
+    $nurse->phone = $request->number;
+   
+    $nurse->save();
+
+    return redirect()->back()->with('message','Nurse Added Successfully');
+
+}
+
+public function showNurse(){
+
+    $nurse = Nurse::all();
+
+
+    return view("admin.showNurse",compact("nurse"));
+}
+
+public function deleteNurse($id){
+
+    $nurse=Nurse::find($id);
+    $nurse->delete();
+
+    return redirect()->back();
+}
+
+public function updateNurse($id){
+
+    $nurse=Nurse::find($id);
+
+    return view('admin.update_nurse',compact("nurse"));
+}
+
+public function editNurse(Request $request , $id){
+
+    $nurse =Nurse::find($id);
+    $nurse->name = $request->name;
+    $nurse->phone = $request->number;
+    $image =$request->file;
+
+    if($image){
+    $imagename= time().'.'.$image->getClientOriginalExtension();
+    
+    $request->file->move('nurseimage',$imagename);
+
+    $nurse->image = $imagename;
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    $nurse->save();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreNurseRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreNurseRequest $request)
-    {
-        //
-    }
+    return redirect()->back->with('message','Nurse Details updated Successfully');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Nurse  $nurse
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Nurse $nurse)
-    {
-        //
-    }
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Nurse  $nurse
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Nurse $nurse)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateNurseRequest  $request
-     * @param  \App\Models\Nurse  $nurse
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateNurseRequest $request, Nurse $nurse)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Nurse  $nurse
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Nurse $nurse)
-    {
-        //
-    }
 }
