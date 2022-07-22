@@ -20,6 +20,7 @@ class CreateDoctorsTable extends Migration
             $table->string('speciality')->nullable();
             $table->string('room')->nullable();
             $table->string('image')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
         });
     }

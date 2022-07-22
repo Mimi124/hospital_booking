@@ -23,13 +23,13 @@
           
 
             <div class="container" style="padding:100px;">
-              <a class="btn btn-info" id="button" href="/add_nurse_view">Add New Nurse</a>
+              <a class="btn btn-info" id="button" href="/add_accountant_view">Add New Accountant</a>
               <br><br>
                 <table class="table table-striped table-primary">
                     <thead>
                       <tr>
                       <th scope="col">#</th>
-                      <th scope="col">Nurse Name</th>
+                      <th scope="col">Accountant Name</th>
                       <th scope="col">Phone Number</th>
                       <th scope="col">Picture</th>
                       <th scope="col">Status</th>
@@ -38,19 +38,19 @@
                         </tr>
                       </thead>
                       <tbody>
-                           @foreach ($nurse as $nurses)
+                           @foreach ($accountant as $accountants)
                     <tr>
-                      <th scope="row">{{ $nurses->id }}</th>
-                      <td>{{ $nurses->name }}</td>
-                      <td>{{ $nurses->phone }}</td>
-                      <td><img height="100" width="100" src="{{ $nurses->image }}"</td>
+                      <th scope="row">{{ $accountants->id }}</th>
+                      <td>{{ $accountants->name }}</td>
+                      <td>{{ $accountants->phone }}</td>
+                      <td><img height="100" width="100" src="{{ $accountants->image }}"></td>
                       <td>{{ $accountants->status}}</td>
+
                        <td>
-                          <a class="badge badge-outline-primary" href="{{url('updateNurse',$nurses->id)}}">Update</a>
+                          <a class="badge badge-outline-primary" href="{{url('updateAccountant',$accountants->id)}}">Update</a>
                         
                       </td>  <td>
-                        <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('deleteNurse',$nurses->id)}}">Delete</a>
-                      
+                        <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('deleteAccountant',$accountants->id)}}">Delete</a> 
                     </td>
 
                     </tr>

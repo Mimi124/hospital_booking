@@ -58,6 +58,15 @@
       </li>
 
       <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showAccountant')}}">
+          <span class="menu-icon">
+            <i class="mdi mdi-file-document-box"></i>
+          </span>
+          <span class="menu-title">Accountants</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showAppointment')}}">
           <span class="menu-icon">
             <i class="mdi mdi-file-document-box"></i>
@@ -83,6 +92,8 @@
           <span class="menu-title">All Nurses</span>
         </a>
       </li>
+
+      
 
       
     </ul>

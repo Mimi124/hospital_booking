@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NurseController;
 use App\Http\Controllers\DoctorController;
+use App\Http\Controllers\AccountantController;
 use App\Http\Controllers\AppointmentController;
 
 use Illuminate\Support\Facades\Route;
@@ -67,6 +68,36 @@ Route::delete('/deleteNurse/{id}',[NurseController::class, 'deleteNurse']);
 Route::get('/updateNurse/{id}',[NurseController::class, 'updateNurse']);
 
 Route::post('/editNurse/{id}',[NurseController::class, 'editNurse']);
+
+
+//ACCOUNTANT
+Route::get('/add_accountant_view',[AccountantController::class, 'addview']);
+Route::post('/upload_accountant',[AccountantController::class, 'upload'])->name('upload_accountant');
+
+Route::get('/showAccountant',[AccountantController::class, 'showAccountant']);
+
+Route::delete('/deleteAccountant/{id}',[AccountantController::class, 'deleteAccountant']);
+
+Route::get('/updateAccountant/{id}',[AccountantController::class, 'updateAccountant']);
+
+Route::post('/editAccountant/{id}',[AccountantController::class, 'editAccountant']);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Route::get('/emailView/{id}',[AppointmentController::class, 'emailView']);
 
 // Route::post('/sendEmail/{id}',[AppointmentController::class, 'sendEmail']);
