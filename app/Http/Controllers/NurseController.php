@@ -14,7 +14,7 @@ class NurseController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function redirect(){
+public function redirect(){
       
         $nurse = Nurse::all();
 
@@ -26,12 +26,6 @@ class NurseController extends Controller
 
 }
 
-public function index(){
-
-    $nurse = Nurse::all();
-    // dd($nurse);
-    return view('user.home', compact('nurse'));
-}
 
 public function addview(){
 

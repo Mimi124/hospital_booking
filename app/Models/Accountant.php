@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Accountant extends Model
 {
+    protected $fillable = [
+        'name', 'phone','image'
+    ];
+    
     use HasFactory;
 }

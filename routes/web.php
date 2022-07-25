@@ -5,6 +5,7 @@ use App\Http\Controllers\NurseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AccountantController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\PharmacyController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -81,6 +82,19 @@ Route::delete('/deleteAccountant/{id}',[AccountantController::class, 'deleteAcco
 Route::get('/updateAccountant/{id}',[AccountantController::class, 'updateAccountant']);
 
 Route::post('/editAccountant/{id}',[AccountantController::class, 'editAccountant']);
+
+
+//pharmacist
+Route::get('/add_pharmacist_view',[PharmacyController::class, 'addview']);
+Route::post('/upload_pharmacist',[PharmacyController::class, 'upload'])->name('upload_pharmacist');
+
+Route::get('/showPharmacist',[PharmacyController::class, 'showPharmacist']);
+
+Route::delete('/deletePharmacist/{id}',[PharmacyController::class, 'deletePharmacist']);
+
+Route::get('/updatePharmacist/{id}',[PharmacyController::class, 'updatePharmacist']);
+
+Route::post('/editPharmacist/{id}',[PharmacyController::class, 'editPharmacist']);
 
 
 
