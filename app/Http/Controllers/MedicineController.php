@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Medicine;
+use App\Models\Medicine_Category;
+use Illuminate\Http\Request;
 use App\Http\Requests\StoreMedicineRequest;
 use App\Http\Requests\UpdateMedicineRequest;
 
@@ -15,72 +17,77 @@ class MedicineController extends Controller
      */
     public function index()
     {
-        //
+        $medicine= Medicine::all();
+        return view('pharmacist.showMedicine',compact('medicine'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        $medicineCategory=Medicine_Category::all();
+        return view('pharmacist.add-medicine',compact('medicineCategory'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreMedicineRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreMedicineRequest $request)
+    public function store(Request $request)
     {
-        //
+
+        Medicine::create([
+            'name' => $request->name,
+            'instruction' => $request->instruction,
+            'category_id' => $request->category,
+            'purchase_price' => $request->purchase_price,
+            'sale_price' => $request->sale_price,
+            'quantity' => $request->quantity,
+            'company' => $request->company,
+            'expire_date' => $request->expire_date,
+        ]);
+
+        // flash message
+        session()->flash('success', 'New Medicine Added Successfully.');
+        // redirect user
+        return redirect()->route('showmedicine');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Medicine  $medicine
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Medicine $medicine)
+    // public function show(Medicine $medicine)
+    // {
+    //     return view('medicines.show')->with('medicine', $medicine);
+    // }
+
+    public function update($id)
     {
-        //
+        $medicine=Medicine::find($id);
+        return view('pharmacist.update-medicine',compact('medicine'))
+            ->with('medicineCategory', Medicine_Category::all());
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Medicine  $medicine
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Medicine $medicine)
+    public function edit(Request $request, $id)
     {
-        //
+        $medicine=Medicine::find($id);
+        $medicine->name = $request->name;
+        $medicine->instruction = $request->instruction;
+        $medicine->category_id = $request->category;
+        $medicine->purchase_price = $request->purchase_price;
+        $medicine->sale_price = $request->sale_price;
+        $medicine->quantity = $request->quantity;
+        $medicine->company = $request->company;
+        $medicine->expire_date = $request->expire_date;
+
+        $medicine->save();
+        
+
+        // flash message
+        session()->flash('success', 'Medicine Updated Successfully.');
+        // redirect user
+        return redirect()->route('showmedicine');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateMedicineRequest  $request
-     * @param  \App\Models\Medicine  $medicine
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateMedicineRequest $request, Medicine $medicine)
+    public function destroy($id)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Medicine  $medicine
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Medicine $medicine)
-    {
-        //
+        $medicine=Medicine::find($id);
+        // $medicine->prescriptions()->detach();
+        $medicine->delete();
+        // flash message
+        session()->flash('success', ' Medicine Deleted Successfully.');
+        // redirect user
+        return redirect()->route('showmedicine');
     }
 }

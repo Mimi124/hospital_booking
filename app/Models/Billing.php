@@ -7,8 +7,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Billing extends Model
 {
-    public function bill__items(){
-        return $this->belongsToMany(PaymentItem::class)->withPivot('payment_item_quantity');
+    protected $fillable = [
+        'patient_id', 'bill_date', 'amount'
+    ];
+
+    public function bill_items(){
+        return $this->belongsToMany(Bill_Item::class)->withPivot('payment_item_quantity');
     }
 
     public function patient(){

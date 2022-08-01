@@ -3,8 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pharmacy;
+use App\Models\User;
+use Illuminate\Http\Request;
 use App\Http\Requests\StorePharmacyRequest;
 use App\Http\Requests\UpdatePharmacyRequest;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
 
 class PharmacyController extends Controller
 {
@@ -13,74 +18,107 @@ class PharmacyController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function redirect(){
+      
+        $pharmacist = Pharmacy::all();
+
+        if(Auth::user()->usertype=='0') {
+            return view('user.home', compact('pharmacist'));
+        }
+        elseif(Auth::user()->usertype=='1') {
+            return view('admin.home', compact('pharmacist'));
+        }
+        elseif(Auth::user()->usertype=='2') {
+            return view('accountant.home', compact('pharmacist'));
+        }
+        elseif(Auth::user()->usertype=='3') {
+            return view('laboratorist.home', compact('pharmacist'));
+        }
+        elseif(Auth::user()->usertype=='5') {
+            return view('receptionist.home', compact('pharmacist'));
+        }
+
+        return view('pharmacist.home', compact('pharmacist'));
+
+}
+
+public function index(){
+
+    $pharmacist = Pharmacy::all();
+    // dd($pharmacist);
+    return view('user.home', compact('pharmacist'));
+}
+
+public function addview(){
+
+    return view("admin.add_pharmacist");
+}
+
+
+public function upload(Request $request){
+
+    $pharmacist = Pharmacy::all();
+    $image = $request->file;
+    $imagename = time().'.'.$image->getClientOriginalExtension();
+
+    $request->file->move('pharmimage',$imagename);
+    $pharmacist->image=$imagename;
+
+    $pharmacist->name = $request->name;
+    $pharmacist->phone = $request->number;
+   
+    $pharmacist->save();
+
+    return redirect()->back()->with('message','Pharmacist Added Successfully');
+
+
+}
+
+
+public function showPharmacist(){
+
+    $pharmacist = Pharmacy::all();
+
+    //dd($pharmacist);
+
+    return view("admin.showPharmacist",compact("pharmacist"));
+}
+
+public function deletePharmacist($id){
+
+    $pharmacist=Pharmacy::find($id);
+    $pharmacist->delete();
+
+    return redirect()->back();
+}
+
+public function updatePharmacist($id){
+
+    $pharmacist=Pharmacy::find($id);
+
+    return view('admin.update_pharmacist',compact("pharmacist"));
+}
+
+public function editPharmacist(Request $request , $id){
+
+    $pharmacist =Pharmacy::find($id);
+    $pharmacist->name = $request->name;
+    $pharmacist->phone = $request->number;
+    $image =$request->file;
+
+    if($image){
+    $imagename= time().'.'.$image->getClientOriginalExtension();
+    
+    $request->file->move('pharmimage',$imagename);
+
+    $pharmacist->image = $imagename;
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    $pharmacist->save();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StorePharmacyRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StorePharmacyRequest $request)
-    {
-        //
-    }
+    return redirect()->back->with('message','Pharmacist Details updated Successfully');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Pharmacy  $pharmacy
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Pharmacy $pharmacy)
-    {
-        //
-    }
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Pharmacy  $pharmacy
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Pharmacy $pharmacy)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdatePharmacyRequest  $request
-     * @param  \App\Models\Pharmacy  $pharmacy
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdatePharmacyRequest $request, Pharmacy $pharmacy)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Pharmacy  $pharmacy
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Pharmacy $pharmacy)
-    {
-        //
-    }
 }

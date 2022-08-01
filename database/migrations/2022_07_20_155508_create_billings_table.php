@@ -16,7 +16,7 @@ class CreateBillingsTable extends Migration
         Schema::create('billings', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('patient_id');
-            $table->datetime('bill_date');
+            $table->string('bill_date');
             $table->double('amount')->nullable();
             $table->timestamps();
         });

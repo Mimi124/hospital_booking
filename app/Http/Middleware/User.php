@@ -22,6 +22,7 @@ class User
         if($usertype === '0'){
             return $next($request);
         }
+        
         session()->flash('message','You don\'t have enough permissions');
         return redirect('home');
     }

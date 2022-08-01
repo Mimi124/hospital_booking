@@ -13,7 +13,7 @@ class CreateBillItemsTable extends Migration
      */
     public function up()
     {
-        Schema::create('bill_items', function (Blueprint $table) {
+        Schema::create('bill__items', function (Blueprint $table) {
             $table->id();
             $table->string('item_name');
             $table->unsignedBigInteger('billings_id');
@@ -35,6 +35,6 @@ class CreateBillItemsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bill__items');
+        Schema::dropIfExists('bill_items');
     }
 }

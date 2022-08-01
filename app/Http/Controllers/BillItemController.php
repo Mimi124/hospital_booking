@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Bill_Item;
 use App\Http\Requests\StoreBill_ItemRequest;
 use App\Http\Requests\UpdateBill_ItemRequest;
+use App\Models\Billing;
 
 class BillItemController extends Controller
 {
@@ -16,6 +17,8 @@ class BillItemController extends Controller
     public function index()
     {
         //
+        $billitem=Bill_Item::all();
+        return view('accountant.showBillItems',compact('billitem'));
     }
 
     /**
@@ -25,6 +28,7 @@ class BillItemController extends Controller
      */
     public function create()
     {
+        return view('accountant.add-billitems');
         //
     }
 
@@ -37,6 +41,17 @@ class BillItemController extends Controller
     public function store(StoreBill_ItemRequest $request)
     {
         //
+        Bill_Item::create([
+        'item_name'=>$request->name,
+        'billings_id'=>$request->billings_id,
+        'qty'=>$request->qty,
+        'price'=>$request->price,
+        'amount'=>$request->amount
+        ]);
+        // flash message
+        session()->flash('success', 'New Bill Item Added Successfully.');
+        // redirect user
+        return redirect()->route('showbillitem');
     }
 
     /**

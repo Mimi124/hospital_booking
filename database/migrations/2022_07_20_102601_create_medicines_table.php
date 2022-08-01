@@ -22,7 +22,7 @@ class CreateMedicinesTable extends Migration
             $table->float('sale_price');
             $table->integer('quantity');
             $table->string('company');
-            $table->date('expire_date');
+            $table->string('expire_date');
             $table->timestamps();
         });
     }

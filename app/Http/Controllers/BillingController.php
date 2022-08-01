@@ -15,6 +15,8 @@ class BillingController extends Controller
      */
     public function index()
     {
+        $billing=Billing::all();
+        return view('accountant.showBillings',compact('billing'));
         //
     }
 
@@ -25,7 +27,8 @@ class BillingController extends Controller
      */
     public function create()
     {
-        //
+        return view('accountant.add-billings');
+
     }
 
     /**
@@ -37,6 +40,15 @@ class BillingController extends Controller
     public function store(StoreBillingRequest $request)
     {
         //
+        Billing::create([
+            'patient_id'=>$request->patient_id,
+            'bill_date'=>$request->bill_date,
+            'amount'=>$request->amount
+            ]);
+            // flash message
+            session()->flash('success', 'New Bill Item Added Successfully.');
+            // redirect user
+            return redirect()->route('showbilling');
     }
 
     /**

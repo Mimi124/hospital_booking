@@ -13,7 +13,7 @@ class StoreBill_ItemRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**

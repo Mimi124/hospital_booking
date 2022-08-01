@@ -50,7 +50,8 @@
                        <td>
                           <a class="badge badge-outline-primary" href="{{url('updateDoctor',$doctors->id)}}">Update</a>
                         
-                      </td>  <td>
+                      </td>  
+                      <td>
                         <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('deleteDoctor',$doctors->id)}}">Delete</a>
                       
                     </td>

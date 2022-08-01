@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Laboratory;
+use Illuminate\Http\Request;
+
+use Illuminate\Support\Facades\Auth; 
 use App\Http\Requests\StoreLaboratoryRequest;
 use App\Http\Requests\UpdateLaboratoryRequest;
 
@@ -13,74 +16,107 @@ class LaboratoryController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function redirect(){
+      
+        $laboratorist = Laboratory::all();
+
+        if(Auth::user()->usertype=='0') {
+            return view('user.home', compact('laboratorist'));
+        }
+        elseif(Auth::user()->usertype=='2') {
+            return view('accountant.home', compact('laboratorist'));
+        }
+        elseif(Auth::user()->usertype=='3') {
+            return view('laboratorist.home', compact('laboratorist'));
+        }
+        elseif(Auth::user()->usertype=='4') {
+            return view('pharmacist.home', compact('laboratorist'));
+        }
+        elseif(Auth::user()->usertype=='5') {
+            return view('receptionist.home', compact('laboratorist'));
+        }
+
+        return view('laboratorist.home', compact('laboratorist'));
+
+}
+
+public function index(){
+
+    $laboratorist = Laboratory::all();
+    // dd($laboratorist);
+    return view('user.home', compact('laboratorist'));
+}
+
+public function addview(){
+
+    return view("admin.add_laboratorist");
+}
+
+
+public function upload(Request $request){
+
+    $laboratorist = new Laboratory();
+    $image = $request->file;
+    $imagename = time().'.'.$image->getClientOriginalExtension();
+
+    $request->file->move('labimage',$imagename);
+    $laboratorist->image=$imagename;
+
+    $laboratorist->name = $request->name;
+    $laboratorist->phone = $request->number;
+
+    $laboratorist->save();
+
+    return redirect()->back()->with('message','Laboratory Added Successfully');
+
+
+}
+
+
+public function showDoctor(){
+
+    $laboratorist = Laboratory::all();
+
+    //dd($laboratorist);
+
+    return view("admin.showLaboratorist",compact("laboratorist"));
+}
+
+public function deleteDoctor($id){
+
+    $laboratorist=Laboratory::find($id);
+    $laboratorist->delete();
+
+    return redirect()->back();
+}
+
+public function updateDoctor($id){
+
+    $laboratorist=Laboratory::find($id);
+
+    return view('admin.update_laboratorist',compact("laboratorist"));
+}
+
+public function editDoctor(Request $request , $id){
+
+    $laboratorist =Laboratory::find($id);
+    $laboratorist->name = $request->name;
+    $laboratorist->phone = $request->number;
+
+    $image =$request->file;
+
+    if($image){
+    $imagename= time().'.'.$image->getClientOriginalExtension();
+    
+    $request->file->move('labimage',$imagename);
+
+    $laboratorist->image = $imagename;
+
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    $laboratorist->save();
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreLaboratoryRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreLaboratoryRequest $request)
-    {
-        //
-    }
+    return redirect()->back->with('message','Laboratory Details updated Successfully');
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Laboratory  $laboratory
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Laboratory $laboratory)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Laboratory  $laboratory
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Laboratory $laboratory)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateLaboratoryRequest  $request
-     * @param  \App\Models\Laboratory  $laboratory
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateLaboratoryRequest $request, Laboratory $laboratory)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Laboratory  $laboratory
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Laboratory $laboratory)
-    {
-        //
-    }
+}
 }
