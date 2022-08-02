@@ -159,6 +159,19 @@ Route::get('/update_billitem/{id}',[BillItemController::class, 'update'])->name(
 Route::get('/delete_billitem/{id}',[BillItemController::class, 'destroy'])->name('delete_billitem');
 Route::post('/editbillitem/{id}',[BillItemController::class, 'edit'])->name('editbillitem');
 
+//pharmacist
+Route::get('/add_pharmacist_view',[PharmacyController::class, 'addview']);
+Route::post('/upload_pharmacist',[PharmacyController::class, 'upload'])->name('upload_pharmacist');
+
+Route::get('/showPharmacist',[PharmacyController::class, 'showPharmacist']);
+
+Route::delete('/deletePharmacist/{id}',[PharmacyController::class, 'deletePharmacist']);
+
+Route::get('/updatePharmacist/{id}',[PharmacyController::class, 'updatePharmacist']);
+
+Route::post('/editPharmacist/{id}',[PharmacyController::class, 'editPharmacist']);
+
+
 
 
 

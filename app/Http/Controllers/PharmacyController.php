@@ -57,11 +57,11 @@ public function addview(){
 
 public function upload(Request $request){
 
-    $pharmacist = Pharmacy::all();
+    $pharmacist = new Pharmacy();
     $image = $request->file;
     $imagename = time().'.'.$image->getClientOriginalExtension();
 
-    $request->file->move('pharmimage',$imagename);
+    $request->file->move('pharmicistimage',$imagename);
     $pharmacist->image=$imagename;
 
     $pharmacist->name = $request->name;
@@ -120,5 +120,4 @@ public function editPharmacist(Request $request , $id){
     return redirect()->back->with('message','Pharmacist Details updated Successfully');
 
 }
-
 }
