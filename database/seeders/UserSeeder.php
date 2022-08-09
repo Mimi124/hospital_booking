@@ -36,7 +36,7 @@ class UserSeeder extends Seeder
             'address'=> '100 Main Street',
             'usertype'=> '2',
             'email_verified_at'=>'2022-03-08 11:35:10',
-            'password' => Hash::make('12345'),
+            'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
             'created_at'=> '2022-03-08 11:24:56',
             'updated_at'=> '2022-03-08 11:24:56'
 
@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
             'address'=> '108 Main Street',
             'usertype'=> '3',
             'email_verified_at'=>'2022-03-08 11:35:10',
-            'password' => Hash::make('12345'),
+            'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
             'created_at'=> '2022-03-08 11:24:56',
             'updated_at'=> '2022-03-08 11:24:56'
 
@@ -62,7 +62,7 @@ class UserSeeder extends Seeder
             'address'=> '130 Main Street',
             'usertype'=> '4',
             'email_verified_at'=>'2022-03-08 11:35:10',
-            'password' => Hash::make('12345'),
+            'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
             'created_at'=> '2022-03-08 11:24:56',
             'updated_at'=> '2022-03-08 11:24:56'
 
@@ -75,7 +75,7 @@ class UserSeeder extends Seeder
             'address'=> '145 Main Street',
             'usertype'=> '5',
             'email_verified_at'=>'2022-03-08 11:35:10',
-            'password' => Hash::make('12345'),
+            'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
             'created_at'=> '2022-03-08 11:24:56',
             'updated_at'=> '2022-03-08 11:24:56'
 

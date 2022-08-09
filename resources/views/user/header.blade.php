@@ -59,7 +59,8 @@
 
             @auth
             <li class="nav-item">
-              <a class="nav-link"   href="{{url('myAppointment')}}">Dashboard</a>
+              <a class="nav-link"   href="{{url('myDashboard')}}">Dashboard</a>
+              {{-- <a class="nav-link"   href="{{url('myAppointment')}}">Dashboard</a> --}}
             </li>
 
             <x-app-layout>

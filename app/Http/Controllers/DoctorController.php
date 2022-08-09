@@ -47,6 +47,14 @@ public function addview(){
     return view("admin.add_doctor");
 }
 
+public function myDashboard()
+{
+
+    return view('user.dashboard.myDashboard');
+
+}
+
+
 
 public function upload(Request $request){
 

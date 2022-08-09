@@ -56,9 +56,13 @@ Route::post('/appointment',[AppointmentController::class, 'appointment'])->name(
 
 Route::get('/myAppointment',[AppointmentController::class, 'myAppointment'])->middleware('user');
 
+Route::get('/myDashboard',[DoctorController::class, 'myDashboard'])->middleware('user');
+
 Route::get('/cancel_appointment/{id}',[AppointmentController::class, 'cancel_appointment']);
 
 Route::get('/showAppointment',[AppointmentController::class, 'showAppointment']);
+
+
 
 Route::get('/approved/{id}',[AppointmentController::class, 'approved']);
 
