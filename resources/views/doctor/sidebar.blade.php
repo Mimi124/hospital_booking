@@ -12,7 +12,7 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Patient</h5>
+              <h5 class="mb-0 font-weight-normal">Admin</h5>
               <span>R&H HOSPITAL</span>
             </div>
           </div>
@@ -65,40 +65,49 @@
         </a> --}}
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('myAppointment')}}">
+        <a class="nav-link" href="{{url('showAccountant')}}">
+          <span class="menu-icon">
+            <i class=" mdi mdi-file "></i>
+          </span>
+          <span class="menu-title">Accountants</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showAppointment')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-calendar-multiple "></i>
           </span>
           <span class="menu-title">Appointments</span>
         </a>
+      </li>
 
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('showPrescription')}}">
-            <span class="menu-icon">
-              <i class="mdi mdi-file-document-box"></i>
-            </span>
-            <span class="menu-title">Prescriptions</span>
-          </a>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showDoctor')}}">
+          <span class="menu-icon">
+            <i class=" mdi mdi-account-switch "></i>
+          </span>
+          <span class="menu-title">All Doctors</span>
+        </a>
+      </li>
 
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showLabReport')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Lab Reports</span>
-            </a>
-          </li>
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showNurse')}}">
+          <span class="menu-icon">
+            <i class=" mdi mdi-account-multiple "></i>
+          </span>
+          <span class="menu-title">All Nurses</span>
+        </a>
+      </li>
 
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showPayment')}}">
-              <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
-              </span>
-              <span class="menu-title">Invoice</span>
-            </a>
-          </li>
-        </li>
-    
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showPharmacist')}}">
+          <span class="menu-icon">
+            <i class=" mdi mdi-account-multiple "></i>
+          </span>
+          <span class="menu-title">All Pharmacist</span>
+        </a>
+      </li>
 
 
       

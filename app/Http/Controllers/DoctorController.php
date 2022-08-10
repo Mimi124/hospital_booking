@@ -30,6 +30,10 @@ class DoctorController extends Controller
         elseif(Auth::user()->usertype=='5') {
             return view('receptionist.home', compact('doctor'));
         }
+        elseif(Auth::user()->usertype=='6') {
+            return view('doctor.home', compact('doctor'));
+        }
+
 
         return view('admin.home', compact('doctor'));
 
