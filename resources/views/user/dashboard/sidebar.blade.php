@@ -81,6 +81,22 @@
           </a>
 
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showDocuments')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Documents</span>
+            </a>
+
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{url('showQueries')}}">
+                <span class="menu-icon">
+                  <i class="mdi mdi-file-document-box"></i>
+                </span>
+                <span class="menu-title">Live Queries</span>
+              </a>
+
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showLabReport')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-file-document-box"></i>
@@ -88,6 +104,22 @@
               <span class="menu-title">Lab Reports</span>
             </a>
           </li>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showPrevCases')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-file-document-box"></i>
+              </span>
+              <span class="menu-title">Patient Cases</span>
+            </a>
+
+            <li class="nav-item menu-items">
+              <a class="nav-link" href="{{url('showAdmission')}}">
+                <span class="menu-icon">
+                  <i class="mdi mdi-file-document-box"></i>
+                </span>
+                <span class="menu-title">Patient Admissions</span>
+              </a>
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showPayment')}}">

@@ -33,6 +33,8 @@ Route::get('/',[LaboratoryController::class, 'index']);
 
 Route::get('/',[DoctorController::class, 'index']);
 
+// Route::get('/',[NurseController::class, 'index']);
+
 
 // Route::get('/home',[AccountantController::class, 'redirect'])->middleware
 // ('auth','verified');

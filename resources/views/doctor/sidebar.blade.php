@@ -12,7 +12,7 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Admin</h5>
+              <h5 class="mb-0 font-weight-normal">Doctor</h5>
               <span>R&H HOSPITAL</span>
             </div>
           </div>
@@ -65,15 +65,6 @@
         </a> --}}
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showAccountant')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-file "></i>
-          </span>
-          <span class="menu-title">Accountants</span>
-        </a>
-      </li>
-
-      <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showAppointment')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-calendar-multiple "></i>
@@ -83,32 +74,55 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showDoctor')}}">
+        <a class="nav-link" href="{{url('showBed')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-account-switch "></i>
           </span>
-          <span class="menu-title">All Doctors</span>
+          <span class="menu-title">Bed Management</span>
         </a>
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showNurse')}}">
+        <a class="nav-link" href="{{url('showDiagnosis')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-account-multiple "></i>
           </span>
-          <span class="menu-title">All Nurses</span>
+          <span class="menu-title">Diagnosis</span>
         </a>
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showPharmacist')}}">
+        <a class="nav-link" href="{{url('showLabTest')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-account-multiple "></i>
           </span>
-          <span class="menu-title">All Pharmacist</span>
+          <span class="menu-title">Lab Reports</span>
         </a>
+
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="{{url('showPatient')}}">
+            <span class="menu-icon">
+              <i class=" mdi mdi-account-multiple "></i>
+            </span>
+            <span class="menu-title">Patients</span>
+          </a>
+
+          <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showLiveConsultation')}}">
+              <span class="menu-icon">
+                <i class=" mdi mdi-account-multiple "></i>
+              </span>
+              <span class="menu-title">Live Consultations</span>
+            </a>
       </li>
 
+      <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showPayroll')}}">
+          <span class="menu-icon">
+            <i class=" mdi mdi-account-multiple "></i>
+          </span>
+          <span class="menu-title">My Payrolls</span>
+        </a>
 
       
 

@@ -21,9 +21,23 @@ public function redirect(){
         if(Auth::user()->usertype=='0') {
             return view('user.home', compact('nurse'));
         }
+        elseif(Auth::user()->usertype=='2') {
+            return view('accountant.home', compact('nurse'));
+        }
+        elseif(Auth::user()->usertype=='3') {
+            return view('laboratorist.home', compact('nurse'));
+        }
+        elseif(Auth::user()->usertype=='4') {
+            return view('pharmacist.home', compact('nurse'));
+        }
+        elseif(Auth::user()->usertype=='5') {
+            return view('receptionist.home', compact('nurse'));
+        }
+        elseif(Auth::user()->usertype=='6') {
+            return view('doctor.home', compact('nurse'));
+        }
 
-        return view('admin.home', compact('nurse'));
-
+        return view('nurse.home', compact('nurse'));
 }
 
 

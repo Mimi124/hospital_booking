@@ -37,7 +37,12 @@ class PharmacyController extends Controller
         elseif(Auth::user()->usertype=='5') {
             return view('receptionist.home', compact('pharmacist'));
         }
-
+        elseif(Auth::user()->usertype=='6') {
+            return view('doctor.home', compact('pharmacist'));
+        }
+        elseif(Auth::user()->usertype=='7') {
+            return view('nurse.home', compact('pharmacist'));
+        }
         return view('pharmacist.home', compact('pharmacist'));
 
 }

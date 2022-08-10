@@ -33,6 +33,12 @@ class AccountantController extends Controller
         // elseif(Auth::user()->usertype=='5') {
         //     return view('receptionist.home', compact('accountant'));
         // }
+        elseif(Auth::user()->usertype=='6') {
+            return view('doctor.home', compact('accountant'));
+        }
+        elseif(Auth::user()->usertype=='7') {
+            return view('nurse.home', compact('accountant'));
+        }
 
         return view('accountant.home', compact('accountant'));
 
