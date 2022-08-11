@@ -60,7 +60,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showLabTemplates')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-test-tube"></i>
         </span>
         <span class="menu-title">Lab Templates</span>
       </a>
@@ -69,7 +69,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('add-labtemplate')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-test-tube-off"></i>
         </span>
         <span class="menu-title">Add Lab Template</span>
       </a>
@@ -78,7 +78,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showLabReports')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-history"></i>
         </span>
         <span class="menu-title">Lab Reports</span>
       </a>
@@ -87,16 +87,16 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('add-labreport')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-test-tube-empty"></i>
         </span>
         <span class="menu-title">Add Lab Report</span>
       </a>
     </li>
 
     <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('showDoctor')}}">
+      <a class="nav-link" href="{{url('showBloodBank')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-blood-bag"></i>
         </span>
         <span class="menu-title">Blood Bank</span>
       </a>

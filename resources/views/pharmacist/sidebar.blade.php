@@ -60,7 +60,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showMedicineCategories')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-pillar"></i>
         </span>
         <span class="menu-title">Medicines Category</span>
       </a>
@@ -69,7 +69,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('add-medicinecategory')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-minus-circle-outline"></i>
         </span>
         <span class="menu-title">Add Medicines Category</span>
       </a>
@@ -78,7 +78,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showMedicine')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-pill"></i>
         </span>
         <span class="menu-title">Medicines</span>
       </a>
@@ -87,7 +87,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('add-medicine')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-medical-bag"></i>
         </span>
         <span class="menu-title">Add Medicines</span>
       </a>
@@ -96,7 +96,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showPrescription')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-needle"></i>
         </span>
         <span class="menu-title">Patients Prescriptions</span>
       </a>

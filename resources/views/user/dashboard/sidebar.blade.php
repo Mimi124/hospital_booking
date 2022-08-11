@@ -75,7 +75,7 @@
         <li class="nav-item menu-items">
           <a class="nav-link" href="{{url('showPrescription')}}">
             <span class="menu-icon">
-              <i class="mdi mdi-file-document-box"></i>
+              <i class="mdi mdi-needle"></i>
             </span>
             <span class="menu-title">Prescriptions</span>
           </a>
@@ -83,7 +83,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showDocuments')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-dropbox"></i>
               </span>
               <span class="menu-title">Documents</span>
             </a>
@@ -91,7 +91,7 @@
             <li class="nav-item menu-items">
               <a class="nav-link" href="{{url('showQueries')}}">
                 <span class="menu-icon">
-                  <i class="mdi mdi-file-document-box"></i>
+                  <i class="mdi mdi-camcorder-off"></i>
                 </span>
                 <span class="menu-title">Live Queries</span>
               </a>
@@ -99,7 +99,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showLabReport')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-history"></i>
               </span>
               <span class="menu-title">Lab Reports</span>
             </a>
@@ -108,7 +108,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showPrevCases')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-drawing"></i>
               </span>
               <span class="menu-title">Patient Cases</span>
             </a>
@@ -116,7 +116,7 @@
             <li class="nav-item menu-items">
               <a class="nav-link" href="{{url('showAdmission')}}">
                 <span class="menu-icon">
-                  <i class="mdi mdi-file-document-box"></i>
+                  <i class="mdi mdi-view-grid-plus"></i>
                 </span>
                 <span class="menu-title">Patient Admissions</span>
               </a>
@@ -124,7 +124,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showPayment')}}">
               <span class="menu-icon">
-                <i class="mdi mdi-file-document-box"></i>
+                <i class="mdi mdi-receipt"></i>
               </span>
               <span class="menu-title">Invoice</span>
             </a>

@@ -60,7 +60,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showPatientsBills')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-cash"></i>
         </span>
         <span class="menu-title">Patients Bill</span>
       </a>
@@ -69,7 +69,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showBillItems')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-credit-card-clock"></i>
         </span>
         <span class="menu-title">Payment Items</span>
       </a>
@@ -78,7 +78,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('add-billitem')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-bank"></i>
         </span>
         <span class="menu-title">Add Payment Item</span>
       </a>
@@ -87,7 +87,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showBillings')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-currency-usd"></i>
         </span>
         <span class="menu-title">Payment</span>
       </a>
@@ -96,7 +96,7 @@
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('add-billing')}}">
         <span class="menu-icon">
-          <i class="mdi mdi-file-document-box"></i>
+          <i class="mdi mdi-cash-100"></i>
         </span>
         <span class="menu-title">Add Payment</span>
       </a>
