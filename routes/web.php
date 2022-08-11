@@ -6,6 +6,7 @@ use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AccountantController;
 use App\Http\Controllers\AppointmentController;
 use App\Http\Controllers\PharmacyController;
+use App\Http\Controllers\PatientController;
 use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\MedicineCategoryController;
 use App\Http\Controllers\BillingController;
@@ -58,7 +59,7 @@ Route::post('/appointment',[AppointmentController::class, 'appointment'])->name(
 
 Route::get('/myAppointment',[AppointmentController::class, 'myAppointment'])->middleware('user');
 
-Route::get('/myDashboard',[DoctorController::class, 'myDashboard'])->middleware('user');
+Route::get('/myDashboard',[PatientController::class, 'myDashboard'])->middleware('user');
 
 Route::get('/cancel_appointment/{id}',[AppointmentController::class, 'cancel_appointment']);
 

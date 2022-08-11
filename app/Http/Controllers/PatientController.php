@@ -18,6 +18,13 @@ class PatientController extends Controller
         //
     }
 
+    public function myDashboard()
+{
+
+    return view('user.dashboard.myDashboard');
+
+}
+
     /**
      * Show the form for creating a new resource.
      *
