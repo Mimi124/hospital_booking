@@ -21,6 +21,9 @@ public function redirect(){
         if(Auth::user()->usertype=='0') {
             return view('user.home', compact('nurse'));
         }
+        elseif(Auth::user()->usertype=='1') {
+            return view('admin.home', compact('nurse'));
+        }
         elseif(Auth::user()->usertype=='2') {
             return view('accountant.home', compact('nurse'));
         }

@@ -5,22 +5,22 @@
     <!-- Required meta tags -->
   
     <!-- plugins:css -->
-  @include('admin.css')
+  @include('nurse.css')
   </head>
   <body>
-  @include('admin.banner')
+  @include('nurse.banner')
       <!-- partial:partials/_sidebar.html -->
-     @include('admin.sidebar')
+     @include('nurse.sidebar')
 
       <!-- partial -->
-      @include('admin.navbar')
+      @include('nurse.navbar')
  
         <!-- partial -->
-       @include('admin.body')
+       @include('nurse.body')
     <!-- container-scroller -->
     <!-- plugins:js -->
    
     <!-- End custom js for this page -->
-    @include('admin.script')
+    @include('nurse.script')
   </body>
 </html>

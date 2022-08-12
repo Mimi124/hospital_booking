@@ -23,6 +23,9 @@ class LaboratoryController extends Controller
         if(Auth::user()->usertype=='0') {
             return view('user.home', compact('laboratorist'));
         }
+        elseif(Auth::user()->usertype=='1') {
+            return view('admin.home', compact('laboratorist'));
+        }
         elseif(Auth::user()->usertype=='2') {
             return view('accountant.home', compact('laboratorist'));
         }

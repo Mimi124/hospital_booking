@@ -21,18 +21,18 @@ class AccountantController extends Controller
         if(Auth::user()->usertype=='0') {
             return view('user.home', compact('accountant'));
         }
-        // elseif(Auth::user()->usertype=='1') {
-        //     return view('admin.home', compact('accountant'));
-        // }
-        // elseif(Auth::user()->usertype=='3') {
-        //     return view('laboratorist.home', compact('accountant'));
-        // }
-        // elseif(Auth::user()->usertype=='4') {
-        //     return view('pharmacist.home', compact('accountant'));
-        // }
-        // elseif(Auth::user()->usertype=='5') {
-        //     return view('receptionist.home', compact('accountant'));
-        // }
+        elseif(Auth::user()->usertype=='1') {
+            return view('admin.home', compact('accountant'));
+        }
+        elseif(Auth::user()->usertype=='3') {
+            return view('laboratorist.home', compact('accountant'));
+        }
+        elseif(Auth::user()->usertype=='4') {
+            return view('pharmacist.home', compact('accountant'));
+        }
+        elseif(Auth::user()->usertype=='5') {
+            return view('receptionist.home', compact('accountant'));
+        }
         elseif(Auth::user()->usertype=='6') {
             return view('doctor.home', compact('accountant'));
         }
