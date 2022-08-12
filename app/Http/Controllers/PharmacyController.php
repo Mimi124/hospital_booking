@@ -47,12 +47,6 @@ class PharmacyController extends Controller
 
 }
 
-public function index(){
-
-    $pharmacist = Pharmacy::all();
-    // dd($pharmacist);
-    return view('user.home', compact('pharmacist'));
-}
 
 public function addview(){
 

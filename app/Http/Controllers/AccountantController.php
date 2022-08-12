@@ -44,12 +44,6 @@ class AccountantController extends Controller
 
 }
 
-public function index(){
-
-    $accountant = Accountant::all();
-    
-    return view('user.home', compact('accountant'));
-}
 
 public function addview(){
 

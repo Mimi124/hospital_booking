@@ -74,13 +74,20 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showBed')}}">
+        <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
-            <i class=" mdi mdi-account-switch "></i>
+            <i class="mdi mdi-bed-empty"></i>
           </span>
           <span class="menu-title">Bed Management</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="ui-basic">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href='{{url('showBedAssigned')}}'>Bed Assign</a></li>
+          </ul>
+        </div>
       </li>
+
 
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showDiagnosis')}}">

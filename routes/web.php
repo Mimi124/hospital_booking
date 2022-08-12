@@ -5,6 +5,7 @@ use App\Http\Controllers\NurseController;
 use App\Http\Controllers\DoctorController;
 use App\Http\Controllers\AccountantController;
 use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\LaboratoryController;
 use App\Http\Controllers\PharmacyController;
 use App\Http\Controllers\PatientController;
 use App\Http\Controllers\MedicineController;
@@ -26,15 +27,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/',[AccountantController::class, 'index']);
-
-Route::get('/',[PharmacyController::class, 'index']);
-
-Route::get('/',[LaboratoryController::class, 'index']);
 
 Route::get('/',[DoctorController::class, 'index']);
-
-// Route::get('/',[NurseController::class, 'index']);
 
 
 // Route::get('/home',[AccountantController::class, 'redirect'])->middleware
@@ -103,6 +97,20 @@ Route::delete('/deleteAccountant/{id}',[AccountantController::class, 'deleteAcco
 Route::get('/updateAccountant/{id}',[AccountantController::class, 'updateAccountant']);
 
 Route::post('/editAccountant/{id}',[AccountantController::class, 'editAccountant']);
+
+
+//LABORATORIST
+Route::get('/add_laboratories_view',[LaboratoryController::class, 'addview']);
+Route::post('/upload_laboratories',[LaboratoryController::class, 'upload'])->name('upload_accountant');
+
+Route::get('/showLaboratorist',[LaboratoryController::class, 'showLaboratorist']);
+
+Route::delete('/deleteLaboratories/{id}',[LaboratoryController::class, 'deleteLaboratories']);
+
+Route::get('/updateLaboratories/{id}',[LaboratoryController::class, 'updateLaboratories']);
+
+Route::post('/editLaboratories/{id}',[LaboratoryController::class, 'editLaboratories']);
+
 
 //MEDICINES
 // Route::resource('/medicines/categories', 'MedicineCategoryController', ['as' => 'medicines']);

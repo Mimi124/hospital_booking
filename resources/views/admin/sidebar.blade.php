@@ -121,6 +121,15 @@
       </li>
 
       <li class="nav-item menu-items">
+        <a class="nav-link" href="{{url('showLaboratorist')}}">
+          <span class="menu-icon">
+            <i class=" mdi mdi-account-multiple "></i>
+          </span>
+          <span class="menu-title"> Laboratorist</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showReceptionist')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-account-multiple "></i>

@@ -46,16 +46,9 @@ class LaboratoryController extends Controller
 
 }
 
-public function index(){
-
-    $laboratorist = Laboratory::all();
-    // dd($laboratorist);
-    return view('user.home', compact('laboratorist'));
-}
-
 public function addview(){
 
-    return view("admin.add_laboratorist");
+    return view("admin.add_laboratories");
 }
 
 
@@ -79,16 +72,14 @@ public function upload(Request $request){
 }
 
 
-public function showDoctor(){
+public function showLaboratorist(){
 
     $laboratorist = Laboratory::all();
 
-    //dd($laboratorist);
-
-    return view("admin.showLaboratorist",compact("laboratorist"));
+    return view("admin.ShowLaboratorist",compact("laboratorist"));
 }
 
-public function deleteDoctor($id){
+public function deleteLaboratories($id){
 
     $laboratorist=Laboratory::find($id);
     $laboratorist->delete();
@@ -96,14 +87,14 @@ public function deleteDoctor($id){
     return redirect()->back();
 }
 
-public function updateDoctor($id){
+public function updateLaboratories($id){
 
     $laboratorist=Laboratory::find($id);
 
-    return view('admin.update_laboratorist',compact("laboratorist"));
+    return view('admin.update_laboratories',compact("laboratorist"));
 }
 
-public function editDoctor(Request $request , $id){
+public function editLaboratories(Request $request , $id){
 
     $laboratorist =Laboratory::find($id);
     $laboratorist->name = $request->name;
