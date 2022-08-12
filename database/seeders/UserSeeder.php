@@ -80,5 +80,31 @@ class UserSeeder extends Seeder
             'updated_at'=> '2022-03-08 11:24:56'
 
         ]);
+
+        DB::table('users')->insert([
+            'name' => 'Doctor',
+            'email' => 'doctor@gmail.com',
+            'phone' => '02547896512',
+            'address'=> '145 Ave Street',
+            'usertype'=> '6',
+            'email_verified_at'=>'2022-03-08 11:35:10',
+            'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
+            'created_at'=> '2022-03-08 11:24:56',
+            'updated_at'=> '2022-03-08 11:24:56'
+
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Nurse',
+            'email' => 'nurse@gmail.com',
+            'phone' => '02022222254',
+            'address'=> '120 Manu Street',
+            'usertype'=> '7',
+            'email_verified_at'=>'2022-03-08 11:35:10',
+            'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
+            'created_at'=> '2022-03-08 11:24:56',
+            'updated_at'=> '2022-03-08 11:24:56'
+
+        ]);
     }
 }
