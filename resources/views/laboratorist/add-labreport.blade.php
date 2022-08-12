@@ -56,7 +56,7 @@
                             <select class="form-control" type="text" name="patient"  style="color:black" id="patient">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option>{{$patients->name}}</option>
+                                  <option>{{$patients->name}}({{$patients->id}})</option>
                               @endforeach
                           </select>
                           </div>

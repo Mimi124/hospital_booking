@@ -13,6 +13,7 @@ use App\Http\Controllers\MedicineCategoryController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BillItemController;
 use App\Http\Controllers\LabReportController;
+use App\Http\Controllers\LabTemplateController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -149,7 +150,7 @@ Route::post('/editLabReport/{id}',[LabReportController::class, 'edit'])->name('e
 Route::get('/add_labtemplate_view',[LabTemplateController::class, 'create']);
 Route::get('/showLabTemplates',[LabTemplateController::class, 'index'])->name('showlabtemplate');
 Route::get('/add-labtemplate',[LabTemplateController::class, 'create']);
-Route::post('/upload_labtemplatet',[LabTemplateController::class, 'store'])->name('upload_labtemplate');
+Route::post('/upload_labtemplate',[LabTemplateController::class, 'store'])->name('upload_labtemplate');
 Route::get('/update_labtemplate/{id}',[LabTemplateController::class, 'update'])->name('update_labtemplate');
 Route::get('/delete_labtemplate/{id}',[LabTemplateController::class, 'destroy'])->name('delete_labtemplate');
 Route::post('/editLabTemplate/{id}',[LabTemplateController::class, 'edit'])->name('editLabTemplate');

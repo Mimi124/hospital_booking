@@ -15,7 +15,7 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        
+
         DB::table('users')->insert([
             'name' => 'Admin',
             'email' => 'admin@gmail.com',
@@ -28,6 +28,19 @@ class UserSeeder extends Seeder
             'updated_at'=> '2022-03-08 11:24:56'
 
         ]);
+        
+        // DB::table('users')->insert([
+        //     'name' => 'Admin',
+        //     'email' => 'admin@gmail.com',
+        //     'phone' => '0278963214',
+        //     'address'=> '123 Main Street',
+        //     'usertype'=> '1',
+        //     'email_verified_at'=>'2022-03-08 11:35:10',
+        //     'password' =>  Hash::make('12345'),
+        //     'created_at'=> '2022-03-08 11:24:56',
+        //     'updated_at'=> '2022-03-08 11:24:56'
+
+        // ]);
 
         DB::table('users')->insert([
             'name' => 'Accountant',
@@ -102,6 +115,19 @@ class UserSeeder extends Seeder
             'usertype'=> '7',
             'email_verified_at'=>'2022-03-08 11:35:10',
             'password' => '$2a$12$oqa6/pfNgP3IxkrRmx37v.vv44N3biIibl.1KwCCaatOdD.p5qH.m',
+            'created_at'=> '2022-03-08 11:24:56',
+            'updated_at'=> '2022-03-08 11:24:56'
+
+        ]);
+
+        DB::table('users')->insert([
+            'name' => 'Newman',
+            'email' => 'newman@gmail.com',
+            'phone' => '0278963456',
+            'address'=> '198 Main Street',
+            'usertype'=> '0',
+            'email_verified_at'=>'2022-03-08 11:35:10',
+            'password' =>  Hash::make('12345'),
             'created_at'=> '2022-03-08 11:24:56',
             'updated_at'=> '2022-03-08 11:24:56'
 

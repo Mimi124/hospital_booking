@@ -60,4 +60,14 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $appends = [
         'profile_photo_url',
     ];
+
+    public function scopeDoctor($query)
+    {
+        return $query->whereusertype('1');
+    }
+
+    public function scopePatient($query)
+    {
+        return $query->whereusertype('0');
+    }
 }

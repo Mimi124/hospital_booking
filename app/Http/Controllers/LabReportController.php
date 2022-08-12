@@ -26,7 +26,7 @@ class LabReportController extends Controller
     {
         return view('laboratorist.add-labreport')
             ->with('patient',User::patient()->get())
-            ->with('template',LabTemplate::all())
+            ->with('labtemplate',LabTemplate::all())
             ->with('doctor',User::doctor()->get());
     }
 
