@@ -61,7 +61,7 @@ Route::get('/cancel_appointment/{id}',[AppointmentController::class, 'cancel_app
 Route::get('/showAppointment',[AppointmentController::class, 'showAppointment']);
 
 
-
+//Doctor
 Route::get('/approved/{id}',[AppointmentController::class, 'approved']);
 
 Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
@@ -73,6 +73,9 @@ Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
  Route::get('/updateDoctor/{id}',[DoctorController::class, 'updateDoctor']);
 
 Route::post('/editDoctor/{id}',[DoctorController::class, 'editDoctor']);
+
+Route::get('/showMyAppointments',[AppointmentController::class, 'showMyAppointments']);
+
 
 //Nurses
 Route::get('/add_nurse_view',[NurseController::class, 'addview']);

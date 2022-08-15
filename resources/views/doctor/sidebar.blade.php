@@ -65,7 +65,7 @@
         </a> --}}
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showAppointment')}}">
+        <a class="nav-link" href="{{url('showMyAppointments')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-calendar-multiple "></i>
           </span>

@@ -8,7 +8,7 @@
   @include('nurse.css')
   </head>
   <body>
-  @include('nurse.banner')
+    @include('nurse.banner')
       <!-- partial:partials/_sidebar.html -->
      @include('nurse.sidebar')
 
