@@ -83,7 +83,7 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href='{{url('showBedAssigned')}}'>Bed Assign</a></li>
+            <li class="nav-item"> <a class="nav-link" href='{{url('showBedAssign')}}'>Bed Assign</a></li>
           </ul>
         </div>
       </li>
@@ -107,7 +107,7 @@
         </a>
 
         <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('showPatient')}}">
+          <a class="nav-link" href="{{url('showPatients')}}">
             <span class="menu-icon">
               <i class=" mdi mdi-account-multiple "></i>
             </span>

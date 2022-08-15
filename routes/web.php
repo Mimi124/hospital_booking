@@ -12,6 +12,8 @@ use App\Http\Controllers\MedicineController;
 use App\Http\Controllers\MedicineCategoryController;
 use App\Http\Controllers\BillingController;
 use App\Http\Controllers\BillItemController;
+use App\Http\Controllers\DiagnosisCategoryController;
+use App\Http\Controllers\BedAssignController;
 use App\Http\Controllers\LabReportController;
 use App\Http\Controllers\LabTemplateController;
 
@@ -75,6 +77,21 @@ Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
 Route::post('/editDoctor/{id}',[DoctorController::class, 'editDoctor']);
 
 Route::get('/showMyAppointments',[AppointmentController::class, 'showMyAppointments']);
+Route::get('/showPatients',[PatientController::class, 'showPatients']);
+
+Route::get('/showBedAssign',[BedAssignController::class, 'showBedAssign']);
+Route::get('/showDiagnosis',[DiagnosisCategoryController::class, 'showDiagnosis']);
+
+Route::get('/add_diagnosis_view',[DiagnosisCategoryController::class, 'addview']);
+
+
+Route::post('/upload_diagnosis',[DiagnosisCategoryController::class, 'upload'])->name('upload_diagnosis');
+Route::delete('/deleteDiagnosis/{id}',[DiagnosisCategoryController::class, 'deleteDiagnosis']);
+
+Route::get('/updateDiagnosis/{id}',[DiagnosisCategoryController::class, 'updateDiagnosis']);
+
+Route::post('/editDiagnosis/{id}',[DiagnosisCategoryController::class, 'editDiagnosis']);
+
 
 
 //Nurses

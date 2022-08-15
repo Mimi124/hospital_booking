@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Patient;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
+use Illuminate\Support\Facades\Auth;
 
 class PatientController extends Controller
 {
@@ -46,15 +47,15 @@ class PatientController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Patient  $patient
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Patient $patient)
-    {
-        //
+    public function showPatients(){
+
+         $patients = Patient::all();
+
+        //  $userid = Auth::user()->id;
+           
+        // $patients=Patient::where('user_id',$userid)->get();
+    
+        return view('doctor.showPatients', compact('patients'));
     }
 
     /**

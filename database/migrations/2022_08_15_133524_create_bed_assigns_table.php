@@ -15,6 +15,18 @@ class CreateBedAssignsTable extends Migration
     {
         Schema::create('bed_assigns', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('bed_id');
+            $table->unsignedBigInteger('patient_id');
+            $table->date('assign_date');
+            $table->date('discharge_date')->nullable();
+            $table->text('description')->nullable();
+
+            $table->foreign('bed_id')->references('id')->on('beds')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
+            $table->foreign('patient_id')->references('id')->on('patients')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
             $table->timestamps();
         });
     }

@@ -39,15 +39,11 @@ class BedAssignController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\BedAssign  $bedAssign
-     * @return \Illuminate\Http\Response
-     */
-    public function show(BedAssign $bedAssign)
-    {
-        //
+    public function showBedAssign(){
+
+        $bed_assigns = BedAssign::all();
+    
+        return view('doctor.showBedAssign', compact('bed_assigns'));
     }
 
     /**

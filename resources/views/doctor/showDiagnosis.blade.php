@@ -23,22 +23,33 @@
               <div class="card-body">
                 <h4 class="card-title" style ="padding-top:60px;margin:10px;"></h4>
                 <div class="table-responsive" style="padding:50px;">
+                <a class="btn btn-info" id="button" href="/add_diagnosis_view">Add New Diagnosis</a>
+                <br><br>
                   <table class="table table-striped table-hover">
                     <thead class="thead-dark">
                       <tr>
                         
                         <th scope="col">#</th>
-                        <th scope="col">Patient Name</th>
-                        {{-- <th scope="col">Doctor Name</th> --}}
-                        <th scope="col">Date</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Description</th>
+                        <th scope="col">Update</th>
+                        <th scope="col">Delete</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($patients as $patient)
+                      @foreach ($diagnosis_categories as $diagnosis_categories)
                       <tr>
-                        <td>{{ $patient->user->name }}</td>
-                        {{-- <td>{{ $patient->doctor->name }}</td> --}}
-                        <td>{{ $patient->date}}</td>
+                        <th scope="row">{{ $diagnosis_categories->id }}</th>
+                        <td>{{ $diagnosis_categories->name }}</td>
+                        <td>{{ $diagnosis_categories->description }}</td>
+                        <td>
+                            <a class="btn btn-outline-primary" href="{{url('updateDiagnosis',$diagnosis_categories->id)}}">Update</a>
+                          
+                        </td>  
+                        <td>
+                          <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-outline-danger" href="{{url('deleteDiagnosis',$diagnosis_categories->id)}}">Delete</a>
+                        
+                      </td>
                       </tr>
                       @endforeach
                   </tbody>
