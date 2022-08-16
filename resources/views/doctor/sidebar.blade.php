@@ -115,6 +115,15 @@
           </a>
 
           <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showPrescription')}}">
+              <span class="menu-icon">
+                <i class="mdi mdi-needle"></i>
+              </span>
+              <span class="menu-title">Patients Prescriptions</span>
+            </a>
+          </li>
+
+          <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showLiveConsultation')}}">
               <span class="menu-icon">
                 <i class=" mdi mdi-camcorder-off"></i>
