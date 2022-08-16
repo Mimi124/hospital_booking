@@ -92,7 +92,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showDiagnosis')}}">
           <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
+            <i class=" mdi mdi-book-multiple"></i>
           </span>
           <span class="menu-title">Diagnosis</span>
         </a>
@@ -101,7 +101,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showLabTest')}}">
           <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
+            <i class=" mdi mdi-file-lock "></i>
           </span>
           <span class="menu-title">Lab Reports</span>
         </a>
@@ -117,7 +117,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showLiveConsultation')}}">
               <span class="menu-icon">
-                <i class=" mdi mdi-account-multiple "></i>
+                <i class=" mdi mdi-camcorder-off"></i>
               </span>
               <span class="menu-title">Live Consultations</span>
             </a>
@@ -126,7 +126,7 @@
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showPayroll')}}">
           <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
+            <i class=" mdi mdi-square-inc-cash"></i>
           </span>
           <span class="menu-title">My Payrolls</span>
         </a>

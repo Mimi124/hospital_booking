@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
-
-    {{-- <style type="text/css">
-        label {
-            display: inline-block;
-            width: 200px;
-
-        }
-
-        </style> --}}
-
 
   @include('doctor.css')
   </head>
@@ -53,15 +42,10 @@
                   </form>
                 
 
-
-
             </div>
 
         </div>
-    <!-- container-scroller -->
-    <!-- plugins:js -->
-   
-    <!-- End custom js for this page -->
+  
     @include('doctor.script')
   </body>
 </html>

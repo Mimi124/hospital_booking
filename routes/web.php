@@ -16,6 +16,8 @@ use App\Http\Controllers\DiagnosisCategoryController;
 use App\Http\Controllers\BedAssignController;
 use App\Http\Controllers\LabReportController;
 use App\Http\Controllers\LabTemplateController;
+use App\Http\Controllers\PayrollController;
+use App\Http\Controllers\LiveConsultationController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -92,6 +94,9 @@ Route::get('/updateDiagnosis/{id}',[DiagnosisCategoryController::class, 'updateD
 
 Route::post('/editDiagnosis/{id}',[DiagnosisCategoryController::class, 'editDiagnosis']);
 
+Route::get('/showPayroll',[PayrollController::class, 'showPayroll']);
+Route::get('/showLiveConsultation',[LiveConsultationController::class, 'showLiveConsultation']);
+Route::delete('/deleteLive_Consultation/{id}',[LiveConsultationController::class, 'deleteLive_Consultation']);
 
 
 //Nurses

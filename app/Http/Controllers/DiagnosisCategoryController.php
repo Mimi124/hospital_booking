@@ -9,21 +9,7 @@ use Illuminate\Http\Request;
 
 class DiagnosisCategoryController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
-
   
-    public function addview(){
-
-        return view("doctor.add_diagnosis");
-    }
     
     
     
