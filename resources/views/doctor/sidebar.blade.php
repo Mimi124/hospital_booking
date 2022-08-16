@@ -12,7 +12,7 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Doctor</h5>
+              <h5 class="mb-0 font-weight-normal" style="color:white;">Doctor</h5>
               <span>R&H HOSPITAL</span>
             </div>
           </div>

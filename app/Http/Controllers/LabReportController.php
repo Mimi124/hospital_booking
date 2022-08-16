@@ -9,6 +9,13 @@ use App\Models\LabTemplate;
 
 class LabReportController extends Controller
 {
+    public function showLabTest(){
+
+        $lab_reports = LabReport::all();
+        return view("doctor.showLabTest",compact("lab_reports"));
+    }
+    
+
     public function getTemplateById(Request $request){
         if($request->id){
             $labtemplate = LabTemplate::find($request->id);
@@ -87,4 +94,7 @@ class LabReportController extends Controller
         return redirect()->route('showlabreport');
     }
     //
+
+
+
 }

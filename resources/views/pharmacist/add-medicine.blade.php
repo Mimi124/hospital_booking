@@ -108,8 +108,8 @@
                             </div>
                           
                           <input type="submit" 
-                          class="btn-lg btn-primary">
-                   <input type="reset" class="btn-lg btn-danger" value="Cancel">
+                          class="btn btn-outline-primary">
+                   <input type="reset" class="btn btn-outline-danger" value="Cancel">
                         </form>
                       
       
