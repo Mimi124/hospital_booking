@@ -33,6 +33,7 @@
                             <th>Doctor Name</th>
                             <th>Template Name</th>
                             <th>Date / Time</th>
+                            <th>Reports</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
@@ -46,6 +47,7 @@
                                     
                                 <td>{{$labreports->template->name}}</td>
                                 <td>{{$labreports->date.'/'.$labreports->time}}</td>
+                                <td>{{$labreports->report}}</td>
                                 <td>
                                     <a class="badge badge-outline-primary" href="{{url('update_labreport',$labreports->id)}}">Update</a>
                                     {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$labreports->id)}}">Display</a> --}}

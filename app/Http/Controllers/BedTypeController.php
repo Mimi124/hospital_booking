@@ -2,85 +2,63 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Bed_Type;
-use App\Http\Requests\StoreBed_TypeRequest;
-use App\Http\Requests\UpdateBed_TypeRequest;
+use App\Models\BedType;
+use App\Http\Requests\StoreBedTypeRequest;
+use App\Http\Requests\UpdateBedTypeRequest;
+use Illuminate\Http\Request;
 
 class BedTypeController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function showBedTypes(){
+
+        $bed_types = BedType::all();
+        return view("nurse.showBedTypes",compact("bed_types"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
+    public function addview(){
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreBed_TypeRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreBed_TypeRequest $request)
-    {
-        //
-    }
+    return view("nurse.add_bedType");
+   }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Bed_Type  $bed_Type
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Bed_Type $bed_Type)
-    {
-        //
-    }
+   public function upload(Request $request){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bed_Type  $bed_Type
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Bed_Type $bed_Type)
-    {
-        //
-    }
+    $bed_types = new BedType();
+    $bed_types->title = $request->title;
+    $bed_types->description = $request->description;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateBed_TypeRequest  $request
-     * @param  \App\Models\Bed_Type  $bed_Type
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateBed_TypeRequest $request, Bed_Type $bed_Type)
-    {
-        //
-    }
+    $bed_types->save();
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Bed_Type  $bed_Type
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Bed_Type $bed_Type)
-    {
-        //
-    }
+    return redirect()->back()->with('message','Bed Type Added Successfully');
+
+
+}
+
+   public function deleteBedType($id){
+
+    $bed_types = BedType::find($id);
+    $bed_types->delete();
+
+    return redirect()->back();
+}
+
+public function updateBedType($id){
+
+    $bed_types = BedType::find($id);
+
+    return view('nurse.update_bedType',compact("bed_types"));
+}
+
+public function editBedType(Request $request , $id){
+
+    $bed_types =BedType::find($id);
+    $bed_types->title = $request->title;
+    $bed_types->description = $request->description;
+  
+    $bed_types->save();
+
+    return redirect()->back->with('message','BedType Details updated Successfully');
+
+}
+
 }

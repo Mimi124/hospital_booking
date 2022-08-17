@@ -39,10 +39,11 @@
                     <tbody>
                       @foreach ($lab_reports as $lab_report)
                       <tr>
-                        <th scope="row">{{ $lab_report->lab_reports_id }}</th>
+                        {{-- <th scope="row">{{ $lab_report->lab_reports_id }}</th> --}}
+                        <th scope="row">{{ $lab_report->id }}</th>
                         <td>{{ $lab_report->patients->name }}</td>
                         <td>{{ $lab_report->doctor->name}}</td>
-                        <td>{{ $lab_report->date }}</td>
+                        <td>{{ $lab_report->date.'/'.$lab_report->time }}</td>
                         <td>{{ $lab_report->report }}</td>
                       </tr>
                       @endforeach

@@ -15,12 +15,18 @@ class CreateBedsTable extends Migration
     {
         Schema::create('beds', function (Blueprint $table) {
             $table->id();
-            $table->integer('department_id');
-            $table->string('code');
-            $table->string('status');
-            $table->string('notes');
+            $table->unsignedBigInteger('bed_type');
+            $table->string('name');
+            $table->text('description')->nullable();
+            $table->integer('charge');
+            $table->boolean('is_available')->default(1);
             $table->timestamps();
+
+            $table->foreign('bed_type')->references('id')->on('bed_types')
+                ->onUpdate('cascade')
+                ->onDelete('cascade');
         });
+        
     }
 
     /**

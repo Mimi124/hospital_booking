@@ -3,16 +3,16 @@
   <head>
 
 
-  @include('doctor.css')
+  @include('nurse.css')
   </head>
   <body>
-    @include('doctor.banner')
+    @include('nurse.banner')
  
       <!-- partial:partials/_sidebar.html -->
-     @include('doctor.sidebar')
+     @include('nurse.sidebar')
 
       <!-- partial -->
-      @include('doctor.navbar')
+      @include('nurse.navbar')
  
         <!-- partial -->
          <div class="container-fluid page-body-wrapper">
@@ -28,11 +28,11 @@
           </div>
           @endif
 
-                <form  action="{{url('upload_diagnosis')}}" method="POST"  enctype="multipart/form-data">
+                <form  action="{{url('upload_bedType')}}" method="POST"  enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
-                      <label for="name" class="form-label">Diagnosis Name</label>
-                      <input type="text" class="form-control" style="color:black"  name="name" required>
+                      <label for="title" class="form-label">Bed Type</label>
+                      <input type="text" class="form-control" style="color:black"  name="title" required>
                     </div>
                     <div class="mb-3">
                       <label for="description" class="form-label"> Description</label>
@@ -49,6 +49,6 @@
     <!-- plugins:js -->
    
     <!-- End custom js for this page -->
-    @include('admin.script')
+    @include('nurse.script')
   </body>
 </html>

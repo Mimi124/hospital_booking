@@ -47,12 +47,12 @@
                                 {{-- <td>{{$labtemplates->description}}</td> --}}
 
                                 <td>
-                                    <a class="badge badge-outline-primary" href="{{url('update_labtemplate',$labtemplates->id)}}">Update</a>
+                                    <a class="btn btn-outline-primary" href="{{url('update_labtemplate',$labtemplates->id)}}">Update</a>
                                     {{-- <a class="badge badge-outline-success" href="{{url('show_labtemplate',$labtemplates->id)}}">Display</a> --}}
                                   
                                 </td>  
                                 <td>
-                                  <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_labtemplate',$labtemplates->id)}}">Delete</a>
+                                  <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-outline-danger" href="{{url('delete_labtemplate',$labtemplates->id)}}">Delete</a>
                                 
                               </td>"
 

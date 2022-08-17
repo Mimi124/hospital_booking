@@ -18,7 +18,7 @@ class CreateLabReportsTable extends Migration
             $table->unsignedBigInteger('patient_id');
 
             $table->id();
-            $table->string('lab_reports_id',20)->unique();
+            // $table->string('lab_reports_id',20)->unique();
             $table->datetime('date');
             $table->string('time');
             $table->foreign('doctor_id')->references('id')->on('doctors');

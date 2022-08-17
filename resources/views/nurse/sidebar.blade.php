@@ -12,7 +12,7 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Nurse</h5>
+              <h5 class="mb-0 font-weight-normal" style="color:white;">Nurse</h5>
               <span>R&H HOSPITAL</span>
             </div>
           </div>
@@ -65,16 +65,6 @@
         </a> --}}
 
 
-
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showBed')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-account-switch "></i>
-          </span>
-          <span class="menu-title">Bed Management</span>
-        </a>
-      </li>
-
       <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
           <span class="menu-icon">
@@ -92,17 +82,17 @@
         </div>
       </li>
 
-          <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showLiveConsultation')}}">
+          {{-- <li class="nav-item menu-items">
+            <a class="nav-link" href="{{url('showMeeting')}}">
               <span class="menu-icon">
                 <i class=" mdi mdi-account-multiple "></i>
               </span>
-              <span class="menu-title">Live Consultations</span>
+              <span class="menu-title">Live Meetings</span>
             </a>
-      </li>
+      </li> --}}
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showPayroll')}}">
+        <a class="nav-link" href="{{url('showMyPayroll')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-account-multiple "></i>
           </span>

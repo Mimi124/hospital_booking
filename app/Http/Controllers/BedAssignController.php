@@ -46,6 +46,15 @@ class BedAssignController extends Controller
         return view('doctor.showBedAssign', compact('bed_assigns'));
     }
 
+
+    public function showBedAssigned(){
+
+        $bed_assigns = BedAssign::all();
+    
+        return view('nurse.showBedAssigned', compact('bed_assigns'));
+    }
+
+
     /**
      * Show the form for editing the specified resource.
      *
