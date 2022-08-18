@@ -19,7 +19,8 @@ class CreateLabReportsTable extends Migration
 
             $table->id();
             // $table->string('lab_reports_id',20)->unique();
-            $table->datetime('date');
+            $table->string('date')->nullable();
+            // $table->datetime('date');
             $table->string('time');
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->integer('template_id');

@@ -40,7 +40,7 @@
                           @foreach($bed_types as $bed_type)
                           <option value="{{$bed_type->id}}" class="form-control">{{$bed_type->title}}</option>
                           @endforeach
-                        </sele
+                        </select>
                       <div class="mb-3">
                         <label for="charge" class="form-label">Charge</label>
                         <input type="number" class="form-control" style="color:black"  name="charge" required>
