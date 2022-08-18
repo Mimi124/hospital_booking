@@ -5,15 +5,15 @@
     <!-- Required meta tags -->
   
     <!-- plugins:css -->
-  @include('doctor.css')
+  @include('pharmacist.css')
   </head>
   <body>
-  @include('doctor.banner')
+  @include('pharmacist.banner')
       <!-- partial:partials/_sidebar.html -->
-     @include('doctor.sidebar')
+     @include('pharmacist.sidebar')
 
       <!-- partial -->
-      @include('doctor.navbar')
+      @include('pharmacist.navbar')
  
      
              
@@ -23,28 +23,22 @@
               <div class="card-body">
                 <h4 class="card-title" style ="padding-top:60px;margin:10px;"></h4>
                 <div class="table-responsive" style="padding:50px;">
-                {{-- <a class="btn btn-info" id="button" href="/add_labTest_view">Add New LabTest</a> --}}
-                <br><br>
                   <table class="table table-striped table-hover">
                     <thead class="thead-dark">
                       <tr>
                         
-                        <th scope="col">LAB REPORT ID</th>
-                        <th scope="col">PATIENT NAME</th>
-                        <th scope="col">DOCTOR NAME</th>
-                        <th scope="col">DATE/TIME</th>
-                        <th scope="col">REPORT</th>
+                        <th scope="col">#</th>
+                        <th scope="col">Patient Name</th>
+                        {{-- <th scope="col">Doctor Name</th> --}}
+                        <th scope="col">Date Registered</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($lab_reports as $lab_report)
+                      @foreach ($patients as $patient)
                       <tr>
-                        {{-- <th scope="row">{{ $lab_report->lab_reports_id }}</th> --}}
-                        <th scope="row">{{ $lab_report->id }}</th>
-                        <td>{{ $lab_report->patients->name }}</td>
-                        <td>{{ $lab_report->doctor->name}}</td>
-                        <td>{{ $lab_report->date.'/'.$lab_report->time }}</td>
-                        <td>{{ $lab_report->report }}</td>
+                        <td>{{ $patient->user->name }}</td>
+                        {{-- <td>{{ $patient->doctor->name }}</td> --}}
+                        <td>{{ $patient->date}}</td>
                       </tr>
                       @endforeach
                   </tbody>
@@ -55,52 +49,13 @@
   </body> 
 </html>
 
-                       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-          
+                             
       
     <!-- container-scroller -->
     
     <!-- plugins:js -->
    
     <!-- End custom js for this page -->
-    @include('admin.script')
+    @include('pharmacist.script')
   </body>
 </html>

@@ -49,7 +49,6 @@
                         <td>{{ $appointment->doctor->name }}</td>
                         <td>{{ $appointment->date}}</td>
                         <td>{{ $appointment->message}}</td>
-                        {{-- <td>{{ $appointment->status }}</td> --}}
                         <td>
                           @if ($appointment->status === 'Approved')
                               <span class="btn btn-outline-success">Approved</span>

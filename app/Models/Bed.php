@@ -11,9 +11,10 @@ class Bed extends Model
         return $this->belongsTo(Department::class);
     }
 
-    public function bed__types(){
-        return $this->hasMany(BedAllotment::class);
+    public function bed_types(){
+        return $this->hasMany(BedType::class);
     }
 
     use HasFactory;
+    
 }

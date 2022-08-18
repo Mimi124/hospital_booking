@@ -3,84 +3,70 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bed;
-use App\Http\Requests\StoreBedRequest;
-use App\Http\Requests\UpdateBedRequest;
+use Illuminate\Http\Request;
 
 class BedController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+    public function showBed(){
+
+        $beds = Bed::all();
+        return view("nurse.showBed",compact("beds"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
+    
+    public function addview(){
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreBedRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreBedRequest $request)
-    {
-        //
-    }
+    return view("nurse.add_bed");
+   }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Bed  $bed
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Bed $bed)
-    {
-        //
-    }
+   public function upload(Request $request){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Bed  $bed
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Bed $bed)
-    {
-        //
-    }
+    $request->validate([
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateBedRequest  $request
-     * @param  \App\Models\Bed  $bed
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateBedRequest $request, Bed $bed)
-    {
-        //
-    }
+           'name'=> 'required|unique:beds,name',
+           'charge'=> 'required',
+           'bed_types' => 'sometimes|exists:bed_types,title',
+        
+        ]);
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Bed  $bed
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Bed $bed)
-    {
-        //
-    }
+    $beds = new Bed();
+    $beds->name = $request->name;
+    $beds->charge = $request->charge;
+    $beds->bed_types= $request->input('title');
+
+    $beds->save();
+
+    return redirect()->back()->with('message','Bed Added Successfully');
+
+
+}
+
+   public function deleteBed($id){
+
+    $beds = Bed::find($id);
+    $beds->delete();
+
+    return redirect()->back();
+}
+
+public function updateBed($id){
+
+    $beds = Bed::find($id);
+
+    return view('nurse.update_bed',compact("beds"));
+}
+
+public function editBed(Request $request , $id){
+
+    $beds=Bed::find($id);
+    $beds = new Bed();
+    $beds->name = $request->name;
+    $beds->charge = $request->charge;
+    $beds->bed_types = $request->title;
+  
+    $beds->save();
+
+    return redirect()->back->with('message','Bed Details updated Successfully');
+
+}
 }

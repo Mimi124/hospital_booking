@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateLabReportsTable extends Migration
+class CreatePrescriptionsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,20 @@ class CreateLabReportsTable extends Migration
      */
     public function up()
     {
-        Schema::create('lab_reports', function (Blueprint $table) {
+        Schema::create('prescriptions', function (Blueprint $table) {
+            $table->id();
+            $table->string('prescription_id');
+
             $table->unsignedBigInteger('doctor_id');
             $table->unsignedBigInteger('patient_id');
-
-            $table->id();
-            // $table->string('lab_reports_id',20)->unique();
-            $table->datetime('date');
-            $table->string('time');
+         
+            $table->string('blood_pressure')->nullable();
+            $table->string('diabetes')->nullable();
+            $table->string('symptoms');
+            $table->string('diagnosis');
+            $table->string('advice')->nullable();
+            $table->date('date');
             $table->foreign('doctor_id')->references('id')->on('doctors');
-            $table->integer('template_id');
-            $table->string('report');
             $table->foreign('patient_id')->references('id')->on('patients');
             $table->timestamps();
         });
@@ -36,6 +39,6 @@ class CreateLabReportsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('lab_reports');
+        Schema::dropIfExists('prescriptions');
     }
 }

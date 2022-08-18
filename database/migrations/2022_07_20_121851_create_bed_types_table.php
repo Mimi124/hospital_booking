@@ -13,15 +13,10 @@ class CreateBedTypesTable extends Migration
      */
     public function up()
     {
-        Schema::create('bed__types', function (Blueprint $table) {
+        Schema::create('bed_types', function (Blueprint $table) {
             $table->id();
-            $table->integer('bed_id');
-            $table->integer('patient_id');
-            $table->date('start_date');
-            $table->time('start_time');
-            $table->date('end_date');
-            $table->time('end_time');
-            $table->string('status');
+            $table->string('title');
+            $table->text('description')->nullable();
             $table->timestamps();
         });
     }
@@ -33,6 +28,6 @@ class CreateBedTypesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('bed__types');
+        Schema::dropIfExists('bed_types');
     }
 }

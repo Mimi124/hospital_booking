@@ -18,6 +18,8 @@ use App\Http\Controllers\LabReportController;
 use App\Http\Controllers\LabTemplateController;
 use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\LiveConsultationController;
+use App\Http\Controllers\BedTypeController;
+use App\Http\Controllers\BedController;
 
 
 use Illuminate\Support\Facades\Route;
@@ -113,6 +115,29 @@ Route::get('/updateNurse/{id}',[NurseController::class, 'updateNurse']);
 
 Route::post('/editNurse/{id}',[NurseController::class, 'editNurse']);
 
+Route::get('/showMyPayroll',[PayrollController::class, 'showMyPayroll']);
+
+// ======================BedType Nurse section==================================
+Route::post('/upload_bedType',[BedTypeController::class, 'upload'])->name('upload_bedType');
+Route::get('/showBedTypes',[BedTypeController::class, 'showBedTypes']);
+Route::get('/add_bedType_view',[BedTypeController::class, 'addview']);
+Route::delete('/deleteBedType/{id}',[BedTypeController::class, 'deleteBedType']);
+Route::post('/editBedType/{id}',[BedTypeController::class, 'editBedType']);
+Route::get('/updateBedType/{id}',[BedTypeController::class, 'updateBedType']);
+// ==============================================================================
+
+// ======================Bed Nurse section==================================
+Route::post('/upload_bed',[BedController::class, 'upload'])->name('upload_bed');
+Route::get('/showBed',[BedController::class, 'showBed']);
+Route::get('/add_bed_view',[BedController::class, 'addview']);
+Route::delete('/deleteBed/{id}',[BedController::class, 'deleteBed']);
+Route::post('/editBed/{id}',[BedController::class, 'editBed']);
+Route::get('/updateBed/{id}',[BedController::class, 'updateBed']);
+// ==============================================================================
+
+
+// ================BED ASSIGN======================================================
+Route::get('/showBedAssigned',[BedAssignController::class, 'showBedAssigned']);
 
 //ACCOUNTANT
 Route::get('/add_accountant_view',[AccountantController::class, 'addview']);

@@ -15,4 +15,13 @@ class PayrollController extends Controller
         return view('doctor.showPayroll', compact('payrolls'));
     }
 
+
+    public function showMyPayroll(){
+
+        $payrolls = Payroll::all();
+    
+        return view('nurse.showMyPayroll', compact('payrolls'));
+    }
+
+
 }

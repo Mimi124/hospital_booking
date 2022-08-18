@@ -6,7 +6,7 @@
   @include('laboratorist.css')
 </head>
 <body>
-
+  @include('laboratorist.banner')
       <!-- partial:partials/_sidebar.html -->
      @include('laboratorist.sidebar')
 
@@ -68,6 +68,8 @@
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
                                     <option>{{$doctors->name}}</option>
+                                    {{-- <option value="{{$doctors->id}}" class="form-control">{{$doctors->name}}</option> --}}
+                                    
                                 @endforeach
                             </select>
                         {{-- @endif --}}
@@ -92,8 +94,8 @@
                             
                           
                           <input type="submit" 
-                          class="btn-lg btn-primary">
-                   <input type="reset" class="btn-lg btn-danger" value="Cancel">
+                          class="btn btn-outline-primary">
+                   <input type="reset" class="btn btn-outline-danger" value="Cancel">
                         </form>
                       
       
