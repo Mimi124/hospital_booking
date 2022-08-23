@@ -23,6 +23,15 @@
               <div class="card-body">
                 <h4 class="card-title" style ="padding-top:60px;margin:10px;"></h4>
                 <div class="table-responsive" style="padding:50px;">
+
+                  @if (session()->has('message'))
+         
+                  <div class="alert alert-primiary">
+                    <button type="button" class="close" data-dismiss="alert"> x </button>
+                    {{session()->get('message')}}
+                  </div>
+                  @endif
+
                 <a class="btn btn-outline-info" id="diagnosis" href="#">Add New Diagnosis</a>
                 <br><br>
                   <table class="table table-striped table-hover">
@@ -70,6 +79,7 @@
                   </button>
                 </div>
                 <div class="modal-body">
+                  
                   <form  action="{{url('upload_diagnosis')}}" method="POST" id="diagnosis-form" enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
@@ -81,7 +91,6 @@
                       <textarea class="form-control" id="description" style="color:black"  name="description"  rows="7"></textarea>
                     </div>
                     
-                    <button type="submit" class="btn btn-outline-dark">Submit</button>
                   </form>
                 </div>
                 <div class="modal-footer">
