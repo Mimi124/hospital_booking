@@ -87,7 +87,6 @@ Route::get('/showPatients',[PatientController::class, 'showPatients']);
 Route::get('/showBedAssign',[BedAssignController::class, 'showBedAssign']);
 Route::get('/showDiagnosis',[DiagnosisCategoryController::class, 'showDiagnosis']);
 
-Route::get('/add_diagnosis_view',[DiagnosisCategoryController::class, 'addview']);
 
 
 Route::post('/upload_diagnosis',[DiagnosisCategoryController::class, 'upload'])->name('upload_diagnosis');
@@ -120,7 +119,7 @@ Route::get('/showMyPayroll',[PayrollController::class, 'showMyPayroll']);
 // ======================BedType Nurse section==================================
 Route::post('/upload_bedType',[BedTypeController::class, 'upload'])->name('upload_bedType');
 Route::get('/showBedTypes',[BedTypeController::class, 'showBedTypes']);
-// Route::get('/add_bedType_view',[BedTypeController::class, 'addview']);
+
 Route::delete('/deleteBedType/{id}',[BedTypeController::class, 'deleteBedType']);
 Route::post('/editBedType/{id}',[BedTypeController::class, 'editBedType']);
 Route::get('/updateBedType/{id}',[BedTypeController::class, 'updateBedType']);
@@ -129,7 +128,7 @@ Route::get('/updateBedType/{id}',[BedTypeController::class, 'updateBedType']);
 // ======================Bed Nurse section==================================
 Route::post('/upload_bed',[BedController::class, 'upload'])->name('upload_bed');
 Route::get('/showBed',[BedController::class, 'showBed']);
-// Route::get('/add_bed_view',[BedController::class, 'addview']);
+
 Route::delete('/deleteBed/{id}',[BedController::class, 'deleteBed']);
 Route::post('/editBed/{id}',[BedController::class, 'editBed']);
 Route::get('/updateBed/{id}',[BedController::class, 'updateBed']);

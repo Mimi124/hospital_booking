@@ -121,7 +121,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showLabTest')}}">
+        <a class="nav-link" href="{{url('showLab')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-file-lock "></i>
           </span>
@@ -139,9 +139,9 @@
             </a>
             <div class="collapse" id="showPatient">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href='{{url('showBedTypes')}}'>Cases</a></li>
-                <li class="nav-item"> <a class="nav-link" href='{{url('showBed')}}'>Case Handlers</a></li>
-                <li class="nav-item"> <a class="nav-link" href='{{url('showBedAssigned')}}'>Patient Admissions</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showCases')}}'>Cases</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showCaseHandlers')}}'>Case Handlers</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showPatientAdm')}}'>Patient Admissions</a></li>
               </ul>
             </div>
           </li>
@@ -149,7 +149,7 @@
           <li class="nav-item menu-items">
             <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
               <span class="menu-icon">
-                <i class="mdi mdi-square-inc-cash  "></i>
+                <i class="mdi mdi-account-multiple"></i>
               </span>
               <span class="menu-title">Users</span>
               <i class="menu-arrow"></i>

@@ -15,11 +15,7 @@ class BedController extends Controller
         return view("nurse.showBed",compact("beds"))->with('bedTypes', $bedTypes);
     }
 
-    
-//     public function addview(){
 
-//     return view("nurse.add_bed")->with('bed_types',[]);
-//    }
 
    public function upload(Request $request){
 

@@ -15,11 +15,7 @@ class BedTypeController extends Controller
         return view("nurse.showBedTypes",compact("bed_types"));
     }
 
-    
-//     public function addview(){
 
-//     return view("nurse.add_bedType");
-//    }
 
    public function upload(Request $request){
 
