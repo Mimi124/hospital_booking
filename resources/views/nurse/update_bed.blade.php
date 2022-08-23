@@ -28,11 +28,11 @@
           </div>
           @endif
 
-        <form  action="{{url('editBed',$bed->id)}} method="POST"  enctype="multipart/form-data">
+        <form  action="{{url('editBed',$beds->id)}} method="POST"  enctype="multipart/form-data">
                     @csrf
                     <div class="mb-3">
                         <label for="name" class="form-label">Bed </label>
-                        <input type="text" class="form-control" style="color:black"  name="name" value="{{$bed->name}}" required>
+                        <input type="text" class="form-control" style="color:black"  name="name" value="{{$beds->name}}" required>
                     </div>
                     <div class="col-12 col-sm-6 py-2 wow fadeInRight" data-wow-delay="300ms">
                         <select name="doctor_id" id="doctor_id"  class="custom-select" required>

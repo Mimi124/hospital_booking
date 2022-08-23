@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-
-
   @include('nurse.css')
   </head>
   <body>
@@ -32,11 +30,11 @@
                     @csrf
                     <div class="mb-3">
                       <label for="title" class="form-label">Bed Type</label>
-                      <input type="text" class="form-control" style="color:black"  name="title" required>
+                      <input type="text" class="form-control"   name="title" required>
                     </div>
                     <div class="mb-3">
                       <label for="description" class="form-label"> Description</label>
-                      <textarea class="form-control" id="description" style="color:black"  name="description"  rows="7"></textarea>
+                      <textarea class="form-control" id="description"  name="description"  rows="7"></textarea>
                     </div>
                     
                     <button type="submit" class="btn btn-outline-dark">Submit</button>
@@ -45,6 +43,7 @@
             </div>
 
         </div>
+        
     <!-- container-scroller -->
     <!-- plugins:js -->
    

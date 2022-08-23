@@ -10,7 +10,11 @@ use Illuminate\Http\Request;
 class DiagnosisCategoryController extends Controller
 {
   
-    
+    public function addview(){
+
+    return view("doctor.add_diagnosis");
+   }
+
     
     
     public function upload(Request $request){

@@ -16,10 +16,10 @@ class BedTypeController extends Controller
     }
 
     
-    public function addview(){
+//     public function addview(){
 
-    return view("nurse.add_bedType");
-   }
+//     return view("nurse.add_bedType");
+//    }
 
    public function upload(Request $request){
 
