@@ -10,6 +10,7 @@ use App\Http\Requests\UpdatePharmacyRequest;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Doctor;
 
 class PharmacyController extends Controller
 {
@@ -21,9 +22,10 @@ class PharmacyController extends Controller
     public function redirect(){
       
         $pharmacist = Pharmacy::all();
+        $doctor = Doctor::all();
 
         if(Auth::user()->usertype=='0') {
-            return view('user.home', compact('pharmacist'));
+            return view('user.home', compact('pharmacist', 'doctor'));
         }
         elseif(Auth::user()->usertype=='1') {
             return view('admin.home', compact('pharmacist'));

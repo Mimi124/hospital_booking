@@ -23,7 +23,16 @@
               <div class="card-body">
                 <h4 class="card-title" style ="padding-top:60px;margin:10px;"></h4>
                 <div class="table-responsive" style="padding:50px;">
-                <a class="btn btn-outline-info" id="button" href="/add_diagnosis_view">Add New Diagnosis</a>
+
+                  @if (session()->has('message'))
+         
+                  <div class="alert alert-primiary">
+                    <button type="button" class="close" data-dismiss="alert"> x </button>
+                    {{session()->get('message')}}
+                  </div>
+                  @endif
+
+                <a class="btn btn-outline-info" id="diagnosis" href="#">Add New Diagnosis</a>
                 <br><br>
                   <table class="table table-striped table-hover">
                     <thead class="thead-dark">
@@ -57,10 +66,58 @@
               </div>
             </div>
           </div>
+
+
+
+          <div class="modal fade" id="diagnosis-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalLabel">New Diagnosis</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  
+                  <form  action="{{url('upload_diagnosis')}}" method="POST" id="diagnosis-form" enctype="multipart/form-data">
+                    @csrf
+                    <div class="mb-3">
+                      <label for="name" class="form-label">Diagnosis Name</label>
+                      <input type="text" class="form-control" style="color:black"  name="name" required>
+                    </div>
+                    <div class="mb-3">
+                      <label for="description" class="form-label"> Description</label>
+                      <textarea class="form-control" id="description" style="color:black"  name="description"  rows="7"></textarea>
+                    </div>
+                    
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" id="diagnosis-sub" class="btn btn-outline-primary">Submit</button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+
   </body> 
 </html>
 
-                       
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('#diagnosis').click(function(){
+      $('#diagnosis-modal').modal('show');
+    });
+
+    $('#diagnosis-sub').click(function(){
+      $('#diagnosis-form').submit();
+    });
+  });
+</script>                      
 
 
 

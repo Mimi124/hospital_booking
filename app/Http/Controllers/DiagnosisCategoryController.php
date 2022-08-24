@@ -10,7 +10,8 @@ use Illuminate\Http\Request;
 class DiagnosisCategoryController extends Controller
 {
   
-    
+   
+
     
     
     public function upload(Request $request){

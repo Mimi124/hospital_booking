@@ -55,7 +55,7 @@
                           @elseif ($appointment->status === 'Canceled')
                               <span class="btn btn-outline-danger">Canceled</span>
                           @else
-                              <span class="badge badge-outline-warning">Pending</span>
+                              <span class="btn btn-outline-warning">Pending</span>
                           @endif
                           </td>
                         {{-- <td>

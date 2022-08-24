@@ -4,37 +4,35 @@ namespace App\Http\Controllers;
 
 use App\Models\Bed;
 use Illuminate\Http\Request;
+use App\Models\BedType;
 
 class BedController extends Controller
 {
     public function showBed(){
 
         $beds = Bed::all();
-        return view("nurse.showBed",compact("beds"));
+        $bedTypes = BedType::where('title', '!=', null)->get();
+        return view("nurse.showBed",compact("beds"))->with('bedTypes', $bedTypes);
     }
 
-    
-    public function addview(){
 
-    return view("nurse.add_bed");
-   }
 
    public function upload(Request $request){
 
     $request->validate([
-
-           'name'=> 'required|unique:beds,name',
-           'charge'=> 'required',
-           'bed_types' => 'sometimes|exists:bed_types,title',
+        'name'=> 'required|unique:beds,name',
+        'charge'=> 'required',
+        // 'bed_type' => 'required|exists:bed_types,title',
         
         ]);
 
-    $beds = new Bed();
-    $beds->name = $request->name;
-    $beds->charge = $request->charge;
-    $beds->bed_types= $request->input('title');
+    Bed::create([
+        'name' => $request->name,
+        'charge' => $request->charge,
+        'bed_type' => $request->bed_type,
+    ]);
 
-    $beds->save();
+    
 
     return redirect()->back()->with('message','Bed Added Successfully');
 

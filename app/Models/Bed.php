@@ -7,13 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class Bed extends Model
 {
+    protected $fillable = [
+        'name',
+        'bed_type',
+        'description',
+        'charge'
+    ];
+
     public function department(){
         return $this->belongsTo(Department::class);
     }
 
-    public function bed_types(){
-        return $this->hasMany(BedType::class);
-    }
+    public function bed_types() {
+		return $this->belongsTo(BedType::class);
+	}
 
     use HasFactory;
     

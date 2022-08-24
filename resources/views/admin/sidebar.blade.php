@@ -76,7 +76,6 @@
         </a>
         <div class="collapse" id="finance">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href='{{url('showAccountant')}}'>Accountants</a></li>
             <li class="nav-item"> <a class="nav-link" href='{{url('showInvoice')}}'>Invoices</a></li>
             <li class="nav-item"> <a class="nav-link" href='{{url('showExpense')}}'>Expenses</a></li>
             <li class="nav-item"> <a class="nav-link" href='{{url('showPayrolls')}}'>Employees Payrolls</a></li>
@@ -91,51 +90,6 @@
             <i class=" mdi mdi-calendar-multiple "></i>
           </span>
           <span class="menu-title">Appointments</span>
-        </a>
-      </li>
-
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showDoctor')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-doctor "></i>
-          </span>
-          <span class="menu-title"> Doctors</span>
-        </a>
-      </li>
-
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showNurse')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
-          </span>
-          <span class="menu-title"> Nurses</span>
-        </a>
-      </li>
-
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showPharmacist')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
-          </span>
-          <span class="menu-title"> Pharmacists</span>
-        </a>
-      </li>
-
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showLaboratorist')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
-          </span>
-          <span class="menu-title"> Laboratorist</span>
-        </a>
-      </li>
-
-      <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showReceptionist')}}">
-          <span class="menu-icon">
-            <i class=" mdi mdi-account-multiple "></i>
-          </span>
-          <span class="menu-title">Receptionists</span>
         </a>
       </li>
 
@@ -167,7 +121,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showLabTest')}}">
+        <a class="nav-link" href="{{url('showLab')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-file-lock "></i>
           </span>
@@ -180,18 +134,54 @@
               <span class="menu-icon">
                 <i class="mdi mdi-account-multiple-outline"></i>
               </span>
-              <span class="menu-title">Patients</span>
+              <span class="menu-title">Patients Records</span>
               <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="showPatient">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href='{{url('showBedTypes')}}'>Cases</a></li>
-                <li class="nav-item"> <a class="nav-link" href='{{url('showBed')}}'>Case Handlers</a></li>
-                <li class="nav-item"> <a class="nav-link" href='{{url('showBedAssigned')}}'>Patient Admissions</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showCases')}}'>Cases</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showCaseHandlers')}}'>Case Handlers</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showPatientAdm')}}'>Patient Admissions</a></li>
               </ul>
             </div>
           </li>
     
+          <li class="nav-item menu-items">
+            <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
+              <span class="menu-icon">
+                <i class="mdi mdi-account-multiple"></i>
+              </span>
+              <span class="menu-title">Users</span>
+              <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="users">
+              <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href='{{url('showDoctor')}}'>  <span class="menu-icon">
+                  <i class=" mdi mdi-doctor "></i>
+                </span>Doctors</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showNurse')}}'>
+                  <span class="menu-icon">
+                    <i class=" mdi mdi-account-multiple "></i>
+                  </span>Nurses</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showLaboratorist')}}'>
+                  <span class="menu-icon">
+                    <i class=" mdi mdi-account-multiple "></i>
+                  </span>Laboratorist</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showPharmacist')}}'>
+                  <span class="menu-icon">
+                    <i class=" mdi mdi-account-multiple "></i>
+                  </span>Pharmacists</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showReceptionist')}}'>
+                  <span class="menu-icon">
+                    <i class=" mdi mdi-account-multiple "></i>
+                  </span>Receptionists</a></li>
+                <li class="nav-item"> <a class="nav-link" href='{{url('showAccountant')}}'>
+                  <span class="menu-icon">
+                    <i class=" mdi mdi-account-multiple "></i>
+                  </span>Accountants</a></li>
+              </ul>
+            </div>
+          </li>
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showDocuments')}}">
@@ -249,7 +239,7 @@
 
                     
                     <li class="nav-item menu-items">
-                      <a class="nav-link" href="{{url('showMedicine')}}">
+                      <a class="nav-link" href="{{url('showMedicines')}}">
                         <span class="menu-icon">
                           <i class=" mdi mdi-pill "></i>
                         </span>
