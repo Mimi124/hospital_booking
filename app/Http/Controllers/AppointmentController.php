@@ -4,8 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Appointment;
+use App\Models\Doctor;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Notification;
+use Mail;
 
  use App\Notifications\EmailNotification;
 
@@ -89,6 +91,16 @@ class AppointmentController extends Controller
        $appointment->status='Approved';
        $appointment->save();
 
+       $approvedAppointment = Appointment::where('id', $id)->first();
+       $doctor = Doctor::where('id', $approvedAppointment->doctor_id)->first();
+
+       $data = array('name'=> 'Dear '. $doctor->name);
+        Mail::send('admin.testmail', $data, function($message) use($doctor) {
+            $message->to('miriamamoako@hotmail.com', 'Urgent booking')->subject
+                ('You have a new appointment');
+            $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+        });
+
        return redirect()->back()->with('message','Appointment Approved Successfully .');
    }
  
@@ -109,20 +121,18 @@ class AppointmentController extends Controller
 //     return view('admin.email_view', compact('appointment'));
 // }
 
-//     public function sendEmail(Request $request, $id) {
-
-//         $appointment = Appointment::find($id);
+    public function sendEmail(Request $request, $id) {
+        $appointment = Appointment::find($id);
         
-//         $details = [
+        $details = [
+            'greeting' => $request->greeting,
+            'body' => $request->body,
+            'actionText' => $request->actionText,
+            'actionUrl' => $request->actionUrl
+        ];
 
-//             'greeting' => $request->greeting,
-//             'body' => $request->body,
-//             'actionText' => $request->actionText,
-//             'actionUrl' => $request->actionUrl
-//         ];
+        Notification::send($appointment, new EmailNotification($details));
 
-//         Notification::send($appointment, new EmailNotification($details));
-
-//         return redirect()->back()->with('message','Email Sent Successfully .');
-//     }
+        return redirect()->back()->with('message','Email Sent Successfully .');
+    }
 }

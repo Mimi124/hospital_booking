@@ -73,7 +73,7 @@
                             <select class="form-control" type="text" name="category"  style="color:black" id="category">
                                 <option>Select Category</option>
                                 @foreach($medicineCategory as $medicineCategories)
-                                    <option>{{$medicineCategories->name}}</option>
+                                    <option value="{{$medicineCategories->id}}">{{$medicineCategories->name}}</option>
                                 @endforeach
                             </select>
                         {{-- @endif --}}
