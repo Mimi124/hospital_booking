@@ -52,51 +52,24 @@ class BedAssignController extends Controller
 
     public function upload(Request $request){
 
-        // $request->validate([
-        //     'assigned_date'=> 'required|date',
-        //     'discharged_date'=> 'date',
-        //     'patient_id' => 'required|exists:patients,name',
-        //     'bed_id' => 'sometimes|exists:beds,name',
-            
-        //     ]);
-    
-        // // $inputs = $request->all();
-        // // print_r($inputs);
-        // // exit;
-
-        // BedAssign::create([
-        //     'assigned_date' => $request->assigned_date,
-        //     'discharged_date' => $request->discharged_date,
-        //     'patient_id' => $request->patient_id,
-        //     'bed_id' => $request->bed_id,
-        //     // 'status' =>'Available',
-        // ]);
-    
         $request->validate([
-
-        
-            'date'=> 'required|date',
-            'number' => 'required|numeric',
-            'message'=> 'required',
-            'doctor_id' => 'sometimes|exists:doctors,id',
-         
-         ]);
+            'assigned_date'=> 'required|date',
+            'discharged_date'=> 'date',
+            'patient_id' => 'required|exists:patients,name',
+            'bed_id' => 'sometimes|exists:beds,name',             
+           ]);
  
-        $appointment = new Appointment;
+        $bed_assigns = new BedAssign;
     
-        $appointment->date = $request->input('date');
-        $appointment->phone = $request->input('number');
-        $appointment->message = $request->input('message');
-        $appointment->status =  'Pending';
-       
-        $appointment->user_id = Auth::user()->id;
-        $appointment->doctor_id = $request->input('doctor_id');
+        $bed_assigns->assigned_date = $request->input('date');
+        $bed_assigns->discharged_date = $request->input('number');
+        $bed_assigns->status =  'Available';
+        $bed_assigns->patient_id =$request->input('patient_id');
+        $bed_assigns->doctor_id = $request->input('bed_id');
  
- 
-        $appointment->save();
+        $bed_assigns->save();
     
         return redirect()->back()->with('message','Bed Assigned Added Successfully');
-    
     
     }
  
