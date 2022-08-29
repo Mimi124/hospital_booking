@@ -101,7 +101,7 @@ class AppointmentController extends Controller
             $message->from(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
         });
 
-       return redirect()->back()->with('message','Appointment Approved Successfully .');
+       return redirect()->back()->with('$doctor');
    }
  
 
@@ -121,18 +121,18 @@ class AppointmentController extends Controller
 //     return view('admin.email_view', compact('appointment'));
 // }
 
-    public function sendEmail(Request $request, $id) {
-        $appointment = Appointment::find($id);
+    // public function sendEmail(Request $request, $id) {
+    //     $appointment = Appointment::find($id);
         
-        $details = [
-            'greeting' => $request->greeting,
-            'body' => $request->body,
-            'actionText' => $request->actionText,
-            'actionUrl' => $request->actionUrl
-        ];
+    //     $details = [
+    //         'greeting' => $request->greeting,
+    //         'body' => $request->body,
+    //         'actionText' => $request->actionText,
+    //         'actionUrl' => $request->actionUrl
+    //     ];
 
-        Notification::send($appointment, new EmailNotification($details));
+    //     Notification::send($appointment, new EmailNotification($details));
 
-        return redirect()->back()->with('message','Email Sent Successfully .');
-    }
+    //     return redirect()->back()->with('message','Email Sent Successfully .');
+    // }
 }

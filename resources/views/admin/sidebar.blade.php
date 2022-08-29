@@ -103,9 +103,9 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href='{{url('showBedTypes')}}'>Bed Types</a></li>
-            <li class="nav-item"> <a class="nav-link" href='{{url('showBed')}}'>Beds</a></li>
-            <li class="nav-item"> <a class="nav-link" href='{{url('showBedAssigned')}}'>Bed Assign</a></li>
+            <li class="nav-item"> <a class="nav-link" href='{{url('showBedType')}}'>Bed Types</a></li>
+            <li class="nav-item"> <a class="nav-link" href='{{url('showBeds')}}'>Beds</a></li>
+            <li class="nav-item"> <a class="nav-link" href='{{url('showBedsAssign')}}'>Bed Assign</a></li>
           </ul>
         </div>
       </li>

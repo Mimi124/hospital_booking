@@ -11,7 +11,7 @@ class BedController extends Controller
     public function showBed(){
 
         $beds = Bed::all();
-        $bedTypes = BedType::where('title', '!=', null)->get();
+         $bedTypes = BedType::where('title', '!=', null)->get();
         return view("nurse.showBed",compact("beds"))->with('bedTypes', $bedTypes);
     }
 
@@ -67,4 +67,11 @@ public function editBed(Request $request , $id){
     return redirect()->back->with('message','Bed Details updated Successfully');
 
 }
+
+public function showBeds(){
+    $beds=Bed::all();
+    return view('admin.showBeds',compact("beds"));
+}
+
+
 }

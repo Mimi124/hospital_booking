@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Patient;
+use App\Models\Appointment;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use Illuminate\Support\Facades\Auth;
@@ -49,13 +50,9 @@ class PatientController extends Controller
 
     public function showPatients(){
 
-         $patients = Patient::all();
-
-        //  $userid = Auth::user()->id;
-           
-        // $patients=Patient::where('user_id',$userid)->get();
+        $appointments = Appointment::all();
     
-        return view('doctor.showPatients', compact('patients'));
+        return view('doctor.showPatients', compact('appointments'));
     }
 
     /**
