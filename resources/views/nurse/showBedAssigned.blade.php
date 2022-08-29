@@ -3,9 +3,44 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
     <!-- plugins:css -->
   @include('nurse.css')
+  <style type="text/css">
+    .modal .modal-dialog{ 
+    width: 42%; max-width:80%; height: 100%; margin:50;transform: translate(0); transition: transform .2s;
+  }
+.modal .modal-dialog .modal-content{ border:0; border-radius: 0;}
+.modal .modal-dialog .modal-content .modal-body{ overflow-y: auto }
+/* .modal.fixed-left .modal-dialog{ margin-left:auto;  transform: translateX(100%); }
+.modal.fixed-right .modal-dialog{ margin-right:auto; transform: translateX(-100%); } */
+.modal.show .modal-dialog{ transform: translateX(0);  }
+
+.modal-header {
+    background-color: #24a0ed;
+    padding:9px 15px;
+    color:#FFF;
+    font-family:Verdana, sans-serif;
+    border-bottom:1px solid #eee;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+ }
+
+ .modal-body {
+    /* background-color: #FF7171; */
+    padding:9px 15px;
+    color:#000;
+    font-family:Verdana, sans-serif;
+    border-bottom:4px solid #24a0ed;
+ }
+.modal-footer {
+    /* background-color: #24a0ed; */
+    /* color:#FFF; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+ } 
+  </style>
   </head>
   <body>
   @include('nurse.banner')
@@ -48,10 +83,10 @@
                         <td>
                           @if ($bed_assign->status === 'Available')
                               <span class="badge badge-outline-success">Available</span>
-                          @elseif ($bed_assign->status === 'Canceled')
+                          @elseif ($bed_assign->status === 'Occupied')
                               <span class="badge badge-outline-danger">Occupied</span>
                           {{-- {{-- @else --}}
-                              <span class="badge badge-outline-warning">.....</span> --}}
+                              {{-- <span class="badge badge-outline-warning">.....</span> --}} 
                           @endif
                           </td>
                          <td>
@@ -73,11 +108,23 @@
             </div>
           </div>   
           
-          
+          @if ($errors->any())
+<div class="alert alert-danger d-flex align-items-center" role="alert">
+    
+        <div>ERROR</div>
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+{{-- <pre>@json($errors->all())</pre> --}}
 
 
           <div class="modal fade " id="assign-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
+            <div class="modal-dialog"> {{--modal-dialog modal-lg--}}
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="exampleModalLabel"> Assign New Bed</h5>
@@ -85,7 +132,7 @@
                 </div>
                 <div class="modal-body">
           
-                            <form action="{{url('upload_assignedbed')}}" method="POST" id="assign-form" enctype="multipart/form-data">
+                            <form action="{{url('upload_assignedbed')}}" method="Post" id="assign-form" enctype="multipart/form-data">
                               @csrf
                               <div class="row mb-3">
                                   <label for="user_id" class="col-sm-2 col-form-label">Patient Name</label>
@@ -110,15 +157,15 @@
                                   </div>
                               </div>
                               <div class="row mb-3">
-                                <label for="assigned_date" class="col-sm-2 col-form-label">Assigned Date</label>
+                                <label for="assign_date" class="col-sm-2 col-form-label">Assigned Date</label>
                                 <div class="col-sm-10">
-                                    <input type="date" class="form-control" id="assigned_date" name="assigned_date" placeholder="Assigned Date" required>
+                                    <input type="date" class="form-control" id="assign_date" name="assign_date" placeholder="Assigned Date" required>
                                 </div>
                             </div>
                             <div class="row mb-3">
-                              <label for="discharged_date" class="col-sm-2 col-form-label">Discharged Date</label>
+                              <label for="discharge_date" class="col-sm-2 col-form-label">Discharged Date</label>
                               <div class="col-sm-10">
-                                  <input type="date" class="form-control" id="discharged_date" name="discharged_date" placeholder="Discharged Date" >
+                                  <input type="date" class="form-control" id="discharge_date" name="discharge_date" placeholder="Discharged Date" >
                               </div>
                           </div>
                           </form> 
@@ -156,3 +203,43 @@
     });
   </script>
 
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> 
+  <script>
+    $(document).ready(function(){
+      $('#assign-bed').click(function(){
+        $('#assign-modal').modal('show');
+      });
+
+      $.ajaxSetup({
+      headers: {
+          'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+      }
+    });
+    $('#sub-assign-btn').click(function(e){
+
+        e.preventDefault();
+
+        var patientId = $("#patient-id").val();
+        var bedId = $("#bed-id").val();
+        var assignedDate = $("#assigned_date").val();
+        var dischargedDate = $("#discharged_date").val();
+
+        $.ajax({
+            type:'POST',
+            url:"{{ route('upload_assignedbed') }}",
+            data:{patientId:patientId, bedId:bedId, assignedDate:assignedDate,dischargedDate:dischargedDate},
+            success:function(data){
+              
+            }
+        });
+
+        $('#assign-form').submit();
+
+    });
+
+      $('#sub-assign-btn').click(function(){
+        $('#assign-form').submit();
+      });
+
+    });
+  </script> --}}

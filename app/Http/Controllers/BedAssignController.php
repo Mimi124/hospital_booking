@@ -52,26 +52,46 @@ class BedAssignController extends Controller
 
     public function upload(Request $request){
 
+        // dd($request);
+
         $request->validate([
-            'assigned_date'=> 'required|date',
-            'discharged_date'=> 'date',
-            'patient_id' => 'required|exists:patients,name',
-            'bed_id' => 'sometimes|exists:beds,name',             
+            'assign_date'=> 'required|date',
+            'discharge_date'=> 'date',
+            'patient_id' => 'required|exists:patients,id',
+            'bed_id' => 'sometimes|exists:beds,id',             
            ]);
  
         $bed_assigns = new BedAssign;
     
-        $bed_assigns->assigned_date = $request->input('date');
-        $bed_assigns->discharged_date = $request->input('number');
+        $bed_assigns->assign_date = $request->input('assign_date');
+        $bed_assigns->discharge_date = $request->input('discharge_date');
         $bed_assigns->status =  'Available';
         $bed_assigns->patient_id =$request->input('patient_id');
-        $bed_assigns->doctor_id = $request->input('bed_id');
+        $bed_assigns->bed_id = $request->input('bed_id');
  
         $bed_assigns->save();
-    
-        return redirect()->back()->with('message','Bed Assigned Added Successfully');
+      
+        return redirect()->back()->with('message','Bed Assigned  Successfully');
     
     }
  
+    public function available($id)
+    {
+        $bed_assigns=BedAssign::find($id);
+        $bed_assigns->status='Available';
+        $bed_assigns->save();
+
+        return redirect()->back()->with('$bed_assigns');
+    }
+  
+ 
+    public function occupied($id)
+    {
+        $bed_assigns=BedAssign::find($id);
+        $bed_assigns->status='Occupied';
+        $bed_assigns->save();
+ 
+        return redirect()->back()->with('message','Bed Occupied.');
+    }
    
 }

@@ -22,7 +22,7 @@ class BedController extends Controller
     $request->validate([
         'name'=> 'required|unique:beds,name',
         'charge'=> 'required',
-        // 'bed_type' => 'required|exists:bed_types,title',
+        // 'bed_type' => 'required|exists:bed_types,id',
         
         ]);
 
@@ -31,9 +31,7 @@ class BedController extends Controller
         'charge' => $request->charge,
         'bed_type' => $request->bed_type,
     ]);
-
-    
-
+  
     return redirect()->back()->with('message','Bed Added Successfully');
 
 
