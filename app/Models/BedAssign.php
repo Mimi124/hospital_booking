@@ -7,5 +7,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class BedAssign extends Model
 {
+    protected $fillable = [
+      'patient_id','bed_id',  'assigned_date','discharged_date','status'
+    ];
+    public function bed()   {
+        return  $this->belongsTo(Bed::class);
+     }
+
+     public function Patient() {
+         return $this->belongsTo(Patient::class);
+     }
+
     use HasFactory;
 }

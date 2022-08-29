@@ -7,6 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Patient extends Model
 {
+    protected $fillable = [
+        'user_id','payment_method'
+      ];
 
     public function doctor()   {
         return  $this->belongsTo(Doctor::class);

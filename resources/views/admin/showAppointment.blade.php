@@ -37,7 +37,6 @@
                         <th scope="col">Status</th>
                         <th scope="col">Approve</th>
                         <th scope="col">Cancel Appointment</th>
-                        {{-- <th scope="col">Send Email</th> --}}
                       </tr>
                     </thead>
                     <tbody>
@@ -71,12 +70,6 @@
                           <a class="badge badge-outline-danger" onclick="hide" href="{{url('canceled',$appointment->id)}}">Cancel</a>      
                         @endunless
                         </td>
-                    
-{{--                     
-                    <td>
-                      <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
-                      
-                    </td>  --}}
                       </tr>
                       @endforeach
                   </tbody>
@@ -95,23 +88,6 @@
 </html>
 
                        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

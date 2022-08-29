@@ -35,7 +35,6 @@
                         <th scope="col">Date</th>
                         <th scope="col">Message</th>
                         <th scope="col">Status</th>
-                        {{-- <th scope="col">Send Email</th> --}}
                       </tr>
                     </thead>
                     <tbody>
@@ -58,18 +57,7 @@
                               <span class="btn btn-outline-warning">Pending</span>
                           @endif
                           </td>
-                        {{-- <td>
-                          @unless($appointment->status === 'Approved')
-                          <a class="btn btn-danger" onclick="hide"  onclick="return
-                          confirm('Are you sure you want to approve?')" href="{{url('approved',$appointment->id)}}">Approve</a></td>     
-                        @endunless
-                        </td> --}}
-                    
-{{--                     
-                    <td>
-                      <a class="btn btn-success" href="{{url('emailView',$appointment->id)}}">Send Email</a>
-                      
-                    </td>  --}}
+        
                       </tr>
                       @endforeach
                   </tbody>

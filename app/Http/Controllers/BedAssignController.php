@@ -2,38 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
 use App\Models\BedAssign;
 use App\Http\Requests\StoreBedAssignRequest;
 use App\Http\Requests\UpdateBedAssignRequest;
+use App\Models\Patient;
+use Illuminate\Support\Facades\Auth;
+use App\Models\Bed;
+use App\Models\User;
 
 class BedAssignController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function index()
     {
         //
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+  
     public function create()
     {
         //
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreBedAssignRequest  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(StoreBedAssignRequest $request)
     {
         //
@@ -49,43 +40,38 @@ class BedAssignController extends Controller
 
     public function showBedAssigned(){
 
+        $patients = User::where('usertype', '=', '0')->get();
+        $beds = Bed::where('name', '!=', null)->get();
+
         $bed_assigns = BedAssign::all();
     
-        return view('nurse.showBedAssigned', compact('bed_assigns'));
+        return view('nurse.showBedAssigned', compact('bed_assigns'))
+        ->with('beds', $beds)
+        ->with('patients', $patients);
     }
 
+    public function upload(Request $request){
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\BedAssign  $bedAssign
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(BedAssign $bedAssign)
-    {
-        //
+        $request->validate([
+            'assigned_date'=> 'required|date',
+            'discharged_date'=> 'date',
+            'patient_id' => 'required|exists:patients,name',
+            'bed_id' => 'sometimes|exists:beds,name',             
+           ]);
+ 
+        $bed_assigns = new BedAssign;
+    
+        $bed_assigns->assigned_date = $request->input('date');
+        $bed_assigns->discharged_date = $request->input('number');
+        $bed_assigns->status =  'Available';
+        $bed_assigns->patient_id =$request->input('patient_id');
+        $bed_assigns->doctor_id = $request->input('bed_id');
+ 
+        $bed_assigns->save();
+    
+        return redirect()->back()->with('message','Bed Assigned Added Successfully');
+    
     }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateBedAssignRequest  $request
-     * @param  \App\Models\BedAssign  $bedAssign
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateBedAssignRequest $request, BedAssign $bedAssign)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\BedAssign  $bedAssign
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(BedAssign $bedAssign)
-    {
-        //
-    }
+ 
+   
 }

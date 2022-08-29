@@ -57,4 +57,10 @@ public function editBedType(Request $request , $id){
 
 }
 
+public function showBedType(){
+
+    $bed_types = BedType::all();
+    return view("admin.showBedType",compact("bed_types"));
+}
+
 }

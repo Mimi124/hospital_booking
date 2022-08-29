@@ -20,6 +20,7 @@ class CreateBedAssignsTable extends Migration
             $table->date('assign_date');
             $table->date('discharge_date')->nullable();
             $table->text('description')->nullable();
+            $table->string('status')->nullable();
 
             $table->foreign('bed_id')->references('id')->on('beds')
                 ->onUpdate('cascade')
@@ -28,6 +29,7 @@ class CreateBedAssignsTable extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->timestamps();
+            
         });
     }
 

@@ -38,10 +38,6 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/',[DoctorController::class, 'index']);
 
-
-// Route::get('/home',[AccountantController::class, 'redirect'])->middleware
-// ('auth','verified');
-
 Route::get('/home',[PharmacyController::class, 'redirect'])->middleware
 ('auth','verified');
 
@@ -66,6 +62,8 @@ Route::get('/myDashboard',[PatientController::class, 'myDashboard'])->middleware
 Route::get('/cancel_appointment/{id}',[AppointmentController::class, 'cancel_appointment']);
 
 Route::get('/showAppointment',[AppointmentController::class, 'showAppointment']);
+Route::get('/showBeds',[BedController::class, 'showBeds']);
+Route::get('/showBedType',[BedTypeController::class, 'showBedType']);
 
 
 //Doctor
@@ -73,11 +71,11 @@ Route::get('/approved/{id}',[AppointmentController::class, 'approved']);
 
 Route::get('/canceled/{id}',[AppointmentController::class, 'canceled']);
 
- Route::get('/showDoctor',[DoctorController::class, 'showDoctor']);
+Route::get('/showDoctor',[DoctorController::class, 'showDoctor']);
 
- Route::delete('/deleteDoctor/{id}',[DoctorController::class, 'deleteDoctor']);
+Route::delete('/deleteDoctor/{id}',[DoctorController::class, 'deleteDoctor']);
 
- Route::get('/updateDoctor/{id}',[DoctorController::class, 'updateDoctor']);
+Route::get('/updateDoctor/{id}',[DoctorController::class, 'updateDoctor']);
 
 Route::post('/editDoctor/{id}',[DoctorController::class, 'editDoctor']);
 
@@ -116,6 +114,8 @@ Route::post('/editNurse/{id}',[NurseController::class, 'editNurse']);
 
 Route::get('/showMyPayroll',[PayrollController::class, 'showMyPayroll']);
 
+
+
 // ======================BedType Nurse section==================================
 Route::post('/upload_bedType',[BedTypeController::class, 'upload'])->name('upload_bedType');
 Route::get('/showBedTypes',[BedTypeController::class, 'showBedTypes']);
@@ -137,6 +137,7 @@ Route::get('/updateBed/{id}',[BedController::class, 'updateBed']);
 
 // ================BED ASSIGN======================================================
 Route::get('/showBedAssigned',[BedAssignController::class, 'showBedAssigned']);
+Route::post('/upload_assignedbed',[BedAssignController::class, 'upload'])->name('upload_assignedbed');
 
 //ACCOUNTANT
 Route::get('/add_accountant_view',[AccountantController::class, 'addview']);
@@ -240,21 +241,4 @@ Route::post('/editPharmacist/{id}',[PharmacyController::class, 'editPharmacist']
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Route::get('/emailView/{id}',[AppointmentController::class, 'emailView']);
-
-// Route::post('/sendEmail/{id}',[AppointmentController::class, 'sendEmail']);
 

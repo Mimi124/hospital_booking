@@ -29,16 +29,17 @@
                         
                         <th scope="col">#</th>
                         <th scope="col">Patient Name</th>
-                        {{-- <th scope="col">Doctor Name</th> --}}
+                        <th scope="col">Doctor Name</th>
                         <th scope="col">Date Registered</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($patients as $patient)
+                      @foreach ($appointments as $appointment)
                       <tr>
-                        <td>{{ $patient->user->name }}</td>
-                        {{-- <td>{{ $patient->doctor->name }}</td> --}}
-                        <td>{{ $patient->date}}</td>
+                        <th scope="row">{{ $appointment->id }}</th>
+                        <td>{{ $appointment->user->name }}</td>
+                        <td>{{ $appointment->doctor->name }}</td>
+                        <td>{{ $appointment->date}}</td>
                       </tr>
                       @endforeach
                   </tbody>

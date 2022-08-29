@@ -5,9 +5,10 @@
 </head>
 
 <body>
-<h2>Hello</h2>
+<h2>Dear Dr Asante,</h2>
 <br/>
-You have an appointment
+I am writing to confirm your appointment
+ {{-- with  {{$user['name']}} scheduled at {{$user['date']}} --}}
 </body>
 
 </html>
