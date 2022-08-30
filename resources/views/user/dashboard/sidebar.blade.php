@@ -12,7 +12,7 @@
               <span class="count bg-success"></span>
             </div>
             <div class="profile-name">
-              <h5 class="mb-0 font-weight-normal">Patient</h5>
+              <h5 class="mb-0 font-weight-normal" style="color:aliceblue">Patient</h5>
               <span>R&H HOSPITAL</span>
             </div>
           </div>
@@ -80,24 +80,24 @@
             <span class="menu-title">Prescriptions</span>
           </a>
 
-          <li class="nav-item menu-items">
+          {{-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showDocuments')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-dropbox"></i>
               </span>
               <span class="menu-title">Documents</span>
-            </a>
+            </a> --}}
 
-            <li class="nav-item menu-items">
+            {{-- <li class="nav-item menu-items">
               <a class="nav-link" href="{{url('showQueries')}}">
                 <span class="menu-icon">
                   <i class="mdi mdi-camcorder-off"></i>
                 </span>
                 <span class="menu-title">Live Queries</span>
-              </a>
+              </a> --}}
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showLabReport')}}">
+            <a class="nav-link" href="{{url('showLabRep')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-history"></i>
               </span>
@@ -106,20 +106,20 @@
           </li>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showPrevCases')}}">
+            <a class="nav-link" href="{{url('showPCases')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-drawing"></i>
               </span>
               <span class="menu-title">Patient Cases</span>
             </a>
 
-            <li class="nav-item menu-items">
+            {{-- <li class="nav-item menu-items">
               <a class="nav-link" href="{{url('showAdmission')}}">
                 <span class="menu-icon">
                   <i class="mdi mdi-view-grid-plus"></i>
                 </span>
                 <span class="menu-title">Patient Admissions</span>
-              </a>
+              </a> --}}
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showPayment')}}">

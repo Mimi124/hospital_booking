@@ -3,7 +3,8 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- plugins:css -->
   @include('admin.css')
   </head>
@@ -24,7 +25,7 @@
                 <h4 class="card-title" style ="padding-top:50px"></h4>
                 <div class="table-responsive" style="padding:40px">
                   <table class="table table-bordered">
-                    <thead>
+                    <thead class="thead-dark">
                       <tr>
                         
                         <th scope="col">#</th>

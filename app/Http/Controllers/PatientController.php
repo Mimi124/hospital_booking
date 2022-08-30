@@ -7,6 +7,7 @@ use App\Models\Appointment;
 use App\Http\Requests\StorePatientRequest;
 use App\Http\Requests\UpdatePatientRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Prescription;
 
 class PatientController extends Controller
 {
@@ -15,10 +16,12 @@ class PatientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function showPCases(){
+        $prescriptions = Prescription::all();
+
+        return view("user.dashboard.showPCases", compact('prescriptions'));
     }
+    
 
     public function myDashboard()
 {

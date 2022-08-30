@@ -61,7 +61,7 @@ class AppointmentController extends Controller
            
            $appointments=Appointment::where('user_id',$userid)->get();
 
-           return view('user.my_appointment', compact('appointments'));
+           return view('user.dashboard.my_appointment', compact('appointments'));
    }
 
 

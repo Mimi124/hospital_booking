@@ -20,6 +20,15 @@ class BillingController extends Controller
         //
     }
 
+
+
+    public function showPayment()
+    {
+        $billing=Billing::all();
+        return view('user.dashboard.showPayment',compact('billing'));
+        //
+    }
+
     /**
      * Show the form for creating a new resource.
      *

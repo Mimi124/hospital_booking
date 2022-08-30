@@ -15,6 +15,11 @@ class LabReportController extends Controller
         return view("doctor.showLabTest",compact("lab_reports"));
     }
     
+    public function showLabRep(){
+
+        $lab_reports = LabReport::all();
+        return view("user.dashboard.showLabRep",compact("lab_reports"));
+    }
 
     public function getTemplateById(Request $request){
         if($request->id){

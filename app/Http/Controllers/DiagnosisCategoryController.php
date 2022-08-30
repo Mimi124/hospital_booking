@@ -10,7 +10,12 @@ use Illuminate\Http\Request;
 class DiagnosisCategoryController extends Controller
 {
   
-   
+    public function showDiagnose(){
+
+        $diagnosis_categories = DiagnosisCategory::all();
+    
+        return view('admin.showDiagnose', compact('diagnosis_categories'));
+    }
 
     
     

@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  @include('user.css')
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+ @include('user.dashboard.css')
 </head>
 <body>
+  @include('user.dashboard.banner')
+    <!-- partial:partials/_sidebar.html -->
+   @include('user.dashboard.sidebar')
 
-  <!-- Back to top button -->
-  <div class="back-to-top"></div>
+    <!-- partial -->
+    @include('user.dashboard.navbar')
 
-  @include('user.header')
-<div align="center" style="padding:70px">
-
-  <table class="table table-hover">
-    <thead>
+    <div class="col-12 grid-margin">
+        {{-- <div class="card"> --}}
+          <div class="card-body">
+            <h4 class="card-title" style ="padding-top:60px;margin:10px;"></h4>
+            <div class="table-responsive" style="padding:50px;">
+            <table class="table table-striped table-hover">
+            <thead class="thead-dark">
       <tr>
         <th scope="col">#</th>
         <th scope="col">Doctor Name</th>
@@ -36,20 +43,19 @@
           confirm('Are you sure you want to cancel?')" href="{{url('cancel_appointment',$appointment->id)}}">Cancel</a></td>     
         @endunless
         </td>
-
-        {{-- <td>
-          <a class="btn btn-danger" onclick="return
-           confirm('Are you sure you want to cancel?')" href="{{url('cancel_appointment',$appointment->id)}}">Cancel</a></td>
-      </tr> --}}
       @endforeach
     </tbody>
   </table>
-
-
-
 </div>
- 
-@include('user.script')
+</div>
+</div>
+
+<!-- container-scroller -->
+<!-- plugins:js -->
+
+<!-- End custom js for this page -->
+@include('user.dashboard.script')
+
   
 </body>
 </html>

@@ -18,6 +18,7 @@ class CreateBillingsTable extends Migration
             $table->unsignedBigInteger('patient_id');
             $table->string('bill_date');
             $table->double('amount')->nullable();
+            $table->foreign('patient_id')->references('user_id')->on('patients');
             $table->timestamps();
         });
     }

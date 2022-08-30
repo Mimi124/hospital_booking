@@ -58,7 +58,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="#body">
+        <a class="nav-link" href='{{url('#')}}'>
           <span class="menu-icon">
             <i class="mdi mdi-speedometer"></i>
           </span>
@@ -112,7 +112,7 @@
 
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showDiagnosis')}}">
+        <a class="nav-link" href="{{url('showDiagnose')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-book-multiple  "></i>
           </span>
@@ -183,24 +183,24 @@
             </div>
           </li>
 
-          <li class="nav-item menu-items">
+          {{-- <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showDocuments')}}">
               <span class="menu-icon">
                 <i class=" mdi mdi-dropbox  "></i>
               </span>
               <span class="menu-title">Documents</span>
             </a>
-          </li>
+          </li> --}}
 
-            <li class="nav-item menu-items">
-              <a class="nav-link" href="{{url('showLiveConsultation')}}">
+            {{-- <li class="nav-item menu-items">
+              <a class="nav-link" href="{{url('showLiveConsultations')}}">
                 <span class="menu-icon">
                   <i class=" mdi mdi-camcorder-off  "></i>
                 </span>
                 <span class="menu-title">Live Consultations</span>
               </a>
-            </li>
-
+            </li> --}}
+{{-- 
               <li class="nav-item menu-items">
                 <a class="nav-link" href="{{url('showEnquiries')}}">
                   <span class="menu-icon">
@@ -208,19 +208,19 @@
                   </span>
                   <span class="menu-title">Enquiries</span>
                 </a>
-              </li>
+              </li> --}}
 
-                <li class="nav-item menu-items">
+                {{-- <li class="nav-item menu-items">
                   <a class="nav-link" href="{{url('showCharges')}}">
                     <span class="menu-icon">
                       <i class=" mdi mdi-database-plus  "></i>
                     </span>
                     <span class="menu-title">Hospital Charges</span>
                   </a>
-                </li>
+                </li> --}}
 
 
-                    <li class="nav-item menu-items">
+                    {{-- <li class="nav-item menu-items">
                       <a class="nav-link" data-bs-toggle="collapse" href="#ui" aria-expanded="false" aria-controls="ui">
                         <span class="menu-icon">
                           <i class="mdi mdi-lock-plus "></i>
@@ -235,7 +235,7 @@
                           <li class="nav-item"> <a class="nav-link" href='{{url('showIssuedItem')}}'>Issued Item</a></li>
                         </ul>
                       </div>
-                    </li>
+                    </li> --}}
 
 
                     <li class="nav-item menu-items">
@@ -246,7 +246,7 @@
                         <span class="menu-title">Medicines</span>
                       </a>
                     </li>
-
+{{-- 
                       <li class="nav-item menu-items">
                         <a class="nav-link" href="{{url('showService')}}">
                           <span class="menu-icon">
@@ -254,7 +254,7 @@
                           </span>
                           <span class="menu-title">Services</span>
                         </a>
-                      </li>
+                      </li> --}}
 
                         <li class="nav-item menu-items">
                           <a class="nav-link" href="{{url('showSms')}}">

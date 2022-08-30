@@ -3,7 +3,8 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
     <!-- plugins:css -->
   @include('doctor.css')
   </head>
@@ -37,8 +38,9 @@
                     <tbody>
                       @foreach ($bed_assigns as $bed_assign)
                       <tr>
+                        <th scope="row">{{ $bed_assign->id }}</th>
                         <td>{{ $bed_assign->patient->name }}</td>
-                        <td>{{ $bed_assign->bed }}</td>
+                        <td>{{ $bed_assign->bed->name }}</td>
                         <td>{{ $bed_assign->assign_date }}</td>
                         <td>{{ $bed_assign->discharge_date }}</td>
                       </tr>

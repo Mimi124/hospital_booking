@@ -8,15 +8,13 @@ use App\Http\Requests\UpdatePrescriptionRequest;
 
 class PrescriptionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
+   
+    public function showPrescription(){
+        $prescriptions = Prescription::all();
+
+        return view("user.dashboard.showPrescription", compact('prescriptions'));
     }
+    
 
     /**
      * Show the form for creating a new resource.

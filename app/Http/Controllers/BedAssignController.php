@@ -85,4 +85,11 @@ class BedAssignController extends Controller
         return redirect()->back()->with('message','Bed Occupied.');
     }
    
+
+    public function showBedsAssign(){
+
+        $bed_assigns = BedAssign::all();
+    
+        return view('admin.showBedsAssign', compact('bed_assigns'));
+    }
 }

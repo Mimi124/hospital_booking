@@ -22,6 +22,7 @@ use App\Http\Controllers\BedTypeController;
 use App\Http\Controllers\BedController;
 use App\Http\Controllers\LabReportAdminController;
 use App\Http\Controllers\MedicineAdminController;
+use App\Http\Controllers\PrescriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -58,6 +59,10 @@ Route::post('/appointment',[AppointmentController::class, 'appointment'])->name(
 Route::get('/myAppointment',[AppointmentController::class, 'myAppointment'])->middleware('user');
 
 Route::get('/myDashboard',[PatientController::class, 'myDashboard'])->middleware('user');
+Route::get('/showPrescription',[PrescriptionController::class, 'showPrescription'])->middleware('user');
+Route::get('/showLabRep',[LabReportController::class, 'showLabRep'])->middleware('user');
+Route::get('/showPCases',[PatientController::class, 'showPCases'])->middleware('user');
+Route::get('/showPayment',[BillingController::class, 'showPayment'])->middleware('user');
 
 Route::get('/cancel_appointment/{id}',[AppointmentController::class, 'cancel_appointment']);
 
@@ -65,6 +70,9 @@ Route::get('/showAppointment',[AppointmentController::class, 'showAppointment'])
 Route::get('/showBeds',[BedController::class, 'showBeds']);
 Route::get('/showBedType',[BedTypeController::class, 'showBedType']);
 
+Route::get('/showBedsAssign',[BedAssignController::class, 'showBedsAssign']);
+Route::get('/showDiagnose',[DiagnosisCategoryController::class, 'showDiagnose']);
+// Route::get('/body',[DoctorController::class, 'body']);
 
 //Doctor
 Route::get('/approved/{id}',[AppointmentController::class, 'approved']);

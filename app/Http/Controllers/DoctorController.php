@@ -127,6 +127,9 @@ public function editDoctor(Request $request , $id){
 
 }
 
+// public function body(){
+//     return view('admin.body');
+// }
 
 
 
