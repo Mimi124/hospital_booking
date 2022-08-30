@@ -3,9 +3,44 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-  
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
     <!-- plugins:css -->
   @include('nurse.css')
+  <style type="text/css">
+    .modal .modal-dialog{ 
+    width: 42%; max-width:80%; height: 100%; margin:50;transform: translate(0); transition: transform .2s;
+  }
+.modal .modal-dialog .modal-content{ border:0; border-radius: 0;}
+.modal .modal-dialog .modal-content .modal-body{ overflow-y: auto }
+/* .modal.fixed-left .modal-dialog{ margin-left:auto;  transform: translateX(100%); }
+.modal.fixed-right .modal-dialog{ margin-right:auto; transform: translateX(-100%); } */
+.modal.show .modal-dialog{ transform: translateX(0);  }
+
+.modal-header {
+    background-color: #24a0ed;
+    padding:9px 15px;
+    color:#FFF;
+    font-family:Verdana, sans-serif;
+    border-bottom:1px solid #eee;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+ }
+
+ .modal-body {
+    /* background-color: #FF7171; */
+    padding:9px 15px;
+    color:#000;
+    font-family:Verdana, sans-serif;
+    border-bottom:4px solid #24a0ed;
+ }
+.modal-footer {
+    /* background-color: #24a0ed; */
+    /* color:#FFF; */
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+ } 
+  </style>
   </head>
   <body>
   @include('nurse.banner')
