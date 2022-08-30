@@ -20,8 +20,8 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\LiveConsultationController;
 use App\Http\Controllers\BedTypeController;
 use App\Http\Controllers\BedController;
-
-
+use App\Http\Controllers\LabReportAdminController;
+use App\Http\Controllers\MedicineAdminController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -171,7 +171,9 @@ Route::post('/editLaboratories/{id}',[LaboratoryController::class, 'editLaborato
 
 Route::get('/add_medicine_view',[MedicineController::class, 'create']);
 
+
 Route::get('/showMedicine',[MedicineController::class, 'index'])->name('showmedicine');
+Route::get('/showMedicines', [MedicineAdminController::class, 'index'])->name('showmedicines');
 Route::get('/add-medicine',[MedicineController::class, 'create']);
 Route::post('/upload_medicine',[MedicineController::class, 'store'])->name('upload_medicine');
 
@@ -191,6 +193,7 @@ Route::post('/editMedicineCategory/{id}',[MedicineCategoryController::class, 'ed
 //LabReports
 Route::get('/add_labreport_view',[LabReportController::class, 'create']);
 Route::get('/showLabReports',[LabReportController::class, 'index'])->name('showlabreport');
+Route::get('/showLabReport',[LabReportAdminController::class, 'index'])->name('showlabreports');
 Route::get('/add-labreport',[LabReportController::class, 'create']);
 Route::post('/upload_labreport',[LabReportController::class, 'store'])->name('upload_labreport');
 Route::get('/update_labreport/{id}',[LabReportController::class, 'update'])->name('update_labreport');

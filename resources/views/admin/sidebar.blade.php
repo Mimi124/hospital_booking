@@ -121,7 +121,7 @@
       </li>
 
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showLab')}}">
+        <a class="nav-link" href="{{url('showLabReport')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-file-lock "></i>
           </span>
@@ -145,7 +145,7 @@
               </ul>
             </div>
           </li>
-    
+
           <li class="nav-item menu-items">
             <a class="nav-link" data-bs-toggle="collapse" href="#users" aria-expanded="false" aria-controls="users">
               <span class="menu-icon">
@@ -200,7 +200,7 @@
                 <span class="menu-title">Live Consultations</span>
               </a>
             </li>
-    
+
               <li class="nav-item menu-items">
                 <a class="nav-link" href="{{url('showEnquiries')}}">
                   <span class="menu-icon">
@@ -218,8 +218,8 @@
                     <span class="menu-title">Hospital Charges</span>
                   </a>
                 </li>
-        
-             
+
+
                     <li class="nav-item menu-items">
                       <a class="nav-link" data-bs-toggle="collapse" href="#ui" aria-expanded="false" aria-controls="ui">
                         <span class="menu-icon">
@@ -237,7 +237,7 @@
                       </div>
                     </li>
 
-                    
+
                     <li class="nav-item menu-items">
                       <a class="nav-link" href="{{url('showMedicines')}}">
                         <span class="menu-icon">
@@ -246,7 +246,7 @@
                         <span class="menu-title">Medicines</span>
                       </a>
                     </li>
-                      
+
                       <li class="nav-item menu-items">
                         <a class="nav-link" href="{{url('showService')}}">
                           <span class="menu-icon">
@@ -255,7 +255,7 @@
                           <span class="menu-title">Services</span>
                         </a>
                       </li>
-              
+
                         <li class="nav-item menu-items">
                           <a class="nav-link" href="{{url('showSms')}}">
                             <span class="menu-icon">
@@ -264,11 +264,11 @@
                             <span class="menu-title">SMS/Mail</span>
                           </a>
                         </li>
-                
-  
 
 
 
-      
+
+
+
     </ul>
   </nav>

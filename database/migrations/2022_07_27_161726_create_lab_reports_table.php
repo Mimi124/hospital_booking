@@ -25,7 +25,7 @@ class CreateLabReportsTable extends Migration
             $table->foreign('doctor_id')->references('id')->on('doctors');
             $table->integer('template_id');
             $table->string('report');
-            $table->foreign('patient_id')->references('id')->on('patients');
+            $table->foreign('patient_id')->references('user_id')->on('patients');
             $table->timestamps();
         });
     }
