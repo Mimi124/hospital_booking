@@ -43,8 +43,8 @@
                         @foreach($labreport as $labreports)
                             <tr>
                                 <th scope="row">{{ $labreports->id }}</th>
-                                <td>{{$labreports->patient->first_name}}</td>
-                                    
+                                <td>{{$labreports->patient->name}}</td>
+                                <td>{{$labreports->doctor->name}}</td>    
                                 <td>{{$labreports->template->name}}</td>
                                 <td>{{$labreports->date.'/'.$labreports->time}}</td>
                                 <td>{{$labreports->report}}</td>

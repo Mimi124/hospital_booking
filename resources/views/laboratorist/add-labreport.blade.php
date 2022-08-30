@@ -56,7 +56,7 @@
                             <select class="form-control" type="text" name="patient"  style="color:black" id="patient">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option>{{$patients->name}}({{$patients->id}})</option>
+                                  <option  value="{{$patients->id}}">{{$patients->name}}</option>
                               @endforeach
                           </select>
                           </div>
@@ -67,8 +67,8 @@
                             <select class="form-control" type="text" name="doctor"  style="color:black" id="doctor">
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
-                                    <option>{{$doctors->name}}</option>
-                                    {{-- <option value="{{$doctors->id}}" class="form-control">{{$doctors->name}}</option> --}}
+                                    {{-- <option>{{$doctors->name}}</option> --}}
+                                    <option value="{{$doctors->id}}" class="form-control">{{$doctors->name}}</option>
                                     
                                 @endforeach
                             </select>
@@ -80,7 +80,7 @@
                             <select class="form-control" type="text" name="template"  style="color:black" id="template">
                                 <option>Select Template</option>
                                 @foreach($labtemplate as $labtemplates)
-                                    <option>{{$labtemplates->name}}</option>
+                                    <option value="{{$labtemplates->id}}">{{$labtemplates->name}}</option>
                                 @endforeach
                             </select>
                         {{-- @endif --}}
