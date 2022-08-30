@@ -14,7 +14,7 @@ class BedAssign extends Model
         return  $this->belongsTo(Bed::class);
      }
 
-     public function Patient() {
+     public function patient() {
          return $this->belongsTo(Patient::class);
      }
 

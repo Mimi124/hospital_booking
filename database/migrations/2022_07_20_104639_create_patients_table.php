@@ -14,8 +14,8 @@ class CreatePatientsTable extends Migration
     public function up()
     {
         Schema::create('patients', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->id();
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('date')->nullable();
             $table->string('payment_method')->default(1)->comment('1 = Cash');

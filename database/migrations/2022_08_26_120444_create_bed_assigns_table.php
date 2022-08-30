@@ -14,9 +14,9 @@ class CreateBedAssignsTable extends Migration
     public function up()
     {
         Schema::create('bed_assigns', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('bed_id');
             $table->unsignedBigInteger('patient_id');
+            $table->id();
             $table->date('assign_date');
             $table->date('discharge_date')->nullable();
             $table->text('description')->nullable();

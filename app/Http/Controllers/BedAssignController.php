@@ -10,25 +10,10 @@ use App\Models\Patient;
 use Illuminate\Support\Facades\Auth;
 use App\Models\Bed;
 use App\Models\User;
+use Illuminate\Validation\Rule;
 
 class BedAssignController extends Controller
 {
- 
-    public function index()
-    {
-        //
-    }
-
-  
-    public function create()
-    {
-        //
-    }
-
-    public function store(StoreBedAssignRequest $request)
-    {
-        //
-    }
 
     public function showBedAssign(){
 
@@ -40,7 +25,12 @@ class BedAssignController extends Controller
 
     public function showBedAssigned(){
 
-        $patients = User::where('usertype', '=', '0')->get();
+        //  $patients = User::where('usertype', '=', '0')->get();
+
+        $patients = Patient::query()
+      ->join('users', 'users.id', 'patients.user_id') // join to get `name` from users table
+      ->pluck('users.name', 'patients.id');
+
         $beds = Bed::where('name', '!=', null)->get();
 
         $bed_assigns = BedAssign::all();
@@ -56,8 +46,9 @@ class BedAssignController extends Controller
 
         $request->validate([
             'assign_date'=> 'required|date',
-            'discharge_date'=> 'date',
-            'patient_id' => 'required|exists:patients,id',
+            // 'discharge_date'=> 'date',
+            // 'patient_id' => 'required|exists:patients,id',
+            'patient_id' => ['required', Rule::exists('patients', 'id')],
             'bed_id' => 'sometimes|exists:beds,id',             
            ]);
  

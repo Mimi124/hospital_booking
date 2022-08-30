@@ -74,30 +74,32 @@
                       </tr>
                     </thead>
                     <tbody>
+                       {{-- <pre>@json($errors->all())</pre> --}}
                       @foreach ($bed_assigns as $bed_assign)
                       <tr>
+                        <th scope="row">{{ $bed_assign->id }}</th>
                         <td>{{ $bed_assign->patient->name }}</td>
                         <td>{{ $bed_assign->bed->name }}</td>
                         <td>{{ $bed_assign->assign_date }}</td>
                         <td>{{ $bed_assign->discharge_date }}</td>
                         <td>
                           @if ($bed_assign->status === 'Available')
-                              <span class="badge badge-outline-success">Available</span>
+                              <span class="btn btn-outline-success">Available</span>
                           @elseif ($bed_assign->status === 'Occupied')
-                              <span class="badge badge-outline-danger">Occupied</span>
-                          {{-- {{-- @else --}}
-                              {{-- <span class="badge badge-outline-warning">.....</span> --}} 
+                              <span class="btn btn-outline-danger">Occupied</span>
+                           @else
+                              <span class="badge badge-outline-warning">....</span> 
                           @endif
                           </td>
                          <td>
                           @unless($bed_assign->status === 'Available')
-                          <a class="badge badge-outline-success" onclick="hide" href="{{url('available',$bed_assign->id)}}">Available</a>      
+                          <a class="btn btn-outline-success" onclick="hide" href="{{url('available',$bed_assign->id)}}">Available</a>      
                         @endunless
                         </td>
 
                         <td>
-                          @unless($appointment->status === 'Occupied')
-                          <a class="badge badge-outline-danger" onclick="hide" href="{{url('occupied',$bed_assign->id)}}">Occupied</a>      
+                          @unless($bed_assign->status === 'Occupied')
+                          <a class="btn btn-outline-danger" onclick="hide" href="{{url('occupied',$bed_assign->id)}}">Occupied</a>      
                         @endunless
                         </td>
                       </tr>
@@ -108,19 +110,9 @@
             </div>
           </div>   
           
-          @if ($errors->any())
-<div class="alert alert-danger d-flex align-items-center" role="alert">
-    
-        <div>ERROR</div>
-        <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-@endif
+          {{-- --}}
 
-{{-- <pre>@json($errors->all())</pre> --}}
+
 
 
           <div class="modal fade " id="assign-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -137,12 +129,12 @@
                               <div class="row mb-3">
                                   <label for="user_id" class="col-sm-2 col-form-label">Patient Name</label>
                                   <div class="col-sm-10">
-                                    <select class="form-select form-select-sm" id="patient_id" name="patient_id" aria-label=".form-select-sm example" >
+                                    <select class="form-select form-select-sm" id="patient_id" name="patient_id">
                                       <option>--Select Patient--</option>
-                                      @foreach($patients as $patient)
-                                      <option value="{{$patient->id}}" class="form-control">{{$patient->name}}</option>
+                                      @foreach($patients as $id => $name)
+                                          <option value="{{$id}}" class="form-control">{{$name}}</option>
                                       @endforeach
-                                    </select>
+                                  </select>
                                   </div>
                               </div>
                               <div class="row mb-3">
