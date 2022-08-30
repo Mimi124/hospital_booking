@@ -5,22 +5,14 @@ namespace App\Http\Controllers;
 use App\Models\Medicine;
 use App\Models\Medicine_Category;
 use Illuminate\Http\Request;
-use App\Http\Requests\StoreMedicineRequest;
-use App\Http\Requests\UpdateMedicineRequest;
 
-class MedicineController extends Controller
+class MedicineAdminController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $medicine= Medicine::all();
-        return view('pharmacist.showMedicine',compact('medicine'));
+        return view('admin.showMedicines',compact('medicine'));
     }
-
 
     public function create()
     {
@@ -45,7 +37,7 @@ class MedicineController extends Controller
         // flash message
         session()->flash('success', 'New Medicine Added Successfully.');
         // redirect user
-        return redirect()->route('showmedicine');
+        return redirect()->route('showmedicines');
     }
 
     // public function show(Medicine $medicine)
@@ -91,4 +83,5 @@ class MedicineController extends Controller
         // redirect user
         return redirect()->route('showmedicine');
     }
+    //
 }
