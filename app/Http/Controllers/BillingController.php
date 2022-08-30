@@ -29,6 +29,13 @@ class BillingController extends Controller
         //
     }
 
+    public function showInvoice()
+    {
+        $billing=Billing::all();
+        return view('admin.showInvoice',compact('billing'));
+        //
+    }
+
     /**
      * Show the form for creating a new resource.
      *

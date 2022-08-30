@@ -229,6 +229,8 @@ Route::get('/update_billing/{id}',[BillingController::class, 'update'])->name('u
 Route::get('/delete_billing/{id}',[BillingController::class, 'destroy'])->name('delete_billing');
 Route::post('/editBilling/{id}',[BillingController::class, 'edit'])->name('editBilling');
 
+Route::get('/showInvoice',[BillingController::class, 'showInvoice'])->name('billing');
+
 //billitems
 Route::get('/add_billitem_view',[BillItemController::class, 'create']);
 Route::get('/showBillItems',[BillItemController::class, 'index'])->name('showbillitem');

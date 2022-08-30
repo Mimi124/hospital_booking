@@ -77,7 +77,7 @@
         <div class="collapse" id="finance">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href='{{url('showInvoice')}}'>Invoices</a></li>
-            <li class="nav-item"> <a class="nav-link" href='{{url('showExpense')}}'>Expenses</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href='{{url('showExpense')}}'>Expenses</a></li> --}}
             <li class="nav-item"> <a class="nav-link" href='{{url('showPayrolls')}}'>Employees Payrolls</a></li>
           </ul>
         </div>
