@@ -38,10 +38,16 @@
                         {{ __('Forgot your password?') }}
                     </a>
                 @endif
-
+              
                 <x-jet-button class="ml-4">
                     {{ __('Log in') }}
                 </x-jet-button>
+            </div>
+           
+            <div class="d-flex justify-content-start">
+                <a class="underline text-sm text-dark-600 hover:text-gray-900" href="{{ route('register') }}">
+                    {{ __('Create New Account') }}
+                </a>
             </div>
         </form>
     </x-jet-authentication-card>
