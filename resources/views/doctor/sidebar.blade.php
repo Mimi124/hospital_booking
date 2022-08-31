@@ -108,7 +108,7 @@
         </a>
 
         <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('showPatients')}}">
+          <a class="nav-link" href="{{url('showPatient')}}">
             <span class="menu-icon">
               <i class=" mdi mdi-account-multiple "></i>
             </span>
@@ -116,7 +116,7 @@
           </a>
 
           <li class="nav-item menu-items">
-            <a class="nav-link" href="{{url('showPrescription')}}">
+            <a class="nav-link" href="{{url('showPrescriptions')}}">
               <span class="menu-icon">
                 <i class="mdi mdi-needle"></i>
               </span>

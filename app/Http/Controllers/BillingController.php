@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Billing;
+use App\Models\User;
 use App\Http\Requests\StoreBillingRequest;
 use App\Http\Requests\UpdateBillingRequest;
 use App\Models\User;
@@ -39,7 +40,12 @@ class BillingController extends Controller
      */
     public function create()
     {
+<<<<<<< HEAD
         return view('accountant.add-billings')->with('patient',User::patient()->get());
+=======
+        return view('accountant.add-billings')
+        ->with('patient',User::patient()->get());
+>>>>>>> e1e81e3bacdbffc0234e2124b00d1e426b66cdb4
 
     }
 

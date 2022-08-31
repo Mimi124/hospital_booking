@@ -90,7 +90,12 @@
                 
                           <div class="mb-3">
                               <label for="report" class="form-label">Report</label>
+<<<<<<< HEAD
                               <input id="report" class="form-control"  style="color:black" type="file" name="report">
+=======
+                              <input id="report" class="form-control"  style="color:black" type="file" name="report"
+                             >
+>>>>>>> e1e81e3bacdbffc0234e2124b00d1e426b66cdb4
                             </div>
                             
                                                

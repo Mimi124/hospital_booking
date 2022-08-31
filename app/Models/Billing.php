@@ -12,7 +12,7 @@ class Billing extends Model
     ];
 
     public function bill_items(){
-        return $this->belongsToMany(Bill_Item::class)->withPivot('payment_item_quantity');
+        return $this->belongsToMany(Bill_Item::class);
     }
 
     public function patient(){

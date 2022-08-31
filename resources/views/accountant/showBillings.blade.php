@@ -41,7 +41,11 @@
                         @foreach($billing as $billings)
                             <tr>
                                 <th scope="row">{{ $billings->id }}</th>
+<<<<<<< HEAD
                                 <td>{{$billings->patient->name }}</td>
+=======
+                                <td>{{$billings->patient->name}}</td>
+>>>>>>> e1e81e3bacdbffc0234e2124b00d1e426b66cdb4
                                 <td>{{$billings->bill_date}}</td>
                                 <td>{{$billings->amount}}</td>
                                 

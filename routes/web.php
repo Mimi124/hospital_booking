@@ -20,9 +20,18 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\LiveConsultationController;
 use App\Http\Controllers\BedTypeController;
 use App\Http\Controllers\BedController;
+<<<<<<< Updated upstream
 use App\Http\Controllers\LabReportAdminController;
 use App\Http\Controllers\MedicineAdminController;
+<<<<<<< HEAD
 use App\Http\Controllers\PrescriptionController;
+=======
+=======
+use App\Http\Controllers\ReceptionistController;
+use App\Http\Controllers\PrescriptionController;
+
+>>>>>>> Stashed changes
+>>>>>>> e1e81e3bacdbffc0234e2124b00d1e426b66cdb4
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -252,6 +261,39 @@ Route::get('/updatePharmacist/{id}',[PharmacyController::class, 'updatePharmacis
 
 Route::post('/editPharmacist/{id}',[PharmacyController::class, 'editPharmacist']);
 
+//receptionist
+Route::get('/add_receptionist_view',[ReceptionistController::class, 'addview']);
+Route::post('/upload_receptionist',[ReceptionistController::class, 'upload'])->name('upload_receptionist');
 
+Route::get('/showReceptionist',[ReceptionistController::class, 'showReceptionist']);
+
+Route::delete('/deleteReceptionist/{id}',[ReceptionistController::class, 'deleteReceptionist']);
+
+Route::get('/updateReceptionist/{id}',[ReceptionistController::class, 'updateReceptionist']);
+
+Route::post('/editReceptionist/{id}',[ReceptionistController::class, 'editReceptionist']);
+
+//patient
+
+Route::get('/add_patient_view',[PatientController::class, 'addview']);
+Route::post('/upload_patient',[PatientController::class, 'upload'])->name('upload_patient');
+
+Route::get('/showPatient',[PatientController::class, 'showPatient']);
+Route::get('/showPatients',[PatientController::class, 'index']);
+
+Route::delete('/deletePatient/{id}',[PatientController::class, 'deletePatient']);
+
+Route::get('/updatePatient/{id}',[PatientController::class, 'updatePatient']);
+
+Route::post('/editPatient/{id}',[PatientController::class, 'editPatient']);
+
+//prescription
+Route::get('/add_prescription_view',[PrescriptionController::class, 'create']);
+Route::get('/showPrescriptions',[PrescriptionController::class, 'index'])->name('showprescription');
+Route::get('/add-prescription',[PrescriptionController::class, 'create']);
+Route::post('/upload_prescription',[PrescriptionController::class, 'store'])->name('upload_prescription');
+Route::get('/update_prescription/{id}',[PrescriptionController::class, 'update'])->name('update_prescription');
+Route::get('/delete_prescription/{id}',[PrescriptionController::class, 'destroy'])->name('delete_prescription');
+Route::post('/editprescription/{id}',[PrescriptionController::class, 'edit'])->name('editprescription');
 
 
