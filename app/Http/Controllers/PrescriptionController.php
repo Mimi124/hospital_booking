@@ -102,8 +102,6 @@ public function prescription(Request $request)
         ->with('doctors', $doctors);
     }
 
-
-
     public function destroy($id)
     {
         $prescription=Prescription::find($id);
