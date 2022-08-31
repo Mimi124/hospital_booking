@@ -7,56 +7,19 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StorePrescriptionRequest;
 use App\Http\Requests\UpdatePrescriptionRequest;
+use App\Models\Doctor;
 
 class PrescriptionController extends Controller
 {
-<<<<<<< HEAD
+
    
     public function showPrescription(){
         $prescriptions = Prescription::all();
 
         return view("user.dashboard.showPrescription", compact('prescriptions'));
-=======
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        $prescription = Prescription::all();
-        
-        return view('doctor.showPrescription',compact('prescription'));
->>>>>>> e1e81e3bacdbffc0234e2124b00d1e426b66cdb4
+
     }
     
-
-    public function create()
-    {
-        return view('doctor.add-prescription')
-        ->with('patient',User::patient()->get())
-            ->with('doctor',User::doctor()->get());
-    }
-
-    public function store(Request $request)
-    {
-
-         User::create([
-            'patient_id'=>$request->patient,
-            'doctor_id'=>$request->doctor,
-            'diagnosis' => $request->diagnosis,
-            'prescription' => $request->prescription,
-            'medicine_instruction' => $request->medicine_instruction,
-            'date' => $request->date,
-            
-        ]);
-
-        // flash message
-        session()->flash('success', 'New Prescription Added Successfully.');
-        // redirect user
-        return redirect()->route('showprescription');
-    }
-
     public function show(User $prescription)
     {
         return view('pharmacist.showPrescription')
@@ -98,24 +61,48 @@ class PrescriptionController extends Controller
 
 }
 
+public function prescription(Request $request)
+{
+    $request->validate([
+
+    
+        'date'=> 'required|date',
+        'diagnosis'=> 'required|string',
+        'prescription' => 'required|string',
+        'medicine_instruction' => 'required',
+        'patient_id' => 'required|exists:patients,id',
+        'doctor_id' => 'sometimes|exists:doctors,id',
+     
+     ]);
+
+     $prescriptions = new Prescription;
+
+     $prescriptions->date = $request->input('date');
+     $prescriptions->diagnosis = $request->input('diagnosis');
+     $prescriptions->prescription = $request->input('message');
+     $prescriptions->medicine_instruction =  $request->input('medicine_instruction');
+     $prescriptions->patient_id = $request->input('patient_id');
+     $prescriptions->doctor_id = $request->input('doctor_id');
+
+
+     $prescriptions->save();
+
+     return redirect()->back()->with('message','Prescription Added Successfully');
+    }
+
 
     public function showPrescriptions(){
 
-         $prescription = Prescription::all();
-
-        //  $userid = Auth::user()->id;
-           
-        // $patients=Prescription::where('user_id',$userid)->get();
+         $prescriptions = Prescription::all();
+         $patients = User::where('usertype', '=', '0')->get();
+         $doctors = Doctor::where('name', '!=', null)->get();
     
-        return view('doctor.showPrescription', compact('prescription'));
+        return view('doctor.showPrescription', compact('prescriptions'))
+        ->with('patients', $patients)
+        ->with('doctors', $doctors);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Prescription  $prescription
-     * @return \Illuminate\Http\Response
-     */
+
 
     public function destroy($id)
     {
@@ -127,4 +114,5 @@ class PrescriptionController extends Controller
         return redirect()->route('showpatient');
     }
     
+  
 }
