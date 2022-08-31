@@ -41,7 +41,7 @@
                         @foreach($billing as $billings)
                             <tr>
                                 <th scope="row">{{ $billings->id }}</th>
-                                <td>{{$billings->patient_id}}</td>
+                                <td>{{$billings->patient->name}}</td>
                                 <td>{{$billings->bill_date}}</td>
                                 <td>{{$billings->amount}}</td>
                                 

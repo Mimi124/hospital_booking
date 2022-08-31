@@ -58,10 +58,13 @@
                         enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3">
-                            <label for="patient_id" class="form-label">Patient ID</label>
-                            <input id="patient_id" class="form-control"  style="color:black" type="number" name="patient_id"
-                            placeholder="Patient ID" 
-                           >
+                            <label for="patient" class="form-label">Patient</label>
+                            <select class="form-control" type="text" name="patient"  style="color:black" id="patient">
+                              <option>Select Patient</option>
+                              @foreach($patient as $patients)
+                                  <option  value="{{$patients->id}}">{{$patients->name}}</option>
+                              @endforeach
+                          </select>
                           </div>
                       
                           <div class="mb-3">
@@ -81,8 +84,8 @@
                             
                           
                           <input type="submit" 
-                          class="btn-lg btn-primary">
-                   <input type="reset" class="btn-lg btn-danger" value="Cancel">
+                          class="btn btn-outline-primary">
+                   <input type="reset" class="btn btn-outline-danger" value="Cancel">
                         </form>
                       
       
