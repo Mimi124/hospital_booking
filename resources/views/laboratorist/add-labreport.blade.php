@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
+    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 
   @include('laboratorist.css')
@@ -88,11 +90,10 @@
                 
                           <div class="mb-3">
                               <label for="report" class="form-label">Report</label>
-                              <input id="report" class="form-control"  style="color:black" type="file" name="report"
-                             >
+                              <input id="report" class="form-control"  style="color:black" type="file" name="report">
                             </div>
                             
-                          
+                                               
                           <input type="submit" 
                           class="btn btn-outline-primary">
                    <input type="reset" class="btn btn-outline-danger" value="Cancel">
