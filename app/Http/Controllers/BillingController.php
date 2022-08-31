@@ -5,14 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Billing;
 use App\Http\Requests\StoreBillingRequest;
 use App\Http\Requests\UpdateBillingRequest;
+use App\Models\User;
 
 class BillingController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $billing=Billing::all();
@@ -43,7 +39,7 @@ class BillingController extends Controller
      */
     public function create()
     {
-        return view('accountant.add-billings');
+        return view('accountant.add-billings')->with('patient',User::patient()->get());
 
     }
 
@@ -57,7 +53,7 @@ class BillingController extends Controller
     {
         //
         Billing::create([
-            'patient_id'=>$request->patient_id,
+            'patient_id'=>$request->patient,
             'bill_date'=>$request->bill_date,
             'amount'=>$request->amount
             ]);
@@ -67,46 +63,22 @@ class BillingController extends Controller
             return redirect()->route('showbilling');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Billing  $billing
-     * @return \Illuminate\Http\Response
-     */
     public function show(Billing $billing)
     {
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Billing  $billing
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function edit(Billing $billing)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateBillingRequest  $request
-     * @param  \App\Models\Billing  $billing
-     * @return \Illuminate\Http\Response
-     */
     public function update(UpdateBillingRequest $request, Billing $billing)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Billing  $billing
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(Billing $billing)
     {
         //

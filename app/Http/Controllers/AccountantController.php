@@ -9,11 +9,6 @@ use Illuminate\Support\Facades\Auth;
 
 class AccountantController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function redirect(){
       
         $accountant = Accountant::all();

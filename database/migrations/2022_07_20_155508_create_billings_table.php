@@ -14,8 +14,8 @@ class CreateBillingsTable extends Migration
     public function up()
     {
         Schema::create('billings', function (Blueprint $table) {
-            $table->id();
             $table->unsignedBigInteger('patient_id');
+            $table->id();
             $table->string('bill_date');
             $table->double('amount')->nullable();
             $table->foreign('patient_id')->references('user_id')->on('patients');
