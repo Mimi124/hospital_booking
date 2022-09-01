@@ -6,19 +6,20 @@ use Illuminate\Http\Request;
 use App\Models\LabReport;
 use App\Models\User;
 use App\Models\LabTemplate;
+use App\Models\Doctor;
 
 class LabReportController extends Controller
 {
     public function showLabTest(){
 
-        $lab_reports = LabReport::all();
-        return view("doctor.showLabTest",compact("lab_reports"));
+        $labreport = LabReport::all();
+        return view("doctor.showLabTest",compact("labreport"));
     }
     
     public function showLabRep(){
 
-        $lab_reports = LabReport::all();
-        return view("user.dashboard.showLabRep",compact("lab_reports"));
+        $labreport = LabReport::all();
+        return view("user.dashboard.showLabRep",compact("labreport"));
     }
 
     public function getTemplateById(Request $request){

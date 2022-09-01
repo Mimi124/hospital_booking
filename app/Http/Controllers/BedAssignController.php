@@ -25,7 +25,7 @@ class BedAssignController extends Controller
 
     public function showBedAssigned(){
 
-        //  $patients = User::where('usertype', '=', '0')->get();
+        //   $patients = User::where('usertype', '=', '0')->get();
 
         $patients = Patient::query()
       ->join('users', 'users.id', 'patients.user_id') // join to get `name` from users table
@@ -47,7 +47,7 @@ class BedAssignController extends Controller
         $request->validate([
             'assign_date'=> 'required|date',
             // 'discharge_date'=> 'date',
-            // 'patient_id' => 'required|exists:patients,id',
+            //  'patient_id' => 'sometimes|exists:users,id',
             'patient_id' => ['required', Rule::exists('patients', 'id')],
             'bed_id' => 'sometimes|exists:beds,id',             
            ]);

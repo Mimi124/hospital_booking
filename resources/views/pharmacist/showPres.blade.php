@@ -29,16 +29,21 @@
                         
                         <th scope="col">#</th>
                         <th scope="col">Patient Name</th>
-                        {{-- <th scope="col">Doctor Name</th> --}}
-                        <th scope="col">Date Registered</th>
+                        <th scope="col">Doctor Name</th>
+                        <th scope="col">Prescription</th>
+                        <th scope="col">Medicine Instruction</th>
+                        <th scope="col">Date</th>
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($patients as $patient)
+                      @foreach($prescriptions as $prescription)
                       <tr>
-                        <td>{{ $patient->user->name }}</td>
-                        {{-- <td>{{ $patient->doctor->name }}</td> --}}
-                        <td>{{ $patient->date}}</td>
+                        <td>{{ $prescription->id }}</td>
+                        <td>{{$prescription->patient->name }}</td>
+                        <td>{{ $prescription->doctor->name }}</td>                        
+                        <td>{{$prescription->prescription}}</td>
+                        <td>{{$prescription->medicine_instruction}}</td>
+                        <td>{{$prescription->date}}</td>
                       </tr>
                       @endforeach
                   </tbody>

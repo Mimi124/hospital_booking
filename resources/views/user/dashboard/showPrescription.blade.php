@@ -31,9 +31,10 @@
           @foreach ($prescriptions as $prescription)
           <tr>       
             <th>{{$prescription->id}}</th>
-            <td>{{$prescription->doctor->name}}</td>
-            <td>{{$prescription->date}}</td>
-            <td>{{$prescription->Diagnosis}}</td>
+            <td>{{$prescription->doctor->name}}</td>    
+            <td>{{$prescription->diagnosis}}</td>
+            <td>{{$prescription->prescription}}</td>
+            <td>{{$prescription->medicine_instruction}}</td>
             {{-- <td>{{ $prescription->status }}</td> --}}
 
             @endforeach

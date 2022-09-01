@@ -253,6 +253,7 @@ Route::get('/add_pharmacist_view',[PharmacyController::class, 'addview']);
 Route::post('/upload_pharmacist',[PharmacyController::class, 'upload'])->name('upload_pharmacist');
 
 Route::get('/showPharmacist',[PharmacyController::class, 'showPharmacist']);
+Route::get('/showPres',[PrescriptionController::class, 'showPres']);
 
 Route::delete('/deletePharmacist/{id}',[PharmacyController::class, 'deletePharmacist']);
 

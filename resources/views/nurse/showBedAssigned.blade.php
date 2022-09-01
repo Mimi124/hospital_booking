@@ -137,6 +137,19 @@
                                   </select>
                                   </div>
                               </div>
+
+                              {{-- <div class="row mb-3">
+                                <label for="patient_id" class="col-sm-2 col-form-label">Patient</label>
+                                <div class="col-sm-10">
+                                  <select class="form-select form-select-sm" id="patient_id" name="patient_id" aria-label=".form-select-sm example" >
+                                    <option>--Select Patient--</option>
+                                    @foreach($patients as $patient)
+                                    <option value="{{$patient->id}}" class="form-control">{{$patient->name}}</option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                            </div> --}}
+
                               <div class="row mb-3">
                                   <label for="bed_id" class="col-sm-2 col-form-label">Bed</label>
                                   <div class="col-sm-10">

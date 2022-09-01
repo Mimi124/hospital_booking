@@ -19,7 +19,7 @@ class Bed extends Model
     }
 
     public function bed_types() {
-		return $this->belongsTo(BedType::class);
+		return $this->belongsTo(BedType::class,'bed_type');
 	}
 
     use HasFactory;

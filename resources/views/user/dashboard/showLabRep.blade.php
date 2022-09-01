@@ -29,13 +29,13 @@
                  </tr>
         </thead>
         <tbody>
-          @foreach ($lab_reports as $lab_report)
+          @foreach($labreport as $labreports)
           <tr>       
-            <th scope="row">{{ $lab_report->id }}</th>
+            <th scope="row">{{ $labreports->id }}</th>
                         {{-- <td>{{ $lab_report->patients->name }}</td> --}}
-                        <td>{{ $lab_report->doctor->name}}</td>
-                        <td>{{ $lab_report->date.'/'.$lab_report->time }}</td>
-                        <td>{{ $lab_report->report }}</td>
+                        <td>{{ $labreports->doctor->name}}</td>
+                        <td>{{ $labreports->date.'/'.$labreports->time }}</td>
+                        <td>{{ $labreports->report }}</td>
           </tr>
             @endforeach
         </tbody>

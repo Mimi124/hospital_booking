@@ -76,22 +76,23 @@
                         </thead>
 
                         <tbody>
+                          {{-- <pre>@json($errors->all())</pre> --}}
                         @foreach($prescriptions as $prescription)
                             <tr>
                                 <th scope="row">{{ $prescription->id }}</th>
-                                <td>{{$prescription->patient->name}}</td>
+                                <td>{{$prescription->patient->user->name}}</td>
                                 <td>{{$prescription->doctor->name}}</td>    
                                 <td>{{$prescription->diagnosis}}</td>
                                 <td>{{$prescription->prescription}}</td>
                                 <td>{{$prescription->medicine_instruction}}</td>
                                 <td>{{$prescription->date}}</td>
                                 <td>
-                                    <a class="badge badge-outline-primary" href="{{url('update_prescription',$prescriptions->id)}}">Update</a>
+                                    <a class="badge badge-outline-primary" href="{{url('update_prescription',$prescription->id)}}">Update</a>
                                     {{-- <a class="badge badge-outline-success" href="{{url('show_prescription',$prescriptions->id)}}">Display</a> --}}
                                   
                                 </td>  
                                 <td>
-                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_prescription',$prescriptions->id)}}">Delete</a>
+                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_prescription',$prescription->id)}}">Delete</a>
                                 </td>
 
                             </tr>
@@ -119,20 +120,34 @@
                     <form  action="{{url('upload_prescription')}}" method="POST" id="prescription-form" enctype="multipart/form-data">
                       @csrf
                       <div class="row mb-3">
-                        <label for="patient" class="col-sm-2 col-form-label">Patient</label>
+                        <label for="patient_id" class="col-sm-2 col-form-label">Patient</label>
                         <div class="col-sm-10">
-                          <select class="form-select form-select-sm" id="patient" name="patient" aria-label=".form-select-sm example" >
+                          <select class="form-select form-select-sm" id="patient_id" name="patient_id" aria-label=".form-select-sm example" >
                             <option>--Select Patient--</option>
                             @foreach($patients as $patient)
-                            <option value="{{$patient->id}}" class="form-control">{{$patient->name}}</option>
+                            <option value="{{$patient->id}}" class="form-control">{{$patient->user->name}}</option>
                             @endforeach
                           </select>
                         </div>
                     </div>
+
+
+                     {{-- <div class="row mb-3">
+                                <label for="patient_id" class="col-sm-2 col-form-label">Patient</label>
+                                <div class="col-sm-10">
+                                  <select class="form-select form-select-sm" id="patient_id" name="patient_id" aria-label=".form-select-sm example" >
+                                    <option>--Select Patient--</option>
+                                    @foreach($patients as $patient)
+                                    <option value="{{$patient->id}}" class="form-control">{{$patient->name}}</option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                            </div> --}}
+              
                     <div class="row mb-3">
-                      <label for="patient" class="col-sm-2 col-form-label">Doctor</label>
+                      <label for="doctor_id" class="col-sm-2 col-form-label">Doctor</label>
                       <div class="col-sm-10">
-                        <select class="form-select form-select-sm" id="patient" name="patient" aria-label=".form-select-sm example" >
+                        <select class="form-select form-select-sm" id="doctor_id" name="doctor_id" aria-label=".form-select-sm example" >
                           <option>--Select Doctor--</option>
                           @foreach($doctors as $doctor)
                           <option value="{{$doctor->id}}" class="form-control">{{$doctor->name}}</option>

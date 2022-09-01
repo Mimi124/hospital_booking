@@ -77,7 +77,7 @@
                       <tr>
                         <td>{{ $bed->id}}</td>
                         <td>{{ $bed->name}}</td>
-                        <td>{{ $bed->bed_type}}</td>
+                        <td>{{ $bed->bed_types->title }}</td>
                         <td>{{ $bed->charge}}</td>
                         {{-- <td>{{ $bed->is_available}}</td> --}}
                         <td>

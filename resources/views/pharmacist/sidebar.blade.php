@@ -94,7 +94,7 @@
     </li>
 
     <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('showPrescription')}}">
+      <a class="nav-link" href="{{url('showPres')}}">
         <span class="menu-icon">
           <i class="mdi mdi-needle"></i>
         </span>
