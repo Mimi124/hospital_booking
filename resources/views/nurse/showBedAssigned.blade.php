@@ -78,7 +78,7 @@
                       @foreach ($bed_assigns as $bed_assign)
                       <tr>
                         <th scope="row">{{ $bed_assign->id }}</th>
-                        <td>{{ $bed_assign->patient->name }}</td>
+                        <td>{{$bed_assign->patient->user->name}}</td>
                         <td>{{ $bed_assign->bed->name }}</td>
                         <td>{{ $bed_assign->assign_date }}</td>
                         <td>{{ $bed_assign->discharge_date }}</td>
@@ -127,28 +127,16 @@
                             <form action="{{url('upload_assignedbed')}}" method="Post" id="assign-form" enctype="multipart/form-data">
                               @csrf
                               <div class="row mb-3">
-                                  <label for="user_id" class="col-sm-2 col-form-label">Patient Name</label>
-                                  <div class="col-sm-10">
-                                    <select class="form-select form-select-sm" id="patient_id" name="patient_id">
-                                      <option>--Select Patient--</option>
-                                      @foreach($patients as $id => $name)
-                                          <option value="{{$id}}" class="form-control">{{$name}}</option>
-                                      @endforeach
-                                  </select>
-                                  </div>
-                              </div>
-
-                              {{-- <div class="row mb-3">
                                 <label for="patient_id" class="col-sm-2 col-form-label">Patient</label>
                                 <div class="col-sm-10">
                                   <select class="form-select form-select-sm" id="patient_id" name="patient_id" aria-label=".form-select-sm example" >
                                     <option>--Select Patient--</option>
                                     @foreach($patients as $patient)
-                                    <option value="{{$patient->id}}" class="form-control">{{$patient->name}}</option>
+                                    <option value="{{$patient->id}}" class="form-control">{{$patient->user->name}}</option>
                                     @endforeach
                                   </select>
                                 </div>
-                            </div> --}}
+                            </div>
 
                               <div class="row mb-3">
                                   <label for="bed_id" class="col-sm-2 col-form-label">Bed</label>

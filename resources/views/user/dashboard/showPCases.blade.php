@@ -26,8 +26,8 @@
                     <th scope="col">DOCTOR NAME</th>
                     <th scope="col">DATE</th>
                     <th scope="col">Diagnosis</th>
-                    <th scope="col">Symptoms</th>
-                    <th scope="col">Advice</th>
+                    {{-- <th scope="col">Symptoms</th>
+                    <th scope="col">Advice</th> --}}
                  </tr>
         </thead>
         <tbody>
@@ -37,8 +37,8 @@
                         <td>{{ $prescription->doctor->name}}</td>
                         <td>{{ $prescription->date}}</td>
                         <td>{{ $prescription->diagnosis }}</td>
-                        <td>{{ $prescription->symptoms }}</td>
-                        <td>{{ $prescription->advice }}</td>
+                        {{-- <td>{{ $prescription->symptoms }}</td>
+                        <td>{{ $prescription->advice }}</td> --}}
           </tr>
             @endforeach
         </tbody>

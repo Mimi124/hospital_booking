@@ -133,13 +133,13 @@
             </a>
       </li>
 
-      <li class="nav-item menu-items">
+      {{-- <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showPayroll')}}">
           <span class="menu-icon">
             <i class=" mdi mdi-square-inc-cash"></i>
           </span>
           <span class="menu-title">My Payrolls</span>
-        </a>
+        </a> --}}
 
       
 

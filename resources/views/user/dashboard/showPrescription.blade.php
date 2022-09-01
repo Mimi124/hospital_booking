@@ -25,6 +25,9 @@
                       <th scope="col">Doctor Name</th>
                       <th scope="col">Date</th>
                       <th scope="col">Diagnosis</th>
+                      <th scope="col">Prescription</th>
+                      {{-- <th scope="col">Medicine Instruction</th> --}}
+
                  </tr>
         </thead>
         <tbody>

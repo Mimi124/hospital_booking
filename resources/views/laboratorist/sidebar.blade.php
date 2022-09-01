@@ -93,14 +93,14 @@
       </a>
     </li>
 
-    <li class="nav-item menu-items">
+    {{-- <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showBloodBank')}}">
         <span class="menu-icon">
           <i class="mdi mdi-blood-bag"></i>
         </span>
         <span class="menu-title">Blood Bank</span>
       </a>
-    </li>
+    </li> --}}
 
 
     

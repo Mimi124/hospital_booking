@@ -94,7 +94,7 @@
                 <div class="row">
                   <div class="col-8 col-sm-12 col-xl-8 my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 class="mb-0" style="color:blue; font-size:40px;">16</h2>
+                      <h2 class="mb-0" style="color:blue; font-size:40px;">5</h2>
                     </div>
                   </div>
                   <div class="col-4 col-sm-12 col-xl-4 text-center text-xl-right">
@@ -111,7 +111,7 @@
                 <div class="row">
                   <div class="col-8 col-sm-12 col-xl-8 my-auto">
                     <div class="d-flex d-sm-block d-md-flex align-items-center">
-                      <h2 class="mb-0" style="color:red; font-size:40px;">623</h2>
+                      <h2 class="mb-0" style="color:red; font-size:40px;">2</h2>
                       <p class="text-success ms-2 mb-0 font-weight-medium">+8.3%</p>
                     </div>
                     <h6 class="text-muted font-weight-normal"> 9.61% Since last month</h6>
