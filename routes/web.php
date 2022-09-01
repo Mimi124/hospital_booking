@@ -20,6 +20,7 @@ use App\Http\Controllers\PayrollController;
 use App\Http\Controllers\LiveConsultationController;
 use App\Http\Controllers\BedTypeController;
 use App\Http\Controllers\BedController;
+use App\Http\Controllers\VitalController;
 
 use App\Http\Controllers\LabReportAdminController;
 use App\Http\Controllers\MedicineAdminController;
@@ -266,6 +267,13 @@ Route::get('/add_receptionist_view',[ReceptionistController::class, 'addview']);
 Route::post('/upload_receptionist',[ReceptionistController::class, 'upload'])->name('upload_receptionist');
 
 Route::get('/showReceptionist',[ReceptionistController::class, 'showReceptionist']);
+
+
+Route::get('/showPatientVitals',[VitalController::class, 'showPatientVitals']);
+Route::get('/showMy_Appointments',[AppointmentController::class, 'showMy_Appointments']);
+Route::post('/upload_patientvitals',[VitalController::class, 'receptionist'])->name('upload_patientvitals');
+Route::get('/showVitals',[VitalController::class, 'showVitals']);
+
 
 Route::delete('/deleteReceptionist/{id}',[ReceptionistController::class, 'deleteReceptionist']);
 

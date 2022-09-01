@@ -57,51 +57,23 @@
       <span class="nav-link">Navigation</span>
     </li>
 
+    {{-- <li class="nav-item menu-items">
+      <a class="nav-link" href="{{url('showMy_Appointments')}}">
+        <span class="menu-icon">
+          <i class="mdi mdi-test-tube"></i>
+        </span>
+        <span class="menu-title">Appointments</span>
+      </a>
+    </li> --}}
+
     <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('showPatients')}}">
+      <a class="nav-link" href="{{url('showPatientVitals')}}">
         <span class="menu-icon">
           <i class="mdi mdi-test-tube"></i>
         </span>
         <span class="menu-title">Patients</span>
       </a>
     </li>
-
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('add_patient_view')}}">
-        <span class="menu-icon">
-          <i class="mdi mdi-test-tube-off"></i>
-        </span>
-        <span class="menu-title">Add Patients</span>
-      </a>
-    </li>
-
-    {{-- <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('showLabReports')}}">
-        <span class="menu-icon">
-          <i class="mdi mdi-history"></i>
-        </span>
-        <span class="menu-title">Lab Reports</span>
-      </a>
-    </li>
-
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('add-labreport')}}">
-        <span class="menu-icon">
-          <i class="mdi mdi-test-tube-empty"></i>
-        </span>
-        <span class="menu-title">Add Lab Report</span>
-      </a>
-    </li>
-
-    <li class="nav-item menu-items">
-      <a class="nav-link" href="{{url('showBloodBank')}}">
-        <span class="menu-icon">
-          <i class="mdi mdi-blood-bag"></i>
-        </span>
-        <span class="menu-title">Blood Bank</span>
-      </a>
-    </li> --}}
-
 
     
 

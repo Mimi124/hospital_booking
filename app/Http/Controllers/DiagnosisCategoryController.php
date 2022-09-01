@@ -6,6 +6,7 @@ use App\Models\DiagnosisCategory;
 use App\Http\Requests\StoreDiagnosisCategoryRequest;
 use App\Http\Requests\UpdateDiagnosisCategoryRequest;
 use Illuminate\Http\Request;
+use App\Models\Patient;
 
 class DiagnosisCategoryController extends Controller
 {
@@ -13,18 +14,26 @@ class DiagnosisCategoryController extends Controller
     public function showDiagnose(){
 
         $diagnosis_categories = DiagnosisCategory::all();
-    
+        
         return view('admin.showDiagnose', compact('diagnosis_categories'));
+      
     }
 
     
     
     public function upload(Request $request){
+
+        $request->validate([
+            'name' =>'required|string',
+            'patient_id' => 'required|sometimes|exists:users,id',
+
+        ]);
     
         $diagnosis_categories = new DiagnosisCategory();
        
         $diagnosis_categories->name = $request->name;
         $diagnosis_categories->description = $request->description;
+        $diagnosis_categories->patient_id = $request->input('patient_id');
 
         $diagnosis_categories->save();
         return redirect()->back()->with('message','Diagnosis Category Added Successfully');
@@ -35,8 +44,9 @@ class DiagnosisCategoryController extends Controller
     public function showDiagnosis(){
 
         $diagnosis_categories = DiagnosisCategory::all();
-    
-        return view('doctor.showDiagnosis', compact('diagnosis_categories'));
+        $patients = Patient::all();
+        return view('doctor.showDiagnosis', compact('diagnosis_categories'))
+        ->with('patients', $patients);;
     }
 
    

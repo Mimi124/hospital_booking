@@ -6,6 +6,9 @@ use App\Models\Receptionist;
 use App\Http\Requests\StoreReceptionistRequest;
 use App\Http\Requests\UpdateReceptionistRequest;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Patient;
+use App\Models\Doctor;
+use App\Models\Appointment;
 
 class ReceptionistController extends Controller
 {
@@ -45,6 +48,8 @@ class ReceptionistController extends Controller
 }
 
 
+
+   
 public function addview(){
 
     return view("admin.add_Receptionist");
@@ -60,7 +65,7 @@ public function upload(Request $request){
     $request->file->move('recimage',$imagename);
     $receptionist->image=$imagename;
 
-    $receptionist->name = $request->name;
+    $receptionist->$name = $request->name;
     $receptionist->phone = $request->number;
    
     $receptionist->save();

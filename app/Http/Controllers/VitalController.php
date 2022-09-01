@@ -5,82 +5,57 @@ namespace App\Http\Controllers;
 use App\Models\Vital;
 use App\Http\Requests\StoreVitalRequest;
 use App\Http\Requests\UpdateVitalRequest;
+use App\Models\Receptionist;
+use Illuminate\Http\Request;
+use App\Models\Patient;
+use App\Models\Doctor;
 
 class VitalController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+    public function showPatientVitals(){
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        $receptionists = Receptionist::all();
+        $patients = Patient::all();
+        $doctors = Doctor::where('name', '!=', null)->get();
+    
+       return view('receptionist.showPatientVitals', compact('receptionists'))
+       ->with('patients', $patients)
+       ->with('doctors', $doctors);
     }
+    
+    public function receptionist(Request $request)
+    {
+        $request->validate([
+    
+        
+            'date'=> 'required|date',
+            'blood_pressure'=> 'required|string',
+            'body_weight' => 'required|string',
+            'temperature' => 'required|string',
+            'patient_id' => 'required|sometimes|exists:users,id',
+            'doctor_id' => 'sometimes|exists:doctors,id',
+         
+         ]);
+    
+         $receptionists = new Receptionist;
+    
+         $receptionists->date = $request->input('date');
+         $receptionists->blood_pressure = $request->input('blood_pressure');
+         $receptionists->body_weight = $request->input('body_weight');
+         $receptionists->temperature =  $request->input('temperature');
+         $receptionists->patient_id = $request->input('patient_id');
+         $receptionists->doctor_id = $request->input('doctor_id');
+    
+    
+         $receptionists->save();
+    
+         return redirect()->back()->with('message','Patient Vitals Added Successfully');
+        }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \App\Http\Requests\StoreVitalRequest  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(StoreVitalRequest $request)
-    {
-        //
-    }
+        public function showVitals(){
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Vital  $vital
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Vital $vital)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Vital  $vital
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Vital $vital)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \App\Http\Requests\UpdateVitalRequest  $request
-     * @param  \App\Models\Vital  $vital
-     * @return \Illuminate\Http\Response
-     */
-    public function update(UpdateVitalRequest $request, Vital $vital)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Vital  $vital
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Vital $vital)
-    {
-        //
-    }
+            $receptionists =  Receptionist::all();
+        
+            return view('doctor.showVitals', compact('receptionists'));
+        }
 }

@@ -27,29 +27,43 @@
                   <table class="table table-striped table-hover">
                     <thead class="thead-dark">
                       <tr>
-                        
                         <th scope="col">#</th>
-                        <th scope="col">Patient Name</th>
-                        <th scope="col">Doctor Name</th>
-                        <th scope="col">Diagnosis</th>
-                        <th scope="col">Date Registered</th>
-                      </tr>
-                    </thead>
-                    <tbody>
-                      @foreach($prescriptions as $prescription)
+                            <th>Patient Name</th>
+                            <th>Doctor Name</th>
+                            <th>Temperature</th>
+                            <th>Blood Pressure</th>
+                            <th>Body Weight</th>
+                            <th>Date</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+                          {{-- <pre>@json($errors->all())</pre> --}}
+                        @foreach($receptionists as $receptionist)
                             <tr>
-                                <th scope="row">{{ $prescription->id }}</th>
-                                <td>{{$prescription->patient->user->name}}</td>
-                                <td>{{$prescription->doctor->name}}</td>    
-                                <td>{{$prescription->diagnosis}}</td>
-                                <td>{{$prescription->date}}</td>
-                      </tr>
-                      @endforeach
+                                <th scope="row">{{ $receptionist->id }}</th>
+                                <td>{{$receptionist->patient->user->name}}</td>
+                                <td>{{$receptionist->doctor->name}}</td>    
+                                <td>{{$receptionist->temperature}}</td>
+                                <td>{{$receptionist->body_weight}}</td>
+                                <td>{{$receptionist->blood_pressure}}</td>
+                                <td>{{$receptionist->date}}</td>
+                                <td>
+                            </tr>
+                        @endforeach
+
                   </tbody>
                 </table>
               </div>
             </div>
           </div>
+        {{-- </div> --}}
+      {{-- </div> --}}
+      {{-- <script type="text/javascript">
+      $("#status").click(function(){
+        $("#approved").hide();
+      });
+      </script> --}}
   </body> 
 </html>
 

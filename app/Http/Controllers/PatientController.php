@@ -44,9 +44,9 @@ class PatientController extends Controller
 
     public function showPatients(){
 
-        $appointments = Appointment::all();
+        $prescriptions = Prescription::all();
     
-        return view('doctor.showPatients', compact('appointments'));
+        return view('doctor.showPatients', compact('prescriptions'));
     }
 
    

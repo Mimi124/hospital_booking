@@ -73,6 +73,13 @@ class AppointmentController extends Controller
     return view('doctor.showMyAppointments', compact('appointments'));
 }
 
+public function showMy_Appointments(){
+
+    $appointments = Appointment::all();
+
+    return view("receptionist.showMy_Appointments",compact("appointments"));
+
+}
 
    public function cancel_appointment($id){
 

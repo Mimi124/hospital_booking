@@ -14,9 +14,11 @@ class CreateDiagnosisCategoriesTable extends Migration
     public function up()
     {
         Schema::create('diagnosis_categories', function (Blueprint $table) {
+            $table->unsignedBigInteger('patient_id')->nullable();
             $table->id();
             $table->string('name');
             $table->text('description')->nullable();
+            $table->foreign('patient_id')->references('id')->on('patients')->nullOnDelete();
             $table->timestamps();
         });
     }

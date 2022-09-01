@@ -76,6 +76,7 @@
                       <tr>
                         
                         <th scope="col">#</th>
+                        <th scope="col">Patient Name</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
                         <th scope="col">Update</th>
@@ -86,6 +87,7 @@
                       @foreach ($diagnosis_categories as $diagnosis_categories)
                       <tr>
                         <th scope="row">{{ $diagnosis_categories->id }}</th>
+                        <td>{{$diagnosis_categories->patient->user->name}}</td>
                         <td>{{ $diagnosis_categories->name }}</td>
                         <td>{{ $diagnosis_categories->description }}</td>
                         <td>
@@ -119,6 +121,17 @@
                   
                   <form  action="{{url('upload_diagnosis')}}" method="POST" id="diagnosis-form" enctype="multipart/form-data">
                     @csrf
+                    <div class="row mb-3">
+                      <label for="patient_id" class="col-sm-2 col-form-label">Patient</label>
+                      <div class="col-sm-10">
+                        <select class="form-select form-select-sm" id="patient_id" name="patient_id" aria-label=".form-select-sm example" >
+                          <option>--Select Patient--</option>
+                          @foreach($patients as $patient)
+                          <option value="{{$patient->id}}" class="form-control">{{$patient->user->name}}</option>
+                          @endforeach
+                        </select>
+                      </div>
+                  </div>
                     <div class="mb-3">
                       <label for="name" class="form-label">Diagnosis Name</label>
                       <input type="text" class="form-control" style="color:black"  name="name" required>

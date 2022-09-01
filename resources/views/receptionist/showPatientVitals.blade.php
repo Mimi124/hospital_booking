@@ -43,12 +43,12 @@
   </style>
   </head>
   <body>
-   @include('doctor.banner')
+   @include('receptionist.banner')
       <!-- partial:partials/_sidebar.html -->
-     @include('doctor.sidebar')
+     @include('receptionist.sidebar')
 
       <!-- partial -->
-      @include('doctor.navbar')
+      @include('receptionist.navbar')
  
         <!-- partial -->
 
@@ -58,7 +58,7 @@
           
 
             <div class="container" style="padding:100px;">
-              <a class="btn btn-outline-info" id="prescription" href="#">Add Prescription</a>
+              <a class="btn btn-outline-info" id="receptionist" href="#">New Patient Vitals</a>
               <br><br>
                 <table class="table table-striped table-hover">
                   <thead class="thead-dark">
@@ -66,9 +66,9 @@
                             <th scope="col">#</th>
                             <th>Patient Name</th>
                             <th>Doctor Name</th>
-                            <th>Diagnosis</th>
-                            <th>Prescription</th>
-                            <th>Medicine Instruction</th>
+                            <th>Temperature</th>
+                            <th>Blood Pressure</th>
+                            <th>Body Weight</th>
                             <th>Date</th>
                             <th>Edit</th>
                             <th>Delete</th>
@@ -77,22 +77,20 @@
 
                         <tbody>
                           {{-- <pre>@json($errors->all())</pre> --}}
-                        @foreach($prescriptions as $prescription)
+                        @foreach($receptionists as $receptionist)
                             <tr>
-                                <th scope="row">{{ $prescription->id }}</th>
-                                <td>{{$prescription->patient->user->name}}</td>
-                                <td>{{$prescription->doctor->name}}</td>    
-                                <td>{{$prescription->diagnosis}}</td>
-                                <td>{{$prescription->prescription}}</td>
-                                <td>{{$prescription->medicine_instruction}}</td>
-                                <td>{{$prescription->date}}</td>
+                                <th scope="row">{{ $receptionist->id }}</th>
+                                <td>{{$receptionist->patient->user->name}}</td>
+                                <td>{{$receptionist->doctor->name}}</td>    
+                                <td>{{$receptionist->temperature}}</td>
+                                <td>{{$receptionist->body_weight}}</td>
+                                <td>{{$receptionist->blood_pressure}}</td>
+                                <td>{{$receptionist->date}}</td>
                                 <td>
-                                    <a class="badge badge-outline-primary" href="{{url('update_prescription',$prescription->id)}}">Update</a>
-                                    {{-- <a class="badge badge-outline-success" href="{{url('show_prescription',$prescriptions->id)}}">Display</a> --}}
-                                  
+                                    <a class="badge badge-outline-primary" href="{{url('update_receptionist',$receptionist->id)}}">Update</a>   
                                 </td>  
                                 <td>
-                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_prescription',$prescription->id)}}">Delete</a>
+                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_receptionist',$receptionist->id)}}">Delete</a>
                                 </td>
 
                             </tr>
@@ -106,18 +104,18 @@
 
 
 
-            <div class="modal fade" id="prescription-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="receptionist-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
               <div class="modal-dialog" role="document">
                 <div class="modal-content">
                   <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">New Prescription</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">Patient Vital</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                       <span aria-hidden="true">&times;</span>
                     </button>
                   </div>
                   <div class="modal-body">
                     
-                    <form  action="{{url('upload_prescription')}}" method="POST" id="prescription-form" enctype="multipart/form-data">
+                    <form  action="{{url('upload_patientvitals')}}" method="POST" id="receptionist-form" enctype="multipart/form-data">
                       @csrf
                       <div class="row mb-3">
                         <label for="patient_id" class="col-sm-2 col-form-label">Patient</label>
@@ -130,7 +128,6 @@
                           </select>
                         </div>
                     </div>
-
               
                     <div class="row mb-3">
                       <label for="doctor_id" class="col-sm-2 col-form-label">Doctor</label>
@@ -144,33 +141,35 @@
                       </div>
                   </div>
                     <div class="row mb-3">
-                      <label for="diagnosis" class="col-sm-2 col-form-label">Diagnosis</label>
+                      <label for="temperature" class="col-sm-2 col-form-label">Temperature</label>
                       <div class="col-sm-10">
-                          <input type="text" class="form-control" id="diagnosis" name="diagnosis" required>
+                          <input type="text" class="form-control" id="temperature" name="temperature" required>
                       </div>
                   </div>
                   <div class="row mb-3">
-                    <label for="prescription" class="col-sm-2 col-form-label">Prescription</label>
+                    <label for="blood_pressure" class="col-sm-2 col-form-label">Blood Pressure</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" id="prescription" name="prescription" required>
+                        <input type="text" class="form-control" id="blood_pressure" name="blood_pressure" required>
                     </div>
                 </div>
+
+                <div class="row mb-3">
+                    <label for="body_weight" class="col-sm-2 col-form-label">Body Weight</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="body_weight" name="body_weight" required>
+                </div>
+
                 <div class="row mb-3">
                   <label for="date" class="col-sm-2 col-form-label">Date</label>
                   <div class="col-sm-10">
                       <input type="date" class="form-control" id="date" name="date" required>
                   </div>
-              </div>
-                      <div class="mb-3">
-                        <label for="medicine_instruction" class="form-label">Medicine Instruction </label>
-                        <textarea class="form-control" id="medicine_instruction" style="color:black"  name="medicine_instruction"  rows="7"></textarea>
-                      </div>
-                      
+              </div>            
                     </form>
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" id="prescription-sub" class="btn btn-outline-primary">Submit</button>
+                    <button type="button" id="receptionist-sub" class="btn btn-outline-primary">Submit</button>
                   </div>
                 </div>
               </div>
@@ -180,18 +179,18 @@
     <!-- plugins:js -->
    
     <!-- End custom js for this page -->
-    @include('doctor.script')
+    @include('receptionist.script')
   </body>
 </html>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script>
   $(document).ready(function(){
-    $('#prescription').click(function(){
-      $('#prescription-modal').modal('show');
+    $('#receptionist').click(function(){
+      $('#receptionist-modal').modal('show');
     });
 
-    $('#prescription-sub').click(function(){
-      $('#prescription-form').submit();
+    $('#receptionist-sub').click(function(){
+      $('#receptionist-form').submit();
     });
   });
 </script>  

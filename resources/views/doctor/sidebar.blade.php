@@ -106,6 +106,14 @@
           </span>
           <span class="menu-title">Lab Reports</span>
         </a>
+        <li class="nav-item menu-items">
+          <a class="nav-link" href="{{url('showVitals')}}">
+            <span class="menu-icon">
+              <i class=" mdi mdi-account-multiple "></i>
+            </span>
+            <span class="menu-title">Patients Vitals</span>
+          </a>
+
 
         <li class="nav-item menu-items">
           <a class="nav-link" href="{{url('showPatients')}}">
