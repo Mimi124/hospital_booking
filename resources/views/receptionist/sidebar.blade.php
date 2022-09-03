@@ -57,14 +57,14 @@
       <span class="nav-link">Navigation</span>
     </li>
 
-    {{-- <li class="nav-item menu-items">
+    <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showMy_Appointments')}}">
         <span class="menu-icon">
           <i class="mdi mdi-test-tube"></i>
         </span>
         <span class="menu-title">Appointments</span>
       </a>
-    </li> --}}
+    </li>
 
     <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showPatientVitals')}}">

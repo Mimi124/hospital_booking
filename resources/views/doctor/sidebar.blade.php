@@ -88,16 +88,23 @@
           </ul>
         </div>
       </li>
-
-
       <li class="nav-item menu-items">
-        <a class="nav-link" href="{{url('showDiagnosis')}}">
+        <a class="nav-link" data-bs-toggle="collapse" aria-expanded="false" aria-controls="showPatient" href="#showPatient">
           <span class="menu-icon">
-            <i class=" mdi mdi-book-multiple"></i>
+            <i class="mdi mdi-account-multiple-outline"></i>
           </span>
-          <span class="menu-title">Diagnosis</span>
+          <span class="menu-title">Patients Records</span>
+          <i class="menu-arrow"></i>
         </a>
+        <div class="collapse" id="showPatient">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href='{{url('showDiagnosis')}}'>Patient Symptoms</a></li>
+            <li class="nav-item"> <a class="nav-link" href='{{url('showVitals')}}'>Patients Vitals</a></li>
+            <li class="nav-item"> <a class="nav-link" href='{{url('showPatients')}}'>Patients Cases</a></li>
+          </ul>
+        </div>
       </li>
+
 
       <li class="nav-item menu-items">
         <a class="nav-link" href="{{url('showLabTest')}}">
@@ -106,22 +113,7 @@
           </span>
           <span class="menu-title">Lab Reports</span>
         </a>
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('showVitals')}}">
-            <span class="menu-icon">
-              <i class=" mdi mdi-account-multiple "></i>
-            </span>
-            <span class="menu-title">Patients Vitals</span>
-          </a>
-
-
-        <li class="nav-item menu-items">
-          <a class="nav-link" href="{{url('showPatients')}}">
-            <span class="menu-icon">
-              <i class=" mdi mdi-account-multiple "></i>
-            </span>
-            <span class="menu-title">Patients</span>
-          </a>
+      </li>
 
           <li class="nav-item menu-items">
             <a class="nav-link" href="{{url('showPrescriptions')}}">
