@@ -21,6 +21,7 @@ use App\Http\Controllers\LiveConsultationController;
 use App\Http\Controllers\BedTypeController;
 use App\Http\Controllers\BedController;
 use App\Http\Controllers\VitalController;
+use App\Http\Controllers\CalendarController;
 
 use App\Http\Controllers\LabReportAdminController;
 use App\Http\Controllers\MedicineAdminController;
@@ -301,3 +302,8 @@ Route::get('/delete_prescription/{id}',[PrescriptionController::class, 'destroy'
 Route::post('/editprescription/{id}',[PrescriptionController::class, 'edit'])->name('editprescription');
 
 
+  
+
+Route::get('fullcalender', [CalendarController::class, 'index']);
+
+Route::post('fullcalenderAjax', [CalendarController::class, 'ajax']);

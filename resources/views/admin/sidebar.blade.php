@@ -67,6 +67,15 @@
       </li>
 
       <li class="nav-item menu-items">
+        <a class="nav-link" href='{{url('fullcalender')}}'>
+          <span class="menu-icon">
+            <i class="mdi mdi-speedometer"></i>
+          </span>
+          <span class="menu-title">Schedule</span>
+        </a>
+      </li>
+
+      <li class="nav-item menu-items">
         <a class="nav-link" data-bs-toggle="collapse" href="#finance" aria-expanded="false" aria-controls="finance">
           <span class="menu-icon">
             <i class="mdi mdi-square-inc-cash  "></i>

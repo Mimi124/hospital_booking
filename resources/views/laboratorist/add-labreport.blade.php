@@ -91,7 +91,7 @@
                           <div class="mb-3">
                               <label for="report" class="form-label">Report</label>
 
-                              <input id="report" class="form-control"  style="color:black" type="file" name="report">
+                              <input id="report" class="form-control"  style="color:black" type="text" name="report">
 
                               {{-- <input id="report" class="form-control"  style="color:black" type="file" name="report"> --}}
 
