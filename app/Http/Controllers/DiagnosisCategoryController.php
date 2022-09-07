@@ -7,6 +7,7 @@ use App\Http\Requests\StoreDiagnosisCategoryRequest;
 use App\Http\Requests\UpdateDiagnosisCategoryRequest;
 use Illuminate\Http\Request;
 use App\Models\Patient;
+use App\Models\User;
 
 class DiagnosisCategoryController extends Controller
 {
@@ -16,6 +17,15 @@ class DiagnosisCategoryController extends Controller
         $diagnosis_categories = DiagnosisCategory::all();
         
         return view('admin.showDiagnose', compact('diagnosis_categories'));
+      
+    }
+
+    public function index(){
+
+        $diagnosis_categories = DiagnosisCategory::all();
+        
+        return view('laboratorist.showLabRequest', compact('diagnosis_categories'))
+        ->with('patient', User::patient()->get());
       
     }
 
@@ -34,6 +44,7 @@ class DiagnosisCategoryController extends Controller
         $diagnosis_categories->name = $request->name;
         $diagnosis_categories->description = $request->description;
         $diagnosis_categories->patient_id = $request->input('patient_id');
+        $diagnosis_categories->labrequest = $request->labrequest;
 
         $diagnosis_categories->save();
         return redirect()->back()->with('message','Diagnosis Category Added Successfully');
@@ -70,6 +81,7 @@ public function editDiagnosis(Request $request , $id){
     $diagnosis_categories =DiagnosisCategory::find($id);
     $diagnosis_categories->name = $request->name;
     $diagnosis_categories->description = $request->description;
+    $diagnosis_categories->labrequest = $request->labrequest;
 
 
     $diagnosis_categories->save();

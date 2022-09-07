@@ -40,7 +40,7 @@ class LabReportController extends Controller
         return view('laboratorist.add-labreport')
             ->with('patient',User::patient()->get())
             ->with('labtemplate',LabTemplate::all())
-            ->with('doctor',User::doctor()->get());
+            ->with('doctor',Doctor::all());
     }
 
     public function store(Request $request)
@@ -70,7 +70,7 @@ class LabReportController extends Controller
         return view('laboratorist.update-labreport',compact('labreport'))
             ->with('patient',User::patient()->get())
             ->with('template',LabTemplate::all())
-            ->with('doctor',User::doctor()->get());
+            ->with('doctor',Doctor::all());
     }
 
     public function edit(Request $request, $id)

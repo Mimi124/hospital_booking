@@ -79,6 +79,7 @@
                         <th scope="col">Patient Name</th>
                         <th scope="col">Name</th>
                         <th scope="col">Description</th>
+                        <th scope="col">Lab Request</th>
                         <th scope="col">Update</th>
                         <th scope="col">Delete</th>
                       </tr>
@@ -90,6 +91,7 @@
                         <td>{{$diagnosis_categories->patient->user->name}}</td>
                         <td>{{ $diagnosis_categories->name }}</td>
                         <td>{{ $diagnosis_categories->description }}</td>
+                        <td>{{ $diagnosis_categories->labrequest }}</td>
                         <td>
                             <a class="btn btn-outline-primary" href="{{url('updateDiagnosis',$diagnosis_categories->id)}}">Update</a>
                           
