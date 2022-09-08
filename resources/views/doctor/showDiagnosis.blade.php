@@ -142,6 +142,10 @@
                       <label for="description" class="form-label"> Description</label>
                       <textarea class="form-control" id="description" style="color:black"  name="description"  rows="7"></textarea>
                     </div>
+                    <div class="mb-3">
+                      <label for="labrequest" class="form-label">Lab Request</label>
+                      <input type="text" class="form-control" style="color:black"  name="labrequest" required>
+                    </div>
                     
                   </form>
                 </div>

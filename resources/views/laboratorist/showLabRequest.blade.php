@@ -31,8 +31,6 @@
 <table class="table table-striped table-hover">
     <thead class="thead-dark">
       <tr>
-        
-        <th scope="col">#</th>
         <th scope="col">Patient Name</th>
         <th scope="col">Lab Request</th>
         <th scope="col">Update</th>
@@ -47,14 +45,14 @@
         
         
         <td>{{ $diagnosis_categories->labrequest }}</td>
-        {{-- <td>
+        <td>
             <a class="btn btn-outline-primary" href="{{url('updateDiagnosis',$diagnosis_categories->id)}}">Update</a>
           
         </td>  
         <td>
           <a onclick="return confirm('Are you sure you want to delete?')" class="btn btn-outline-danger" href="{{url('deleteDiagnosis',$diagnosis_categories->id)}}">Delete</a>
         
-      </td> --}}
+      </td>
       </tr>
       @endforeach
   </tbody>
