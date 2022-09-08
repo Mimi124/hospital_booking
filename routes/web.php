@@ -27,6 +27,9 @@ use App\Http\Controllers\LabReportAdminController;
 use App\Http\Controllers\MedicineAdminController;
 
 use App\Http\Controllers\PrescriptionController;
+use App\Http\Controllers\MalariaTestController;
+use App\Http\Controllers\CbcController;
+use App\Http\Controllers\IronTestController;
 
 use App\Http\Controllers\ReceptionistController;
 
@@ -104,7 +107,7 @@ Route::get('/showPrescriptions',[PrescriptionController::class, 'showPrescriptio
 Route::post('/upload_prescription',[PrescriptionController::class, 'prescription'])->name('upload_prescription');
 
 
-
+Route::get('/showLabRequest',[DiagnosisCategoryController::class, 'index'])->name('showlabrequest');
 Route::post('/upload_diagnosis',[DiagnosisCategoryController::class, 'upload'])->name('upload_diagnosis');
 Route::delete('/deleteDiagnosis/{id}',[DiagnosisCategoryController::class, 'deleteDiagnosis']);
 
@@ -227,6 +230,34 @@ Route::post('/upload_labtemplate',[LabTemplateController::class, 'store'])->name
 Route::get('/update_labtemplate/{id}',[LabTemplateController::class, 'update'])->name('update_labtemplate');
 Route::get('/delete_labtemplate/{id}',[LabTemplateController::class, 'destroy'])->name('delete_labtemplate');
 Route::post('/editLabTemplate/{id}',[LabTemplateController::class, 'edit'])->name('editLabTemplate');
+
+Route::get('/add_cbc_view',[CbcController::class, 'create']);
+Route::get('/showCbc',[CbcController::class, 'index'])->name('showcbc');
+// Route::get('/showcbc',[cbcAdminController::class, 'index'])->name('showcbcs');
+Route::get('/add-cbc',[CbcController::class, 'create']);
+Route::post('/upload_cbc',[CbcController::class, 'store'])->name('upload_cbc');
+Route::get('/update_cbc/{id}',[CbcController::class, 'update'])->name('update_cbc');
+Route::get('/delete_cbc/{id}',[CbcController::class, 'destroy'])->name('delete_cbc');
+Route::post('/editCbc/{id}',[CbcController::class, 'edit'])->name('editCbc');
+
+Route::get('/add_irontest_view',[IronTestController::class, 'create']);
+Route::get('/showIronTests',[IronTestController::class, 'index'])->name('showirontest');
+// Route::get('/showirontest',[irontestAdminController::class, 'index'])->name('showirontests');
+Route::get('/add-irontest',[IronTestController::class, 'create']);
+Route::post('/upload_irontest',[IronTestController::class, 'store'])->name('upload_irontest');
+Route::get('/update_irontest/{id}',[IronTestController::class, 'update'])->name('update_irontest');
+Route::get('/delete_irontest/{id}',[IronTestController::class, 'destroy'])->name('delete_irontest');
+Route::post('/editIronTest/{id}',[IronTestController::class, 'edit'])->name('editIronTest');
+
+Route::get('/add_malariatest_view',[MalariaTestController::class, 'create']);
+Route::get('/showMalariaTests',[MalariaTestController::class, 'index'])->name('showmalariatest');
+// Route::get('/showmalariatest',[malariatestAdminController::class, 'index'])->name('showmalariatests');
+Route::get('/add-malariatest',[MalariaTestController::class, 'create']);
+Route::post('/upload_malariatest',[MalariaTestController::class, 'store'])->name('upload_malariatest');
+Route::get('/update_malariatest/{id}',[MalariaTestController::class, 'update'])->name('update_malariatest');
+Route::get('/delete_malariatest/{id}',[MalariaTestController::class, 'destroy'])->name('delete_malariatest');
+Route::post('/editMalariaTest/{id}',[MalariaTestController::class, 'edit'])->name('editMalariaTest');
+
 
 
 //billings

@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
-    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 
   @include('laboratorist.css')
 </head>
 <body>
-  @include('laboratorist.banner')
       <!-- partial:partials/_sidebar.html -->
      @include('laboratorist.sidebar')
 
@@ -32,33 +29,21 @@
 
                 <div class="mb-3">
                           <h3>
-                              Add Lab Report
+                              Edit Lab Test
                           </h3>
                   </div>
                 
       
-                      <form  action="{{url('upload_labreport')}}"
+                      <form  action="{{url('editIronTest')}}"
                         method="POST"
                         enctype="multipart/form-data">
                           @csrf
-                          <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input class="form-control" style="color:black" type="date" name="date" id="date"
-                            placeholder="Select Date"
-                            >
-                          </div>
-                          <div class="mb-3">
-                            <label for="time" class="form-label">Time</label>
-                            <input class="form-control" style="color:black" type="time" name="time" id="time"
-                            placeholder="Choose Time"
-                            >
-                          </div>
                           <div class="mb-3">
                             <label for="patient_id" class="form-label">Patient</label>
                             <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option value="{{$patients->id}}">{{$patients->user->name}}</option>
+                                  <option value="{{$patients->id}}" @if(isset($irontest)) {{$patients->id == $irontest->patient_id ? 'selected' : ''}} @endif>{{$patients->user->name}}</option>
                               @endforeach
                           </select>
                           </div>
@@ -69,36 +54,46 @@
                             <select class="form-control" type="text" name="doctor_id"  style="color:black" id="doctor_id">
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
-                                    <option value="{{$doctors->id}}">{{$doctors->name}}</option>
+                                    <option value="{{$doctors->id}}" @if(isset($irontest)) {{$doctors->id == $irontest->doctor_id ? 'selected' : ''}} @endif>{{$doctors->name}}</option>
                                 @endforeach
                             </select>
                         {{-- @endif --}}
                           </div>
-                          {{-- <div class="mb-3">
-                            <label for="template" class="form-label">Template</label>
-                            
-                            <select class="form-control" type="text" name="template"  style="color:black" id="template">
-                                <option>Select Template</option>
-                                @foreach($labtemplate as $labtemplates)
-                                    <option value="{{$labtemplates->id}}">{{$labtemplates->name}}</option>
-                                @endforeach
-                            </select>
-                        
-                          </div> --}}
+                          <div class="mb-3">
+                            <label for="iron" class="form-label">Iron Level</label>
+                            <input class="form-control" style="color:black" type="text" name="iron" id="iron"
+                            placeholder="Input Iron Level" value="{{$irontest->iron}}"
+                            >
+                          </div>
+                          <div class="mb-3">
+                            <label for="tibc" class="form-label">Transferrin/TIBC Level</label>
+                            <input class="form-control" style="color:black" type="text" name="tibc" id="tibc"
+                            placeholder="Input " value="{{$irontest->tibc}}"
+                            >
+                          </div>
+                          <div class="mb-3">
+                            <label for="uibc" class="form-label">UIBC</label>
+                            <input class="form-control" style="color:black" type="text" name="uibc" id="uibc"
+                            placeholder="Input UIBC Level" value="{{$irontest->uibc}}"
+                            >
+                          </div>
                 
                           <div class="mb-3">
-                              <label for="report" class="form-label">Report</label>
-
-                              <input id="report" class="form-control"  style="color:black" type="text" name="report">
-
-                              {{-- <input id="report" class="form-control"  style="color:black" type="file" name="report"> --}}
-
+                              <label for="saturation" class="form-label">Saturation Levels</label>
+                              <input id="saturation" class="form-control"  style="color:black" type="text" name="saturation"
+                              value="{{$irontest->saturation}}">
                             </div>
+
                             
-                                               
-                          <input type="submit" 
-                          class="btn btn-outline-primary">
-                   <input type="reset" class="btn btn-outline-danger" value="Cancel">
+                            <div class="mb-3">
+                                <label for="ferritin" class="form-label">Transferrin Levels</label>
+                                <input id="ferritin" class="form-control"  style="color:black" type="text" name="ferritin"
+                                value="{{$irontest->ferritin}}">
+                              </div>
+
+                            
+                          
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                       
       

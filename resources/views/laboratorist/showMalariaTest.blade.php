@@ -23,7 +23,7 @@
           
 
             <div class="container" style="padding:100px;">
-              <a class="btn btn-info" id="button" href="/add_labreport_view">Add Lab Report</a>
+              <a class="btn btn-info" id="button" href="/add_malariatest_view">Add Malaria Test</a>
               <br><br>
                 <table class="table table-striped table-primary">
                     <thead>
@@ -31,28 +31,34 @@
                             <th scope="col">#</th>
                             <th>Patient Name</th>
                             <th>Doctor Name</th>
-                            <th>Date / Time</th>
-                            <th>Reports</th>
+                            <th>Red Blood Cell Count</th>
+                            <th>Red Blood Cell Size</th>
+                            <th>White Blood Cell Count</th>
+                            <th>White Blood Cell Size</th>
+                            <th>Red Blood Cell Count</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($labreport as $labreports)
+                        @foreach($malariatest as $malariatests)
                             <tr>
-                                <th scope="row">{{ $labreports->id }}</th>
-                                <td>{{$labreports->patient->user->name}}</td>
-                                <td>{{$labreports->doctor->name}}</td>    
-                                <td>{{$labreports->date.'/'.$labreports->time}}</td>
-                                <td>{{$labreports->report}}</td>
+                                <th scope="row">{{ $malariatests->id }}</th>
+                                <td>{{$malariatests->patient->name}}</td>
+                                <td>{{$malariatests->doctor->name}}</td>    
+                                <td>{{$malariatests->rbc}}</td>
+                                <td>{{$malariatests->rbc_size}}</td>
+                                <td>{{$malariatests->wbc}}</td>
+                                <td>{{$malariatests->wbc_size}}</td>
+                                <td>{{$malariatests->platelets}}</td>
                                 <td>
-                                    <a class="badge badge-outline-primary" href="{{url('update_labreport',$labreports->id)}}">Update</a>
-                                    {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$labreports->id)}}">Display</a> --}}
+                                    <a class="badge badge-outline-primary" href="{{url('update_malariatest',$malariatests->id)}}">Update</a>
+                                    {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$malariatests->id)}}">Display</a> --}}
                                   
                                 </td>  
                                 <td>
-                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_labreport',$labreports->id)}}">Delete</a>
+                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_malariatest',$malariatests->id)}}">Delete</a>
                                 </td>
 
                             </tr>

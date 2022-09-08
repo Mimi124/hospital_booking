@@ -57,7 +57,7 @@
       <span class="nav-link">Navigation</span>
     </li>
 
-    <li class="nav-item menu-items">
+    {{-- <li class="nav-item menu-items">
       <a class="nav-link" href="{{url('showLabTemplates')}}">
         <span class="menu-icon">
           <i class="mdi mdi-test-tube"></i>
@@ -73,6 +73,31 @@
         </span>
         <span class="menu-title">Add Lab Template</span>
       </a>
+    </li> --}}
+    <li class="nav-item menu-items">
+      <a class="nav-link" href="{{url('showLabRequest')}}">
+        <span class="menu-icon">
+          <i class="mdi mdi-history"></i>
+        </span>
+        <span class="menu-title">Lab Requests</span>
+      </a>
+    </li>
+
+    <li class="nav-item menu-items">
+      <a class="nav-link" data-bs-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <span class="menu-icon">
+          <i class="mdi mdi-laptop"></i>
+        </span>
+        <span class="menu-title">Lab Tests</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="ui-basic">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item"> <a class="nav-link" href='{{url('showMalariaTests')}}'>Malaria Test</a></li>
+          <li class="nav-item"> <a class="nav-link" href='{{url('showCbc')}}'>Complete Blood Count Test</a></li>
+          <li class="nav-item"> <a class="nav-link" href='{{url('showIronTests')}}'>Iron Test</a></li>
+        </ul>
+      </div>
     </li>
 
     <li class="nav-item menu-items">

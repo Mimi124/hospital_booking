@@ -32,27 +32,15 @@
 
                 <div class="mb-3">
                           <h3>
-                              Add Lab Report
+                              Add Iron Test
                           </h3>
                   </div>
                 
       
-                      <form  action="{{url('upload_labreport')}}"
+                      <form  action="{{url('upload_irontest')}}"
                         method="POST"
                         enctype="multipart/form-data">
                           @csrf
-                          <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input class="form-control" style="color:black" type="date" name="date" id="date"
-                            placeholder="Select Date"
-                            >
-                          </div>
-                          <div class="mb-3">
-                            <label for="time" class="form-label">Time</label>
-                            <input class="form-control" style="color:black" type="time" name="time" id="time"
-                            placeholder="Choose Time"
-                            >
-                          </div>
                           <div class="mb-3">
                             <label for="patient_id" class="form-label">Patient</label>
                             <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
@@ -74,26 +62,38 @@
                             </select>
                         {{-- @endif --}}
                           </div>
-                          {{-- <div class="mb-3">
-                            <label for="template" class="form-label">Template</label>
-                            
-                            <select class="form-control" type="text" name="template"  style="color:black" id="template">
-                                <option>Select Template</option>
-                                @foreach($labtemplate as $labtemplates)
-                                    <option value="{{$labtemplates->id}}">{{$labtemplates->name}}</option>
-                                @endforeach
-                            </select>
-                        
-                          </div> --}}
+                          <div class="mb-3">
+                            <label for="iron" class="form-label">Iron Level</label>
+                            <input class="form-control" style="color:black" type="text" name="iron" id="iron"
+                            placeholder="Input Iron Level" 
+                            >
+                          </div>
+                          <div class="mb-3">
+                            <label for="tibc" class="form-label">Transferrin/TIBC Level</label>
+                            <input class="form-control" style="color:black" type="text" name="tibc" id="tibc"
+                            placeholder="Input TIBC Level" 
+                            >
+                          </div>
+                          <div class="mb-3">
+                            <label for="uibc" class="form-label">UIBC</label>
+                            <input class="form-control" style="color:black" type="text" name="uibc" id="uibc"
+                            placeholder="Input UIBC Level" 
+                            >
+                          </div>
                 
                           <div class="mb-3">
-                              <label for="report" class="form-label">Report</label>
-
-                              <input id="report" class="form-control"  style="color:black" type="text" name="report">
-
-                              {{-- <input id="report" class="form-control"  style="color:black" type="file" name="report"> --}}
-
+                              <label for="saturation" class="form-label">Saturation Levels</label>
+                              <input id="saturation" class="form-control"  style="color:black" type="text" name="saturation"
+                              >
                             </div>
+
+                            
+                            <div class="mb-3">
+                                <label for="ferritin" class="form-label">Ferritin Levels</label>
+                                <input id="ferritin" class="form-control"  style="color:black" type="text" name="ferritin"
+                                >
+                              </div>
+
                             
                                                
                           <input type="submit" 

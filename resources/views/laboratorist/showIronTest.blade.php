@@ -23,7 +23,7 @@
           
 
             <div class="container" style="padding:100px;">
-              <a class="btn btn-info" id="button" href="/add_labreport_view">Add Lab Report</a>
+              <a class="btn btn-info" id="button" href="/add_irontest_view">Add  Test</a>
               <br><br>
                 <table class="table table-striped table-primary">
                     <thead>
@@ -31,28 +31,35 @@
                             <th scope="col">#</th>
                             <th>Patient Name</th>
                             <th>Doctor Name</th>
-                            <th>Date / Time</th>
-                            <th>Reports</th>
+                            <th>Iron Level</th>
+                            <th>RIBC/Transferrin Level</th>
+                            <th>UIBC Level</th>
+                            <th>Saturation Levels</th>
+                            <th>Ferritin</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($labreport as $labreports)
+                        @foreach($irontest as $irontests)
                             <tr>
-                                <th scope="row">{{ $labreports->id }}</th>
-                                <td>{{$labreports->patient->user->name}}</td>
-                                <td>{{$labreports->doctor->name}}</td>    
-                                <td>{{$labreports->date.'/'.$labreports->time}}</td>
-                                <td>{{$labreports->report}}</td>
+                                <th scope="row">{{ $irontests->id }}</th>
+                                <td>{{$irontests->patient->user->name}}</td>
+                                <td>{{$irontests->doctor->name}}</td>
+                                <td>{{$irontests->iron}}</td>    
+                                <td>{{$irontests->tibc}}</td>
+                                <td>{{$irontests->uibc}}</td>
+                                <td>{{$irontests->saturation}}</td>
+                                <td>{{$irontests->ferritin}}</td>
+                                
                                 <td>
-                                    <a class="badge badge-outline-primary" href="{{url('update_labreport',$labreports->id)}}">Update</a>
-                                    {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$labreports->id)}}">Display</a> --}}
+                                    <a class="badge badge-outline-primary" href="{{url('update_irontest',$irontests->id)}}">Update</a>
+                                    {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$irontests->id)}}">Display</a> --}}
                                   
                                 </td>  
                                 <td>
-                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_labreport',$labreports->id)}}">Delete</a>
+                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_irontest',$irontests->id)}}">Delete</a>
                                 </td>
 
                             </tr>

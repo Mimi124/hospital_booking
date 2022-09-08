@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" 
-    integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
 
   @include('laboratorist.css')
 </head>
 <body>
-  @include('laboratorist.banner')
       <!-- partial:partials/_sidebar.html -->
      @include('laboratorist.sidebar')
 
@@ -32,33 +29,21 @@
 
                 <div class="mb-3">
                           <h3>
-                              Add Lab Report
+                              Edit Lab Test
                           </h3>
                   </div>
                 
       
-                      <form  action="{{url('upload_labreport')}}"
+                      <form  action="{{url('editCbc')}}"
                         method="POST"
                         enctype="multipart/form-data">
                           @csrf
-                          <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input class="form-control" style="color:black" type="date" name="date" id="date"
-                            placeholder="Select Date"
-                            >
-                          </div>
-                          <div class="mb-3">
-                            <label for="time" class="form-label">Time</label>
-                            <input class="form-control" style="color:black" type="time" name="time" id="time"
-                            placeholder="Choose Time"
-                            >
-                          </div>
                           <div class="mb-3">
                             <label for="patient_id" class="form-label">Patient</label>
                             <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option value="{{$patients->id}}">{{$patients->user->name}}</option>
+                                  <option value="{{$patients->id}}" @if(isset($cbc)) {{$patients->id == $cbc->patient_id ? 'selected' : ''}} @endif>{{$patients->user->name}}</option>
                               @endforeach
                           </select>
                           </div>
@@ -69,36 +54,43 @@
                             <select class="form-control" type="text" name="doctor_id"  style="color:black" id="doctor_id">
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
-                                    <option value="{{$doctors->id}}">{{$doctors->name}}</option>
+                                    <option value="{{$doctors->id}}" @if(isset($cbc)) {{$doctors->id == $cbc->doctor_id ? 'selected' : ''}} @endif>{{$doctors->name}}</option>
                                 @endforeach
                             </select>
                         {{-- @endif --}}
                           </div>
-                          {{-- <div class="mb-3">
-                            <label for="template" class="form-label">Template</label>
-                            
-                            <select class="form-control" type="text" name="template"  style="color:black" id="template">
-                                <option>Select Template</option>
-                                @foreach($labtemplate as $labtemplates)
-                                    <option value="{{$labtemplates->id}}">{{$labtemplates->name}}</option>
-                                @endforeach
-                            </select>
-                        
-                          </div> --}}
+                          <div class="mb-3">
+                            <label for="rbc" class="form-label">Red Blood Cell Count</label>
+                            <input class="form-control" style="color:black" type="number" name="rbc" id="rbc"
+                            placeholder="Input RBC count" value="{{$cbc->rbc}}"
+                            >
+                          </div>
+                          <div class="mb-3">
+                            <label for="wbc" class="form-label">White Blood Cell Count</label>
+                            <input class="form-control" style="color:black" type="number" name="wbc" id="wbc"
+                            placeholder="Input WBC count" value="{{$cbc->wbc}}"
+                            >
+                          </div>
                 
                           <div class="mb-3">
-                              <label for="report" class="form-label">Report</label>
-
-                              <input id="report" class="form-control"  style="color:black" type="text" name="report">
-
-                              {{-- <input id="report" class="form-control"  style="color:black" type="file" name="report"> --}}
-
+                              <label for="platelets" class="form-label">Platelets</label>
+                              <input id="platelets" class="form-control"  style="color:black" type="number" name="platelets"
+                              value="{{$cbc->platelets}}">
                             </div>
+
+                            <div class="mb-3">
+                                <label for="mcv" class="form-label">Mean Corpuscular Volume</label>
+                                <input id="mcv" class="form-control"  style="color:black" type="number" name="mcv"
+                                value="{{$cbc->mcv}}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="mch" class="form-label">Mean Corpuscular Haemoglobin</label>
+                                <input id="mch" class="form-control"  style="color:black" type="number" name="mch"
+                                value="{{$cbc->mch}}">
+                              </div>
                             
-                                               
-                          <input type="submit" 
-                          class="btn btn-outline-primary">
-                   <input type="reset" class="btn btn-outline-danger" value="Cancel">
+                          
+                            <button type="submit" class="btn btn-primary">Update</button>
                         </form>
                       
       

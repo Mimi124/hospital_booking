@@ -32,27 +32,15 @@
 
                 <div class="mb-3">
                           <h3>
-                              Add Lab Report
+                              Add Cbc Test
                           </h3>
                   </div>
                 
       
-                      <form  action="{{url('upload_labreport')}}"
+                      <form  action="{{url('upload_cbc')}}"
                         method="POST"
                         enctype="multipart/form-data">
                           @csrf
-                          <div class="mb-3">
-                            <label for="date" class="form-label">Date</label>
-                            <input class="form-control" style="color:black" type="date" name="date" id="date"
-                            placeholder="Select Date"
-                            >
-                          </div>
-                          <div class="mb-3">
-                            <label for="time" class="form-label">Time</label>
-                            <input class="form-control" style="color:black" type="time" name="time" id="time"
-                            placeholder="Choose Time"
-                            >
-                          </div>
                           <div class="mb-3">
                             <label for="patient_id" class="form-label">Patient</label>
                             <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
@@ -74,26 +62,36 @@
                             </select>
                         {{-- @endif --}}
                           </div>
-                          {{-- <div class="mb-3">
-                            <label for="template" class="form-label">Template</label>
-                            
-                            <select class="form-control" type="text" name="template"  style="color:black" id="template">
-                                <option>Select Template</option>
-                                @foreach($labtemplate as $labtemplates)
-                                    <option value="{{$labtemplates->id}}">{{$labtemplates->name}}</option>
-                                @endforeach
-                            </select>
-                        
-                          </div> --}}
-                
                           <div class="mb-3">
-                              <label for="report" class="form-label">Report</label>
+                            <label for="rbc" class="form-label">Red Blood Cell Count</label>
+                            <input class="form-control" style="color:black" type="number" name="rbc" id="rbc"
+                            placeholder="Input RBC count" 
+                            >
+                          </div>
+                          <div class="mb-3">
+                            <label for="wbc" class="form-label">White Blood Cell Count</label>
+                            <input class="form-control" style="color:black" type="number" name="wbc" id="wbc"
+                            placeholder="Input WBC count" 
+                            >
+                          </div>
+                
+                          
+                          <div class="mb-3">
+                            <label for="platelets" class="form-label">Platelets</label>
+                            <input id="platelets" class="form-control"  style="color:black" type="number" name="platelets"
+                            >
+                          </div>
 
-                              <input id="report" class="form-control"  style="color:black" type="text" name="report">
-
-                              {{-- <input id="report" class="form-control"  style="color:black" type="file" name="report"> --}}
-
-                            </div>
+                            <div class="mb-3">
+                                <label for="mcv" class="form-label">Mean Corpuscular Volume</label>
+                                <input id="mcv" class="form-control"  style="color:black" type="number" name="mcv"
+                                >
+                              </div>
+                              <div class="mb-3">
+                                <label for="mch" class="form-label">Mean Corpuscular Haemoglobin</label>
+                                <input id="mch" class="form-control"  style="color:black" type="number" name="mch"
+                                >
+                              </div>
                             
                                                
                           <input type="submit" 

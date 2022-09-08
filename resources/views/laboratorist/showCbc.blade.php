@@ -23,7 +23,7 @@
           
 
             <div class="container" style="padding:100px;">
-              <a class="btn btn-info" id="button" href="/add_labreport_view">Add Lab Report</a>
+              <a class="btn btn-info" id="button" href="/add_cbc_view">Add Cbc Test</a>
               <br><br>
                 <table class="table table-striped table-primary">
                     <thead>
@@ -31,28 +31,30 @@
                             <th scope="col">#</th>
                             <th>Patient Name</th>
                             <th>Doctor Name</th>
-                            <th>Date / Time</th>
-                            <th>Reports</th>
+                            <th>Red Blood Cell Count</th>
+                            <th>White Blood Cell Count</th>
+                            <th>Platelets</th>
                             <th>Edit</th>
                             <th>Delete</th>
                         </tr>
                         </thead>
 
                         <tbody>
-                        @foreach($labreport as $labreports)
+                        @foreach($cbc as $cbcs)
                             <tr>
-                                <th scope="row">{{ $labreports->id }}</th>
-                                <td>{{$labreports->patient->user->name}}</td>
-                                <td>{{$labreports->doctor->name}}</td>    
-                                <td>{{$labreports->date.'/'.$labreports->time}}</td>
-                                <td>{{$labreports->report}}</td>
+                                <th scope="row">{{ $cbcs->id }}</th>
+                                <td>{{$cbcs->patient->user->name}}</td>
+                                <td>{{$cbcs->doctor->name}}</td>    
+                                <td>{{$cbcs->rbc}}</td>
+                                <td>{{$cbcs->wbc}}</td>
+                                <td>{{$cbcs->platelets}}</td>
                                 <td>
-                                    <a class="badge badge-outline-primary" href="{{url('update_labreport',$labreports->id)}}">Update</a>
-                                    {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$labreports->id)}}">Display</a> --}}
+                                    <a class="badge badge-outline-primary" href="{{url('update_cbc',$cbcs->id)}}">Update</a>
+                                    {{-- <a class="badge badge-outline-success" href="{{url('show_labreport',$cbcs->id)}}">Display</a> --}}
                                   
                                 </td>  
                                 <td>
-                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_labreport',$labreports->id)}}">Delete</a>
+                                    <a onclick="return confirm('Are you sure you want to delete?')" class="badge badge-outline-danger" href="{{url('delete_cbc',$cbcs->id)}}">Delete</a>
                                 </td>
 
                             </tr>

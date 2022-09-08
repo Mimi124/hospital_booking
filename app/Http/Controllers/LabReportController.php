@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\LabReport;
-use App\Models\User;
+use App\Models\Patient;
 use App\Models\LabTemplate;
 use App\Models\Doctor;
 
@@ -32,27 +32,41 @@ class LabReportController extends Controller
     public function index()
     {
         $labreport=LabReport::all();
-        return view('laboratorist.showLabReport',compact('labreport'));
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
+        return view('laboratorist.showLabReport',compact('labreport'))
+        ->with('patient',$patient)
+        ->with('doctor',$doctor);
     }
 
     public function create()
     {
+        
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
         return view('laboratorist.add-labreport')
-            ->with('patient',User::patient()->get())
-            ->with('labtemplate',LabTemplate::all())
-            ->with('doctor',User::doctor()->get());
+        ->with('patient',$patient)
+        ->with('doctor',$doctor)
+            ->with('labtemplate',LabTemplate::all());
+            //->with('doctor',Doctor::all());
     }
 
     public function store(Request $request)
     {
-        LabReport::create([
-            'date'=>$request->date,
-            'time'=>$request->time,
-            'patient_id'=>$request->patient,
-            'doctor_id'=>$request->doctor,
-            'template_id'=>$request->template,
-            'report'=>$request->report,
-        ]);
+        $request->validate([
+            'patient_id' => 'required|sometimes|exists:users,id',  
+            'doctor_id' => 'sometimes|exists:doctors,id',          
+           ]);
+           $labreport = new LabReport;
+           $labreport->date = $request->input('date');
+           $labreport->time =$request->input('time');
+           $labreport->patient_id =$request->input('patient_id');
+           $labreport->doctor_id =$request->input('doctor_id');
+           $labreport->report = $request->input('report');
+        
+    
+           $labreport->save();
+            
         // flash message
         session()->flash('success', 'New Lab Report Added Successfully.');
         // redirect user
@@ -67,10 +81,13 @@ class LabReportController extends Controller
     public function update($id)
     {
         $labreport=LabReport::find($id);
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
         return view('laboratorist.update-labreport',compact('labreport'))
-            ->with('patient',User::patient()->get())
-            ->with('template',LabTemplate::all())
-            ->with('doctor',User::doctor()->get());
+        ->with('patient',$patient)
+        ->with('doctor',$doctor)
+            ->with('template',LabTemplate::all());
+            //->with('doctor',Doctor::all());
     }
 
     public function edit(Request $request, $id)
@@ -80,7 +97,6 @@ class LabReportController extends Controller
         $labreport->time=$request->time;
         $labreport->patient_id=$request->patient;
         $labreport->doctor_id=$request->doctor;
-        $labreport->template_id=$request->template;
         $labreport->report=$request->report;
 
         $labreport->save();
