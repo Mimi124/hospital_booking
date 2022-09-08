@@ -43,7 +43,7 @@
                         @foreach($cbc as $cbcs)
                             <tr>
                                 <th scope="row">{{ $cbcs->id }}</th>
-                                <td>{{$cbcs->patient->name}}</td>
+                                <td>{{$cbcs->patient->user->name}}</td>
                                 <td>{{$cbcs->doctor->name}}</td>    
                                 <td>{{$cbcs->rbc}}</td>
                                 <td>{{$cbcs->wbc}}</td>

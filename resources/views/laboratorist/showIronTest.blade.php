@@ -45,10 +45,10 @@
                         @foreach($irontest as $irontests)
                             <tr>
                                 <th scope="row">{{ $irontests->id }}</th>
-                                <td>{{$irontests->patient->name}}</td>
+                                <td>{{$irontests->patient->user->name}}</td>
                                 <td>{{$irontests->doctor->name}}</td>
                                 <td>{{$irontests->iron}}</td>    
-                                <td>{{$irontests->ribc}}</td>
+                                <td>{{$irontests->tibc}}</td>
                                 <td>{{$irontests->uibc}}</td>
                                 <td>{{$irontests->saturation}}</td>
                                 <td>{{$irontests->ferritin}}</td>

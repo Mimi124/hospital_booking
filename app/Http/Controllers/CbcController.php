@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Cbc;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Patient;
 use App\Models\Doctor;
 
 class CbcController extends Controller
@@ -18,7 +18,11 @@ class CbcController extends Controller
     {
         //
         $cbc=Cbc::all();
-        return view('laboratorist.showCbc',compact('cbc'));
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
+        return view('laboratorist.showCbc',compact('cbc'))
+        ->with('patient',$patient)
+            ->with('doctor',$doctor);;
     }
 
     /**
@@ -28,23 +32,31 @@ class CbcController extends Controller
      */
     public function create()
     {
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
         return view('laboratorist.add-cbc')
-        ->with('patient',User::patient()->get())
-            ->with('doctor',Doctor::all());;
+        ->with('patient',$patient)
+            ->with('doctor',$doctor);;
     }
 
     public function store(Request $request)
     {
-        Cbc::create([
-            'patient_id'=>$request->patient,
-            'doctor_id'=>$request->doctor,
-            'iron'=>$request->iron,
-            'tibc'=>$request->tibc,
-            'uibc'=>$request->uibc,
-            'saturation'=>$request->saturation,
-            'ferittin'=>$request->ferittin,
+        $request->validate([
+            'patient_id' => 'required|sometimes|exists:users,id',  
+            'doctor_id' => 'sometimes|exists:doctors,id',          
+           ]);
+           $cbc = new Cbc;
+           $cbc->patient_id =$request->input('patient_id');
+           $cbc->doctor_id =$request->input('doctor_id');
+           $cbc->rbc = $request->input('rbc');
+           $cbc->wbc =$request->input('wbc');
+           $cbc->platelets = $request->input('platelets');
+           $cbc->mcv = $request->input('mcv');
+           $cbc->mch =  $request->input('mch');
+    
+           $cbc->save();
             
-        ]);
+        
         // flash message
         session()->flash('success', 'New Lab Test Added Successfully.');
         // redirect user

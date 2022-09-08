@@ -65,7 +65,7 @@ public function upload(Request $request){
     $request->file->move('recimage',$imagename);
     $receptionist->image=$imagename;
 
-    $receptionist->$name = $request->name;
+    $receptionist->name = $request->name;
     $receptionist->phone = $request->number;
    
     $receptionist->save();

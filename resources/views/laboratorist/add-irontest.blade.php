@@ -42,19 +42,19 @@
                         enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3">
-                            <label for="patient" class="form-label">Patient</label>
-                            <select class="form-control" type="text" name="patient"  style="color:black" id="patient">
+                            <label for="patient_id" class="form-label">Patient</label>
+                            <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option value="{{$patients->id}}">{{$patients->name}}</option>
+                                  <option value="{{$patients->id}}">{{$patients->user->name}}</option>
                               @endforeach
                           </select>
                           </div>
                       
                           <div class="mb-3">
-                            <label for="doctor" class="form-label">Doctor</label>
+                            <label for="doctor_id" class="form-label">Doctor</label>
                             {{-- @if(isset($categories)) --}}
-                            <select class="form-control" type="text" name="doctor"  style="color:black" id="doctor">
+                            <select class="form-control" type="text" name="doctor_id"  style="color:black" id="doctor_id">
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
                                     <option value="{{$doctors->id}}">{{$doctors->name}}</option>
@@ -89,8 +89,8 @@
 
                             
                             <div class="mb-3">
-                                <label for="transferrin" class="form-label">Transferrin Levels</label>
-                                <input id="transferrin" class="form-control"  style="color:black" type="text" name="transferrin"
+                                <label for="ferritin" class="form-label">Ferritin Levels</label>
+                                <input id="ferritin" class="form-control"  style="color:black" type="text" name="ferritin"
                                 >
                               </div>
 

@@ -28,6 +28,7 @@ class MalariaTestController extends Controller
      */
     public function create()
     {
+        //$doctor = Doctor::where('name', '!=', null)->get();
         return view('laboratorist.add-malariatest')
         ->with('patient',User::patient()->get())
             ->with('doctor',Doctor::all());;
@@ -35,16 +36,21 @@ class MalariaTestController extends Controller
 
     public function store(Request $request)
     {
-        MalariaTest::create([
-            'patient_id'=>$request->patient,
-            'doctor_id'=>$request->doctor,
-            'rbc'=>$request->rbc,
-            'rbc_size'=>$request->rbc_size,
-            'wbc'=>$request->wbc,
-            'wbc_size'=>$request->wbc_size,
-            'platelets'=>$request->platelets,
-            
-        ]);
+        $request->validate([
+            'patient_id' => 'required|sometimes|exists:users,id',  
+            'doctor_id' => 'sometimes|exists:doctors,id',          
+           ]);
+
+        $malariatest = new MalariaTest;
+           $malariatest->patient_id =$request->input('patient_id');
+           $malariatest->doctor_id =$request->input('doctor_id');
+           $malariatest->rbc = $request->input('rbc');
+           $malariatest->rbc_size = $request->input('rbc_size');
+           $malariatest->wbc =$request->input('wbc');
+           $malariatest->wbc_size =  $request->input('wbc_size');
+           $malariatest->platelets = $request->input('platelets');
+    
+           $malariatest->save();
         // flash message
         session()->flash('success', 'New Lab Test Added Successfully.');
         // redirect user

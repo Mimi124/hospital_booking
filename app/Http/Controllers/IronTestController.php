@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\IronTest;
 use Illuminate\Http\Request;
-use App\Models\User;
+use App\Models\Patient;
 use App\Models\Doctor;
 
 class IronTestController extends Controller
@@ -18,7 +18,12 @@ class IronTestController extends Controller
     {
         //
         $irontest=IronTest::all();
-        return view('laboratorist.showIronTest',compact('irontest'));
+        
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
+        return view('laboratorist.showIronTest',compact('irontest'))
+        ->with('patient',$patient)
+            ->with('doctor',$doctor);;;
     }
 
     /**
@@ -28,23 +33,33 @@ class IronTestController extends Controller
      */
     public function create()
     {
+        $patient = Patient::all();
+        $doctor = Doctor::where('name', '!=', null)->get();
         return view('laboratorist.add-irontest')
-        ->with('patient',User::patient()->get())
-            ->with('doctor',Doctor::all());;
+        ->with('patient',$patient)
+            ->with('doctor',$doctor);;
     }
 
     public function store(Request $request)
     {
-        IronTest::create([
-            'patient_id'=>$request->patient,
-            'doctor_id'=>$request->doctor,
-            'iron'=>$request->iron,
-            'tibc'=>$request->tibc,
-            'uibc'=>$request->uibc,
-            'saturation'=>$request->saturation,
-            'ferittin'=>$request->ferittin,
+        $request->validate([
+            'patient_id' => 'required|sometimes|exists:users,id',  
+            'doctor_id' => 'sometimes|exists:doctors,id',          
+           ]);
+
+        $irontest = new IronTest;
+           $irontest->patient_id =$request->input('patient_id');
+           $irontest->doctor_id =$request->input('doctor_id');
+           $irontest->iron = $request->input('iron');
+           $irontest->tibc = $request->input('tibc');
+           $irontest->uibc = $request->input('uibc');
+           $irontest->saturation =$request->input('saturation');
+           $irontest->ferritin =  $request->input('ferritin');
+          
+    
+           $irontest->save();
             
-        ]);
+        
         // flash message
         session()->flash('success', 'New Lab Test Added Successfully.');
         // redirect user

@@ -39,19 +39,19 @@
                         enctype="multipart/form-data">
                           @csrf
                           <div class="mb-3">
-                            <label for="patient" class="form-label">Patient</label>
-                            <select class="form-control" type="text" name="patient"  style="color:black" id="patient">
+                            <label for="patient_id" class="form-label">Patient</label>
+                            <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option value="{{$patients->id}}" @if(isset($cbc)) {{$patients->id == $cbc->patient_id ? 'selected' : ''}} @endif>{{$patients->name}}</option>
+                                  <option value="{{$patients->id}}" @if(isset($cbc)) {{$patients->id == $cbc->patient_id ? 'selected' : ''}} @endif>{{$patients->user->name}}</option>
                               @endforeach
                           </select>
                           </div>
                       
                           <div class="mb-3">
-                            <label for="doctor" class="form-label">Doctor</label>
+                            <label for="doctor_id" class="form-label">Doctor</label>
                             {{-- @if(isset($categories)) --}}
-                            <select class="form-control" type="text" name="doctor"  style="color:black" id="doctor">
+                            <select class="form-control" type="text" name="doctor_id"  style="color:black" id="doctor_id">
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
                                     <option value="{{$doctors->id}}" @if(isset($cbc)) {{$doctors->id == $cbc->doctor_id ? 'selected' : ''}} @endif>{{$doctors->name}}</option>
@@ -77,6 +77,17 @@
                               <input id="platelets" class="form-control"  style="color:black" type="number" name="platelets"
                               value="{{$cbc->platelets}}">
                             </div>
+
+                            <div class="mb-3">
+                                <label for="mcv" class="form-label">Mean Corpuscular Volume</label>
+                                <input id="mcv" class="form-control"  style="color:black" type="number" name="mcv"
+                                value="{{$cbc->mcv}}">
+                              </div>
+                              <div class="mb-3">
+                                <label for="mch" class="form-label">Mean Corpuscular Haemoglobin</label>
+                                <input id="mch" class="form-control"  style="color:black" type="number" name="mch"
+                                value="{{$cbc->mch}}">
+                              </div>
                             
                           
                             <button type="submit" class="btn btn-primary">Update</button>
