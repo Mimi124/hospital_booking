@@ -31,7 +31,6 @@
                             <th scope="col">#</th>
                             <th>Patient Name</th>
                             <th>Doctor Name</th>
-                            <th>Template Name</th>
                             <th>Date / Time</th>
                             <th>Reports</th>
                             <th>Edit</th>
@@ -43,9 +42,8 @@
                         @foreach($labreport as $labreports)
                             <tr>
                                 <th scope="row">{{ $labreports->id }}</th>
-                                <td>{{$labreports->patient->name}}</td>
+                                <td>{{$labreports->patient->user->name}}</td>
                                 <td>{{$labreports->doctor->name}}</td>    
-                                <td>{{$labreports->template->name}}</td>
                                 <td>{{$labreports->date.'/'.$labreports->time}}</td>
                                 <td>{{$labreports->report}}</td>
                                 <td>

@@ -9,20 +9,19 @@ class LabReport extends Model
 {
 
     protected $fillable = [
-        'date','time','patient_id','doctor_id','template_id','report'
+        'date','time','patient_id','doctor_id','report'
     ];
 
     public function labTemplate(){
         return $this->hasOne(LabTemplate::class);
     }
 
-    public function patient(){
-        return $this->belongsTo(User::class);
-    }
-
     public function doctor(){
-        return $this->belongsTo(Doctor::class);
-    }
+        return  $this->belongsTo(Doctor::class);
+     }
+     public function patient(){
+        return $this->belongsTo(Patient::class);
+}
 
     public function template(){
         return $this->belongsTo(LabTemplate::class);

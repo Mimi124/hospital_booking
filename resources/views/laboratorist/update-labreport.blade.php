@@ -70,37 +70,37 @@
                             >
                           </div>
                           <div class="mb-3">
-                            <label for="patient" class="form-label">Patient</label>
-                            <select class="form-control" type="text" name="patient"  style="color:black" id="patient">
+                            <label for="patient_id" class="form-label">Patient</label>
+                            <select class="form-control" type="text" name="patient_id"  style="color:black" id="patient_id">
                               <option>Select Patient</option>
                               @foreach($patient as $patients)
-                                  <option value="{{$patients->id}}" @if(isset($labreport)) {{$patients->id == $labreport->patient_id ? 'selected' : ''}} @endif>{{$patients->name}}</option>
+                                  <option value="{{$patients->id}}" @if(isset($irontest)) {{$patients->id == $irontest->patient_id ? 'selected' : ''}} @endif>{{$patients->user->name}}</option>
                               @endforeach
                           </select>
                           </div>
                       
                           <div class="mb-3">
-                            <label for="doctor" class="form-label">Doctor</label>
+                            <label for="doctor_id" class="form-label">Doctor</label>
                             {{-- @if(isset($categories)) --}}
-                            <select class="form-control" type="text" name="doctor"  style="color:black" id="doctor">
+                            <select class="form-control" type="text" name="doctor_id"  style="color:black" id="doctor_id">
                                 <option>Select Doctor</option>
                                 @foreach($doctor as $doctors)
-                                    <option value="{{$doctors->id}}" @if(isset($labreport)) {{$doctors->id == $labreport->doctor_id ? 'selected' : ''}} @endif>{{$doctors->name}}</option>
+                                    <option value="{{$doctors->id}}" @if(isset($irontest)) {{$doctors->id == $irontest->doctor_id ? 'selected' : ''}} @endif>{{$doctors->name}}</option>
                                 @endforeach
                             </select>
                         {{-- @endif --}}
                           </div>
-                          <div class="mb-3">
+                          {{-- <div class="mb-3">
                             <label for="template" class="form-label">Template</label>
-                            {{-- @if(isset($categories)) --}}
+                            
                             <select class="form-control" type="text" name="template"  style="color:black" id="template">
                                 <option>Select Template</option>
                                 @foreach($labtemplate as $labtemplates)
                                     <option value="{{$labtemplates->id}}" @if(isset($labreport)) {{$labtemplates->id == $labreport->template_id ? 'selected' : ''}} @endif>{{$labtemplates->name}}</option>
                                 @endforeach
                             </select>
-                        {{-- @endif --}}
-                          </div>
+                        
+                          </div> --}}
                 
                           <div class="mb-3">
                               <label for="report" class="form-label">Report</label>
